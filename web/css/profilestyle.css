@@ -1,0 +1,182 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 10 Jan 2024, 4:48:49 pm
+    Author     : Pojie
+*/
+/*Navigation Bar*/
+/* General */
+:root {
+    --dark-color: #071920;
+    --slight-dark-color: #E6E8E8;
+    --light-color: #E8F7FB;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background:url("images/background1.jpg");
+}
+
+.wrapper {
+    max-width: 1134px;
+    margin: 0 auto;
+}
+
+/* Buttons */
+.btn {
+    padding: 16px 32px;
+    border-radius: 24px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    position: relative;
+}
+
+.btn.light {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 10px 15px;
+}
+
+.btn.dark {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+.btn.dark:hover{
+    color: var(--dark-color);
+    background-color: var(--slight-dark-color );
+}
+
+.btn.dark:last-child:hover{
+    color: darkred;
+    background-color: var(--slight-dark-color );
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: fit-content;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 1134px;
+    top: 0;
+    padding: 30px 0;
+    z-index: 100;
+    transition: all 500ms ease;
+}
+
+nav .logo {
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    color: var(--light-color);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    text-align: center;
+    list-style: none;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--light-color);
+    text-decoration: none;
+    text-align: center;
+}
+
+/*nav scrolled*/
+nav.scrolled {
+    background: var(--dark-color);
+    box-shadow: 0 16px 14px -8px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 8px 8px;
+    top: 0;
+    padding: 12px;
+}
+
+/* profile card */
+.profile-section {
+    /*use this three to not use padding for centering*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.profile-section .profile-card {
+    width: fit-content;
+    background: #ffffff;
+    border-radius: 24px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+.profile-section .profile-card .myprofile {
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 150%;
+    color: #ffffff;
+    border-radius: 24px;
+    padding: 5px 3px;
+    background: var(--dark-color);
+}
+
+.profile-section .profile-card .details {
+    padding: 24px 32px;
+    background: #fff;
+    border-radius: 24px;
+    display: flex;
+    gap: 50px;
+}
+
+.profile-section .profile-card .details h3 {
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 120%;
+    margin: 0;
+    color: var(--dark-color);
+}
+
+.profile-section .profile-card .details p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.profile-section .profile-card .actionbuttons{
+    text-align: center;
+    padding: 0 0 15px 0;
+}
+
+.profile-section .profile-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
