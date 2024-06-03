@@ -1,45 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-    <!--    <servlet>
-        <servlet-name>UserServlet</servlet-name>
-        <servlet-class>com.WEB.UserServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>activityServlet</servlet-name>
-        <servlet-class>com.WEB.ActivityServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>coralServlet</servlet-name>
-        <servlet-class>com.WEB.CoralServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>newsServlet</servlet-name>
-        <servlet-class>com.WEB.NewsServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>researchersServlet</servlet-name>
-        <servlet-class>com.WEB.ResearchersServlet</servlet-class>
-    </servlet>-->
-    <!--    <servlet-mapping>
-        <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/users</url-pattern>
-    </servlet-mapping>-->
-    <!--    <servlet-mapping>
-        <servlet-name>activityServlet</servlet-name>
-        <url-pattern>/activityServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>coralServlet</servlet-name>
-        <url-pattern>/coralServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>newsServlet</servlet-name>
-        <url-pattern>/newsServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>researchersServlet</servlet-name>
-        <url-pattern>/researchers</url-pattern>
-    </servlet-mapping>-->
 
     <!--Servlet Class-->
     <servlet>
@@ -60,21 +20,92 @@
     </servlet>
     
     <!--Servlet Mapping-->
+    <!--Biodiversity Module-->
     <servlet-mapping>
         <servlet-name>BiodiversityServlet</servlet-name>
-        <url-pattern>/biodiversity</url-pattern>
+        <url-pattern>/listBiodiversity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BiodiversityServlet</servlet-name>
+        <url-pattern>/newbiodiversity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BiodiversityServlet</servlet-name>
+        <url-pattern>/insertbiodiversity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BiodiversityServlet</servlet-name>
+        <url-pattern>/deletebiodiversity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BiodiversityServlet</servlet-name>
+        <url-pattern>/editbiodiversity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BiodiversityServlet</servlet-name>
+        <url-pattern>/updatebiodiversity</url-pattern>
+    </servlet-mapping>
+    
+    <!--Activity Module-->
+    <servlet-mapping>
+        <servlet-name>ActivityServlet</servlet-name>
+        <url-pattern>/listActivity</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivityServlet</servlet-name>
-        <url-pattern>/activity</url-pattern>
+        <url-pattern>/newactivity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivityServlet</servlet-name>
+        <url-pattern>/insertactivity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivityServlet</servlet-name>
+        <url-pattern>/deleteactivity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivityServlet</servlet-name>
+        <url-pattern>/editactivity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivityServlet</servlet-name>
+        <url-pattern>/viewactivity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivityServlet</servlet-name>
+        <url-pattern>/updateactivity</url-pattern>
+    </servlet-mapping>
+    
+    <!--User Module-->
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/listUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/user</url-pattern>
+        <url-pattern>/newUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/insertUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/deleteUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/editUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/updateUser</url-pattern>
+    </servlet-mapping>
+    
+    <!--Researchers Module-->
+    <servlet-mapping>
         <servlet-name>ResearchersServlet</servlet-name>
-        <url-pattern>/researchers</url-pattern>
+        <url-pattern>/listresearchers</url-pattern>
     </servlet-mapping>
 
     <!--Configure link between JSP and all media-->

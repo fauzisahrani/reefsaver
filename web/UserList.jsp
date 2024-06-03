@@ -31,7 +31,7 @@
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listuser" class="btn light">User</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listUser" class="btn light">User</a></li>
                         <li><a href="UserProfile.jsp">Profile</a></li>
                         <li><a href="LoginForm.jsp">Log Out</a></li>
                     </ul>
@@ -72,11 +72,11 @@
                                     <c:out value="${user.userType}"/>
                                 </td>
                                 <td>
-                                    <a class="button"href="edit?userID=<c:out value='${user.userID}'/>">Edit</a> 
+                                    <a class="button"href="editUser?userID=<c:out value='${user.userID}'/>">Edit</a> 
                                     <script>
                                         function deleteUser(userId) {
                                             if (confirm("Are you sure you want to delete this user?")) {
-                                                window.location.href = "delete?userID=" + userId;
+                                                window.location.href = "deleteUser?userID=" + userId;
                                             }
                                         }
                                     </script>

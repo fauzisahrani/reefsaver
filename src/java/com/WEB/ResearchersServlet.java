@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.DAO.ResearchersDAO;
 import com.Model.Researchers;
 
-@WebServlet("/listresearchers")
+@WebServlet("/researchers")
 public class ResearchersServlet extends HttpServlet {
 
     private ResearchersDAO ResearchersDAO;

@@ -31,14 +31,14 @@
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activity</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listuser">User</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listUser">User</a></li>
                         <li><a href="UserProfile.jsp">Profile</a></li>
                         <li><a href="LoginForm.jsp">Log Out</a></li>
                     </ul>
                 </nav>
                 <section>
                     <div class="newbutton">
-                        <a href="http://localhost:8080/managebiodiversity/new" class="btn light"> Add Coral Sample</a> <!--hyperlink act as button-->
+                        <a href="<%=request.getContextPath()%>/newbiodiversity" class="btn light"> Add Coral Sample</a> <!--hyperlink act as button-->
                     </div>
                     <table>
                         <thead>
@@ -97,13 +97,13 @@
                                     <c:out value="${biodiversity.coralDataProvider}"/>
                                 </td>
                                 <td>
-                                    <a class="action" href="edit?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
                                     <a class="action" href="#" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
 
                                     <script>
                                         function confirmDelete(coralSampleID) {
                                             if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
-                                                window.location.href = "delete?coralSampleID=" + coralSampleID;
+                                                window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
                                             }
                                             return false;
                                         }
@@ -112,9 +112,9 @@
                         </c:forEach>
                     </table>
                 </section>
-                <a href="#" class="to-top">
+<!--                <a href="#" class="to-top">
                     <p class="">^</p> 
-                </a>
+                </a>-->
             </div>
         </header>
         <footer>

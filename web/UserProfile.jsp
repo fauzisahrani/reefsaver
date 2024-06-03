@@ -30,13 +30,13 @@
                 <nav>
                     <div class="logo">ReefSaver</div>
                     <ul>
-                        <li><a href="Homepage.jsp">Home</a></li>                        
+                        <li><a href="Homepage.jsp">Home</a></li>
                         <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Biodiversity</a></li>
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listuser">User</a></li>
-                        <li><a href="UserProfile.jsp" class="btn light"s>Profile</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listUser">User</a></li>
+                        <li><a href="UserProfile.jsp" class="btn light">Profile</a></li>
                         <li><a href="LoginForm.jsp">Log Out</a></li>
                     </ul>
                 </nav>
@@ -58,8 +58,8 @@
                             </div>
                         </div>
                         <div class="actionbuttons">
-                            <a class="btn dark"href="edit?userID=<c:out value='${userID}'/>">Edit</a>
-                            <a class="btn dark" href="delete?userID=<c:out value='${userID}'/>" onclick="return confirm('Are you sure you want to delete your account?');">Delete Account</a>
+                            <a class="btn dark"href="editUser?userID=<c:out value='${userID}'/>">Edit</a>
+                            <a class="btn dark" href="deleteUser?userID=<c:out value='${userID}'/>" onclick="return confirm('Are you sure you want to delete your account?');">Delete Account</a>
                         </div>
                     </div>
                 </section>

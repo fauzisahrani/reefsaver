@@ -36,19 +36,19 @@
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
                         <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Biodiversity</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listactivity" class="btn light">Conservation Activity</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listactivity" class="btn light">Conservation Activities</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listuser">User</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listUser">User</a></li>
                         <li><a href="UserProfile.jsp">Profile</a></li>
-                        <li><a href="LoginForm.jsp">Log Out</a></li>
+                        <li><a href="LoginForm.jsp">Log Out</a></li> 
                     </ul>
                 </nav>
                 <!-- End of Desktop Navigation Menu-->
             </div>
             <section class='activities-section'>
                 <div class="newbutton">
-                    <a href="<%=request.getContextPath()%>/new" class="btn light"> Add New Activity</a> <!--hyperlink act as button-->
+                    <a href="<%=request.getContextPath()%>/newactivity" class="btn light"> Add New Activity</a> <!--hyperlink act as button-->
                 </div>
                 <c:set var="count" value="0" /> <!-- Initialize a counter variable -->
                 <div class='activities-cards'> <!-- Start the outer div -->
@@ -68,9 +68,9 @@
                             <p><c:out value="${activity.activityVenue}"/></p>
                             <!-- Links for editing and deleting activity -->
                             <div class="actionbtn">
-                                <a class="btn dark" href="view?activityID=<c:out value='${activity.activityID}'/>">View Details</a>
-                                <a class="btn dark" href="edit?activityID=<c:out value='${activity.activityID}'/>">Edit</a>
-                                <a class="btn dark" href="delete?activityID=<c:out value='${activity.activityID}'/>" onclick="return confirm('Are you sure you want to delete <c:out value="${activity.activityName}"/>?');">Delete</a>
+                                <a class="btn dark" href="viewactivity?activityID=<c:out value='${activity.activityID}'/>">View Details</a>
+                                <a class="btn dark" href="editactivity?activityID=<c:out value='${activity.activityID}'/>">Edit</a>
+                                <a class="btn dark" href="deleteactivity?activityID=<c:out value='${activity.activityID}'/>" onclick="return confirm('Are you sure you want to delete <c:out value="${activity.activityName}"/>?');">Delete</a>
                             </div>
                         </div> <!-- Close the activity card div -->
                     </c:forEach> <!-- End of forEach loop -->

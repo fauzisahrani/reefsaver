@@ -43,22 +43,22 @@ public class ActivityServlet extends HttpServlet {
 
         try {
             switch (action) {
-                case "/new":
+                case "/newactivity":
                     showNewForm(request, response);
                     break;
-                case "/insert":
+                case "/insertactivity":
                     insertActivity(request, response);
                     break;
-                case "/delete":
+                case "/deleteactivity":
                     deleteActivity(request, response);
                     break;
-                case "/edit":
+                case "/editactivity":
                     showEditForm(request, response);
                     break;
-                case "/view":
+                case "/viewactivity":
                     showDetails(request, response);
                     break;
-                case "/update":
+                case "/updateactivity":
                     updateActivity(request, response);
                     break;
                 default:
@@ -116,7 +116,7 @@ public class ActivityServlet extends HttpServlet {
                 activityVenue, activityOrganizer, activityParticipantNo,
                 activityRegisterDue, activityDesc, activityImage);
         activityDAO.insertActivity(newActivity);
-        response.sendRedirect("list");
+        response.sendRedirect("listactivity");
     }
 
     private void updateActivity(HttpServletRequest request, HttpServletResponse response)
@@ -135,13 +135,13 @@ public class ActivityServlet extends HttpServlet {
                 activityVenue, activityOrganizer, activityParticipantNo, activityRegisterDue,
                 activityDesc, activityImage);
         activityDAO.updateActivity(activity);
-        response.sendRedirect("list");
+        response.sendRedirect("listactivity");
     }
 
     private void deleteActivity(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int activityID = Integer.parseInt(request.getParameter("activityID"));
         activityDAO.deleteActivity(activityID);
-        response.sendRedirect("list");
+        response.sendRedirect("listactivity");
     }
 }

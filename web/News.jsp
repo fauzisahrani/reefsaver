@@ -34,11 +34,19 @@
                     <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
                     <li>
                         <input type="hidden" id="newsQuery">
-                        <!--Need the input field because news APi cannot search news about coral--> 
+                        <!-- Need the input field because news API cannot search news about coral -->
                         <a href="#" class="btn light" id="searchBtn">News</a>
+                        <!-- Placeholder for "Fetching latest coral news" message -->
+                        <span id="loadingMessage" style="display: none;">Fetching latest coral news...</span>
                     </li>
+                    <script>
+                        // Function to simulate a click on the "News" button
+                        window.onload = function () {
+                            document.getElementById("searchBtn").click();
+                        };
+                    </script>
                     <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
-                    <li><a href="<%=request.getContextPath()%>/listuser">User</a></li>
+                    <li><a href="<%=request.getContextPath()%>/listUser">User</a></li>
                     <li><a href="UserProfile.jsp">Profile</a></li>
                     <li><a href="LoginForm.jsp">Log Out</a></li>
                 </ul>

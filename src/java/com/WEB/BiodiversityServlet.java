@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet("/listbiodiversity")
+@WebServlet("/listbiodiversity")    
 
 public class BiodiversityServlet extends HttpServlet {
 
@@ -46,19 +46,19 @@ public class BiodiversityServlet extends HttpServlet {
 
         try {
             switch (action) {
-                case "/new":
+                case "/newbiodiversity":
                     showNewForm(request, response);
                     break;
-                case "/insert":
+                case "/insertbiodiversity":
                     insertBiodiversity(request, response);
                     break;
-                case "/delete":
+                case "/deletebiodiversity":
                     deleteBiodiversity(request, response);
                     break;
-                case "/edit":
+                case "/editbiodiversity":
                     showEditForm(request, response);
                     break;
-                case "/update":
+                case "/updatebiodiversity":
                     updateBiodiversity(request, response);
                     break;
                 default:
@@ -131,7 +131,7 @@ public class BiodiversityServlet extends HttpServlet {
                 coralLongitude, coralLocality, coralDepth, coralRepository,
                 coralSamplingEquipment, coralDataProvider);
         BiodiversityDAO.insertBiodiversity(newBiodiversity);
-        response.sendRedirect("list");
+        response.sendRedirect("listBiodiversity");
     }
 
     private void updateBiodiversity(HttpServletRequest request, HttpServletResponse response)
@@ -172,13 +172,13 @@ public class BiodiversityServlet extends HttpServlet {
                 coralLongitude, coralLocality, coralDepth, coralRepository,
                 coralSamplingEquipment, coralDataProvider);
         BiodiversityDAO.updateBiodiversity(Biodiversity);
-        response.sendRedirect("list");
+        response.sendRedirect("listBiodiversity");
     }
 
     private void deleteBiodiversity(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int coralSampleID = Integer.parseInt(request.getParameter("coralSampleID"));
         BiodiversityDAO.deleteBiodiversity(coralSampleID);
-        response.sendRedirect("list");
+        response.sendRedirect("listBiodiversity");
     }
 }

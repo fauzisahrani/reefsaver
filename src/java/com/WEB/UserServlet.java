@@ -20,7 +20,7 @@ import javax.servlet.ServletContext;
 import com.DAO.UserDAO;
 import com.Model.User;
 
-@WebServlet("/listuser")
+@WebServlet("/User")
 
 /**
  *
@@ -44,23 +44,21 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getServletPath();
-        System.out.println(request.getServletPath());
-        System.out.println("hello");
         try {
             switch (action) {
-                case "/new":
+                case "/newUser":
                     showNewForm(request, response);
                     break;
-                case "/insert":
+                case "/insertUser":
                     insertUser(request, response);
                     break;
-                case "/delete":
+                case "/deleteUser":
                     deleteUser(request, response);
                     break;
-                case "/edituser":
+                case "/editUser":
                     showEditForm(request, response);
                     break;
-                case "/update":
+                case "/updateUser":
                     updateUser(request, response);
                     break;
                 default:
@@ -116,32 +114,13 @@ public class UserServlet extends HttpServlet {
 
         User User = new User(userID, userName, userEmail, userPassword, userType);
         UserDAO.updateUser(User);
-        response.sendRedirect("list");
+        response.sendRedirect("listUser");
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         String userID = request.getParameter("userID");
         UserDAO.deleteUser(userID);
-        response.sendRedirect("list");
+        response.sendRedirect("listUser");
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

@@ -19,8 +19,25 @@
         <style><%@ include file="css/styleuser.css"%></style>
     </head>
     <body>
-        <form action="update" method="post">
-            <div class="form-head">
+        <header>
+            <div class="wrapper">
+                <nav>
+                    <div class="logo">ReefSaver</div>
+                    <ul>
+                        <li><a href="Homepage.jsp">Home</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Biodiversity</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
+                        <li><a href="News.jsp">News</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listUser" class="btn light">User</a></li>
+                        <li><a href="UserProfile.jsp">Profile</a></li>
+                        <li><a href="LoginForm.jsp">Log Out</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <form action="updateUser" method="post">
+            <div class="form-head-update">
                 <h2>
                     Update User Details
                 </h2>

@@ -34,13 +34,14 @@
                 <nav>
                     <div class="logo">ReefSaver</div>
                     <ul>
-                        <li><a href="#">Homepage</a></li>
-                        <li><a href="#">Coral Biodiversity</a></li>
-                        <li><a href="<%=request.getContextPath()%>/list" class="btn light" onclick="return confirm('Are you sure you want to leave this page?');">Conservation Activity</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Researchers</a></li>
-                        <li><a href="#">User</a></li>
-                        <li><a href="#">Profile</a></li>
+                        <li><a href="Homepage.jsp">Home</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Biodiversity</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listactivity" class="btn light">Conservation Activities</a></li>
+                        <li><a href="News.jsp">News</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listUser">User</a></li>
+                        <li><a href="UserProfile.jsp">Profile</a></li>
+                        <li><a href="LoginForm.jsp">Log Out</a></li>
                     </ul>
                 </nav>
                 <!-- End of Desktop Navigation Menu-->
@@ -58,10 +59,10 @@
                         </c:if>
                         <div class="form">
                             <c:if test="${activity != null}">
-                                <form action="update" method="psot">
+                                <form action="updateactivity" method="psot">
                                 </c:if>
                                 <c:if test="${activity == null}">
-                                    <form action="insert" method="post">
+                                    <form action="insertactivity" method="post">
                                     </c:if>
                                     <div>
                                         <c:if test="${activity != null}">
