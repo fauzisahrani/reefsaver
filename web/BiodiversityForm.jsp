@@ -1,0 +1,246 @@
+<%-- 
+    Document   : BiodiversityForm
+    Created on : 15 Apr 2024, 10:30:24 am
+    Author     : Pojie
+    Display Biodiversity Form Page and accept input
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Meta Tags -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Title -->
+        <title>Reef Saver</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;900&display=swap"
+              rel="stylesheet">
+
+        <!-- Stylesheet -->
+        <style>
+            <%@ include file="css/stylebiodiversity.css"%>
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="wrapper">
+                <nav>
+                    <div class="logo">ReefSaver</div>
+
+                    <ul>
+                        <li><a href="#">Homepage</a></li>
+                        <li><a href="http://localhost:8080/managebiodiversity/list" class="btn light" onclick="return confirm('Are you sure you want to leave this page?');">Coral Biodiversity</a></li>
+                        <li><a href="#">Conservation Activity</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Researchers</a></li>
+                        <li><a href="#">User</a></li>
+                        <li><a href="#">Profile</a></li>
+                    </ul>
+                </nav>
+                <!-- End of Desktop Navigation Menu-->
+                <section class="form-section">
+                    <div class="form-card">
+                        <c:if test="${biodiversity != null}">
+                            <div class="prompt">
+                                Update Coral Details
+                            </div>
+                        </c:if>
+                        <c:if test="${biodiversity == null}">      
+                            <div class="prompt">
+                                Add New Coral Sample
+                            </div>
+                        </c:if>
+                        <div class="form">
+                            <c:if test="${biodiversity != null}">
+                                <form action="update" method="post">
+                                </c:if>
+                                <c:if test="${biodiversity == null}">
+                                    <form action="insert" method="post">
+                                    </c:if>
+                                    <div>
+                                        <c:if test="${biodiversity != null}">
+                                            <input type="hidden" name="coralSampleID" 
+                                                   value="<c:out value="${biodiversity.coralSampleID}" />"/>
+                                        </c:if>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Scientific Name</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text"
+                                                       value="<c:out value='${biodiversity.coralScientificName}'/>"
+                                                       name="coralScientificName" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="coralCategory">Category</label>
+                                            </div>  
+                                            <select class="col-75" name="coralCategory" id="coralCategory" required="required">
+                                                <option value="">Select Category</option>
+                                                <option value="Stony Coral (branching)">Stony Coral (branching)</option>
+                                                <option value="Gorgonian coral">Gorgonian coral</option>
+                                                <option value="Stony coral (cup coral)">Stony coral (cup coral)</option>
+                                                <option value="Black coral">Black coral</option>
+                                                <option value="Others">Others (Please specify)</option>
+                                                <!-- Add more options as needed -->
+                                            </select>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Station</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" value="<c:out value='${biodiversity.coralStation}'/>"
+                                                       name="coralStation" required="required"> 
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Observation Date</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="date" value="<c:out value='${biodiversity.coralObservationDate}'/>"
+                                                       name="coralObservationDate" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Latitude</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="number" step="0.001" value="<c:out value='${biodiversity.coralLatitude}'/>"
+                                                       name="coralLatitude" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Longitude</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="number" step="0.001" value="<c:out value='${biodiversity.coralLongitude}'/>"
+                                                       name="coralLongitude" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Locality</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" value="<c:out value='${biodiversity.coralLocality}'/>"
+                                                       name="coralLocality" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Depth (m)</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="number" step="0.001" value="<c:out value='${biodiversity.coralDepth}'/>"
+                                                       name="coralDepth" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Repository</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" value="<c:out value='${biodiversity.coralRepository}'/>"
+                                                       name="coralRepository" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Sampling Equipment</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" value="<c:out value='${biodiversity.coralSamplingEquipment}'/>"
+                                                       name="coralSamplingEquipment">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Data Provider</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" value="<c:out value='${biodiversity.coralDataProvider}'/>"
+                                                       name="coralDataProvider" required="required">
+                                            </div>
+                                        </div>
+
+                                        <button class="btn dark" type="submit">Submit</button>     
+                                </form>
+                        </div>
+                    </div>
+            </div>
+        </section>
+    </div>
+</header>
+<!-- End of the header section -->
+<footer>
+    <div class="wrapper">
+        <div class="links-container">
+            <div class="links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div class="links">
+                <h3>Course</h3>
+                <ul>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">All Courses</a></li>
+                </ul>
+            </div>
+
+            <div class="links">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>s63721@ocean.umt.edu.my</li>
+                </ul>
+                <div class="social">
+                    <a href="#">
+                        <img src="images/Facebook Icon.svg" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="images/Insta Icon.svg" alt="">
+                    </a>
+                </div>
+
+                <form action="#">
+                    <input type="text" placeholder="Email Address" />
+                    <button class="submit-btn">Subscribe</button>
+                </form>
+            </div>
+
+        </div>
+        <p class="copyright">This website is developed by Fauzi Sahrani © 2023</p>
+    </div>
+</footer>
+<script src="js/main.js" type="text/javascript"></script>
+</body>
+</html>

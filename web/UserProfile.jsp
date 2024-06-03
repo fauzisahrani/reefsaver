@@ -31,10 +31,10 @@
                     <div class="logo">ReefSaver</div>
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>                        
-                        <li><a href="#">Coral Biodiversity</a></li>
-                        <li><a href="#">Conservation Activities</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Biodiversity</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
                         <li><a href="News.jsp">News</a></li>
-                            <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
                         <li><a href="<%=request.getContextPath()%>/listuser">User</a></li>
                         <li><a href="UserProfile.jsp" class="btn light"s>Profile</a></li>
                         <li><a href="LoginForm.jsp">Log Out</a></li>

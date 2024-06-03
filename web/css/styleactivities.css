@@ -1,0 +1,355 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 27 May 2024, 2:35:29 pm
+    Author     : Pojie
+*/
+:root {
+    --dark-color: #071920;
+    --slight-dark-color: #E6E8E8;
+    --light-color: #E8F7FB;
+    --slight-light-color: #b9c5c8;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background:url("images/background1.jpg");
+}
+
+.wrapper {
+    max-width: 1134px;
+    margin: 0 auto;
+}
+
+/* Buttons */
+.btn {
+    padding: 16px 32px;
+    border-radius: 24px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    position: relative;
+}
+
+.btn.light {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 10px 15px;
+}
+.btn.light:hover{
+    background-color: var(--slight-dark-color);
+    color: var(--dark-color);
+}
+
+.btn.dark {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 10px 15px;
+    margin: none;
+}
+
+.btn.dark:hover{
+    background-color: var(--slight-dark-color);
+    color: var(--dark-color);
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: fit-content;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 1134px;
+    top: 0;
+    padding: 30px 0;
+    z-index: 100;
+    transition: all 500ms ease;
+}
+
+nav .logo {
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    color: var(--light-color);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    text-align: center;
+    list-style: none;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--light-color);
+    text-decoration: none;
+    text-align: center;
+}
+
+/*nav scrolled*/
+nav.scrolled {
+    background: var(--dark-color);
+    box-shadow: 0 16px 14px -8px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 8px 8px;
+    top: 0;
+    padding: 12px;
+}
+
+/*begin of activityForm.jsp CSS*/
+/* form section */
+.form-section {
+    padding-top: 170px;
+    padding-bottom: 120px;
+    height: fit-content;
+    width: 100%;
+}
+
+.form-section .form-card {
+    background: #fff;
+    border-radius: 10px;
+    height: fit-content;
+    padding-bottom: 50px;
+}
+
+.form-section .form-card .prompt {
+    width: fit-content;
+    line-height: 10px;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    border-radius: 23px;
+    padding: 24px 32px;
+    background: var(--dark-color);
+    position: relative;
+    top: -28px;
+}
+
+.form-section .form-card .form {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.form-section .form-card .form .row {
+    display: flex;
+}
+.form-section .form-card .form .row .col-25 {
+    width: 25%;
+    margin-top: 15px;
+    color: var(--dark-color);
+}
+
+.form-section .form-card .form .row .col-75 {
+    width: 75%;
+    margin-top: 10px;
+}
+
+.form-section .form-card .form .row .col-75 input ,select {
+    width: 100%;
+    height: 30px;
+    color: var(--dark-color);
+    background-color: #e6e6e6;
+    border: #000000;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 15px;
+    text-align: left;
+}
+
+.form-section .form-card .form button {
+    color: var(--light-color);
+    border: none;
+    position: relative;
+    left: 995px;
+    top: 25px;
+    width: 100px;
+}
+
+/*end of activityForm.jsp CSS*/
+
+/*begin of activityList.jsp CSS*/
+/* activity card */
+.activities-section {
+    padding: 70px 0;
+    padding-bottom: 20px;
+}
+
+.activities-section .newbutton {
+    display: flex;
+    justify-content: right;
+    margin: 40px 165px 40px 0;
+}
+.activities-section .newbutton .btn.light{
+    background: #fff;
+}
+
+.activities-section .activities-cards {
+    display: flex;
+    column-gap: 24px;
+    justify-content: center;
+    width: 1134px;
+    margin: 0 150px 40px 150px;
+}
+
+/* set top margin for after 1st child */
+.activities-section .activity-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 0px 32px;
+    margin-top: 40px;
+    max-height: fit-content;
+    min-height: 450px;
+    width: 500px;
+}
+
+.activities-section .activities-cards .activity-card {
+    padding-bottom: 20px;
+}
+
+.activities-section .activities-cards:not(:first-child) {
+    margin-top: -60px;
+}
+
+.activity-card ,h1 ,p {
+    color: var(--dark-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.activity-card p {
+    margin: auto;
+    text-align: center;
+}
+
+.activity-card img {
+    height: auto;
+    width: 200px;
+    border-radius: 24px;
+}
+
+.actionbtn{
+    text-align: center;
+    position: sticky;
+}
+
+.actionbtn a:hover{
+    background: var(--light-color);
+    color: var(--dark-color);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--dark-color);
+}
+/*end of activityList.jsp CSS*/
+
+/*begin of activityDetails.jsp CSS*/
+.form-section .form-card .form .container{
+    display: flex; /* Use flexbox to align items */
+    margin-bottom: 10px; /* Add spacing between containers */
+}
+.form-section .form-card .form .container .label{
+    font-weight: bold;
+    flex: 0 0 150px; /* Set a fixed width for the label */
+    margin-right: 10px; /* Add space between label and span */
+}
+.form-section .form-card .form .container .details{
+    color: var(--dark-color);
+    margin-left: 10px;
+    flex: 1; /* Allow the span to expand to fill remaining space */
+}
+/* footer */
+footer {
+    background: var(--dark-color);
+    color: #fff;
+    padding: 70px 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+footer h3 {
+    color: var(--orange-color);
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+footer ul li {
+    margin: 16px 0;
+}
+
+footer .links-container {
+    display: grid;
+    grid-template-columns: 2fr 2fr 3fr;
+}
+
+footer .social {
+    margin-left: 20px;
+}
+
+footer .social a {
+    margin-right: 28px;
+}
+
+footer form {
+    margin-left: 20px;
+    margin-top: 16px;
+    position: relative;
+}
+
+footer form input {
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 200%;
+    border-radius: 8px;
+    padding: 8px 32px;
+    border: none;
+    width: 100%;
+    color: #000000;
+}
+
+footer form .submit-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--dark-color);
+    border-radius: 8px;
+    padding: 5px 15px;
+    border: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    color: var(--light-color);
+    cursor: pointer;
+}
+
+footer .copyright {
+    margin-top: 36px;
+}

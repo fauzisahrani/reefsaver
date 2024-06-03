@@ -30,8 +30,8 @@
 
                 <ul>
                     <li><a href="Homepage.jsp">Home</a></li>
-                    <li><a href="#">Coral Biodiversity</a></li>
-                    <li><a href="#">Conservation Activities</a></li>
+                    <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Biodiversity</a></li>
+                    <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
                     <li>
                         <input type="hidden" id="newsQuery">
                         <!--Need the input field because news APi cannot search news about coral--> 

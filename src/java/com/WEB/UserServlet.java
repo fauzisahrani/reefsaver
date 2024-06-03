@@ -57,7 +57,7 @@ public class UserServlet extends HttpServlet {
                 case "/delete":
                     deleteUser(request, response);
                     break;
-                case "/edit":
+                case "/edituser":
                     showEditForm(request, response);
                     break;
                 case "/update":

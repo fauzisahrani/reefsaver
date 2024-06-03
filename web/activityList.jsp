@@ -1,11 +1,12 @@
 <%-- 
-   Document   : ResearchersList
-   Created on : 16 April 2024, 10:33:54 pm
-   Author     : Pojie
-   This jsp is used to display all researchers list
+    Document   : activityList
+    Created on : 23 Apr 2024, 3:10:05 pm
+    Author     : Pojie
+    Display all activity records
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,57 +25,59 @@
 
         <!-- Stylesheet -->
         <style>
-            <%@ include file="css/styleresearchers.css"%>
+            <%@ include file="css/styleactivities.css"%>
         </style>
-
     </head>
     <body>
         <header>
-            <div class="wrapper">
+            <div class='wrapper'>
                 <nav>
                     <div class="logo">ReefSaver</div>
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
                         <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Biodiversity</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listactivity" class="btn light">Conservation Activity</a></li>
                         <li><a href="News.jsp">News</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listresearchers" class="btn light">Researchers</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
                         <li><a href="<%=request.getContextPath()%>/listuser">User</a></li>
                         <li><a href="UserProfile.jsp">Profile</a></li>
                         <li><a href="LoginForm.jsp">Log Out</a></li>
                     </ul>
                 </nav>
-                <!--end of desktop navigation menu-->
-
-                <section class='researchers-section'>
-                    <c:set var="count" value="0" /> <!-- Initialize a counter variable -->
-                    <div class='researchers-cards'> <!-- Start the outer div -->
-                        <c:forEach var="user" items="${listUser}" varStatus="status"> <!-- Iterate over the list of researchers -->
-                            <c:if test="${count % 2 == 0 && count != 0}"> <!-- Check if count is divisible by 2 and not equal to 0 -->
-                            </div>
-                            <div class='researchers-cards'> <!-- Close the current div and start a new one -->
-                            </c:if>
-                            <c:set var="count" value="${count + 1}" /> <!-- Increment the counter -->
-                            <div class='researcher-card'> <!-- Start the researcher card div -->
-                                <!-- Display researcher details -->
-                                <div class="researcherimage">
-                                    <img src="images/Feeback 1.png" alt="researchers"/>
-                                </div>
-                                <div class="researcherdetails">
-                                    <h3><c:out value="${user.userName}"/></h3>
-                                    <p><c:out value="${user.userEmail}"/></p>
-                                    <p><c:out value="${user.userField}"/></p>
-                                    <p><c:out value="${user.userInstitution}"/></p>
-                                    <a class="btn dark"href="mailto:<c:out value="${user.userEmail}"/>">Contact</a>
-                                </div>
-                            </div> <!-- Close the researcher card div -->
-                        </c:forEach> <!-- End of forEach loop -->
-                    </div> <!-- Close the outer div -->
-                </section>
+                <!-- End of Desktop Navigation Menu-->
             </div>
+            <section class='activities-section'>
+                <div class="newbutton">
+                    <a href="<%=request.getContextPath()%>/new" class="btn light"> Add New Activity</a> <!--hyperlink act as button-->
+                </div>
+                <c:set var="count" value="0" /> <!-- Initialize a counter variable -->
+                <div class='activities-cards'> <!-- Start the outer div -->
+                    <c:forEach var="activity" items="${listActivity}" varStatus="status"> <!-- Iterate over the list of activities -->
+                        <c:if test="${count % 3 == 0 && count != 0}"> <!-- Check if count is divisible by 3 and not equal to 0 -->
+                        </div>
+                        <div class='activities-cards'> <!-- Close the current div and start a new one -->
+                        </c:if>
+                        <c:set var="count" value="${count + 1}" /> <!-- Increment the counter -->
+                        <div class='activity-card'> <!-- Start the activity card div -->
+                            <!-- Display activity details -->
+                            <input type="hidden" name="activityID" value="<c:out value='${activity.activityID}'/>">                            
+                            <h1><c:out value="${activity.activityName}"/></h1>
+                            <img src='<c:out value="${activity.activityImage}"/>'>
+                            <img src="images/fauziprofile.JPG" alt="yahh"/>
+                            <p><c:out value="${activity.activityDate}"/></p>
+                            <p><c:out value="${activity.activityVenue}"/></p>
+                            <!-- Links for editing and deleting activity -->
+                            <div class="actionbtn">
+                                <a class="btn dark" href="view?activityID=<c:out value='${activity.activityID}'/>">View Details</a>
+                                <a class="btn dark" href="edit?activityID=<c:out value='${activity.activityID}'/>">Edit</a>
+                                <a class="btn dark" href="delete?activityID=<c:out value='${activity.activityID}'/>" onclick="return confirm('Are you sure you want to delete <c:out value="${activity.activityName}"/>?');">Delete</a>
+                            </div>
+                        </div> <!-- Close the activity card div -->
+                    </c:forEach> <!-- End of forEach loop -->
+                </div> <!-- Close the outer div -->
+            </section>
         </header>
-        <!--end of header section-->
-
+        <!-- End of the header section -->
         <footer>
             <div class="wrapper">
                 <div class="links-container">
@@ -122,6 +125,6 @@
                 <p class="copyright">This website is developed by Fauzi Sahrani © 2023</p>
             </div>
         </footer>
-        <script src="js/main.js"></script>    
+        <script src="js/main.js"></script>
     </body>
 </html>

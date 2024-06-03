@@ -41,6 +41,15 @@
         <url-pattern>/researchers</url-pattern>
     </servlet-mapping>-->
 
+    <!--Servlet Class-->
+    <servlet>
+        <servlet-name>BiodiversityServlet</servlet-name>
+        <servlet-class>com.WEB.BiodiversityServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActivityServlet</servlet-name>
+        <servlet-class>com.WEB.ActivityServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>com.WEB.UserServlet</servlet-class>
@@ -49,6 +58,16 @@
         <servlet-name>ResearchersServlet</servlet-name>
         <servlet-class>com.WEB.ResearchersServlet</servlet-class>
     </servlet>
+    
+    <!--Servlet Mapping-->
+    <servlet-mapping>
+        <servlet-name>BiodiversityServlet</servlet-name>
+        <url-pattern>/biodiversity</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActivityServlet</servlet-name>
+        <url-pattern>/activity</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/user</url-pattern>
