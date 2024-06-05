@@ -23,6 +23,10 @@
         <servlet-name>UserImageServlet</servlet-name>
         <servlet-class>com.WEB.UserImageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ParticipantServlet</servlet-name>
+        <servlet-class>com.WEB.ParticipantServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BiodiversityServlet</servlet-name>
         <url-pattern>/listBiodiversity</url-pattern>
@@ -142,6 +146,10 @@
     <servlet-mapping>
         <servlet-name>UserImageServlet</servlet-name>
         <url-pattern>/UserImageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ParticipantServlet</servlet-name>
+        <url-pattern>/ParticipantServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
