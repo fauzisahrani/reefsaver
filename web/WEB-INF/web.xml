@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-
     <!--Servlet Class-->
     <servlet>
         <servlet-name>BiodiversityServlet</servlet-name>
@@ -18,9 +17,12 @@
         <servlet-name>ResearchersServlet</servlet-name>
         <servlet-class>com.WEB.ResearchersServlet</servlet-class>
     </servlet>
-    
     <!--Servlet Mapping-->
     <!--Biodiversity Module-->
+    <servlet>
+        <servlet-name>UserImageServlet</servlet-name>
+        <servlet-class>com.WEB.UserImageServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BiodiversityServlet</servlet-name>
         <url-pattern>/listBiodiversity</url-pattern>
@@ -45,7 +47,6 @@
         <servlet-name>BiodiversityServlet</servlet-name>
         <url-pattern>/updatebiodiversity</url-pattern>
     </servlet-mapping>
-    
     <!--Activity Module-->
     <servlet-mapping>
         <servlet-name>ActivityServlet</servlet-name>
@@ -75,7 +76,6 @@
         <servlet-name>ActivityServlet</servlet-name>
         <url-pattern>/updateactivity</url-pattern>
     </servlet-mapping>
-    
     <!--User Module-->
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
@@ -101,13 +101,11 @@
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/updateUser</url-pattern>
     </servlet-mapping>
-    
     <!--Researchers Module-->
     <servlet-mapping>
         <servlet-name>ResearchersServlet</servlet-name>
         <url-pattern>/listresearchers</url-pattern>
     </servlet-mapping>
-
     <!--Configure link between JSP and all media-->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
@@ -141,8 +139,10 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.js</url-pattern>
     </servlet-mapping>
-    
-
+    <servlet-mapping>
+        <servlet-name>UserImageServlet</servlet-name>
+        <url-pattern>/UserImageServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

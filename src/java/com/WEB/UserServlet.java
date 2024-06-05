@@ -15,7 +15,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletContext;
 
 import com.DAO.UserDAO;
 import com.Model.User;
@@ -99,13 +98,14 @@ public class UserServlet extends HttpServlet {
         String userEmail = request.getParameter("userEmail");
         String userPassword = request.getParameter("userPassword");
         String userType = request.getParameter("userType");
+        String userImage = request.getParameter("userType");
         User newUser = new User(userName, userEmail, userPassword, userType);
         UserDAO.insertUser(newUser);
         response.sendRedirect("Homepage.jsp");
     }
 
     private void updateUser(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+            throws SQLException, IOException, ServletException {
         int userID = Integer.parseInt(request.getParameter("userID"));
         String userName = request.getParameter("userName");
         String userEmail = request.getParameter("userEmail");

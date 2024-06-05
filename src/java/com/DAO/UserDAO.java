@@ -16,6 +16,8 @@ import java.util.List;
 
 //Import User Class
 import com.Model.User;
+import java.sql.Blob;
+import java.io.InputStream;
 
 public class UserDAO {
 
@@ -27,7 +29,6 @@ public class UserDAO {
     //Declare all sql statement up here CRUD
     private static final String INSERT_USER_SQL = "INSERT INTO user (userName, userEmail, userPassword, userType) values (?,?,?,?)";
     private static final String SELECT_USER_BY_ID = "select userID,userName,userEmail,userPassword, userType from user where userID = ?";
-    private static final String SELECT_USER_BY_EMAIL = "select userPassword from user where userEmail = ?";
     private static final String SELECT_ALL_USER = "select * from user";
     private static final String DELETE_USER_SQL = "delete from user where userID = ?;";
     private static final String UPDATE_USER_SQL = "update user set userName = ?,userEmail = ?, userPassword = ?, userType = ? where userID = ?;";

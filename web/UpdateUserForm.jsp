@@ -61,6 +61,7 @@
                         <input type="radio" id="option2" name="userType" value="Researcher">
                         <label for="option2">Researcher</label><br>
                     </div>
+                    <input type="file" class="form-control" name="userImage" accept="image/*">
                     <button type="submit" class="submit-button">Update Details</button>
                     <button type="button" class="submit-button" onclick="return confirm('Are you sure you want to cancel?') ? window.history.back() : false;">Cancel</button>
 

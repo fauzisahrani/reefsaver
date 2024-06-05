@@ -5,6 +5,8 @@
 //instance vairables
 package com.Model;
 
+import java.io.InputStream;
+
 /**
  *
  * @author Pojie act as a JavaBeans to represent business object
@@ -37,10 +39,6 @@ public class User {
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userType = userType;
-    }
-
-    public User(String userEmail, String userPassword) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     //setter and getter
