@@ -27,7 +27,7 @@
                     <div class="logo">ReefSaver</div>
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listbiodiversity" class="btn light">Coral Biodiversity</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listbiodiversity" class="btn light">Coral Reefs Data</a></li>
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activity</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
@@ -38,14 +38,15 @@
                 </nav>
                 <section>
                     <div class="newbutton">
-                        <a href="<%=request.getContextPath()%>/newbiodiversity" class="btn light"> Add Coral Sample</a> <!--hyperlink act as button-->
+                        <a href="<%=request.getContextPath()%>/newbiodiversity" class="btn light"> Add Coral Data</a> <!--hyperlink act as button-->
                     </div>
                     <table>
                         <thead>
                             <tr>
                                 <th>Sample ID</th>
-                                <th>Scientific Name</th>
-                                <th>Category</th>
+                                <th>Coral Genera</th>
+                                <th>Coral Species (if any)</th>
+                                <th>Growth Form</th>
                                 <th>Station</th>
                                 <th>Observation Date</th>
                                 <th>Latitude</th>
@@ -53,8 +54,8 @@
                                 <th>Locality</th>
                                 <th>Depth(m)</th>
                                 <th>Repository</th>
-                                <th>Sampling Equipment</th>
-                                <th>Data Provider</th>
+                                <th>Condition</th>
+                                <th>Data Collector</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -65,6 +66,9 @@
                                 </td>
                                 <td>
                                     <c:out value="${biodiversity.coralScientificName}"/>
+                                </td>
+                                <td>
+                                    <p>TBD</p>
                                 </td>
                                 <td>
                                     <c:out value="${biodiversity.coralCategory}"/>
@@ -91,7 +95,7 @@
                                     <c:out value="${biodiversity.coralRepository}"/>
                                 </td>
                                 <td>
-                                    <c:out value="${biodiversity.coralSamplingEquipment}"/>
+                                    <p>TBD</p>                           
                                 </td>
                                 <td>
                                     <c:out value="${biodiversity.coralDataProvider}"/>
@@ -112,9 +116,6 @@
                         </c:forEach>
                     </table>
                 </section>
-<!--                <a href="#" class="to-top">
-                    <p class="">^</p> 
-                </a>-->
             </div>
         </header>
         <footer>
@@ -123,6 +124,7 @@
                     <div class="links">
                         <h3>Quick Links</h3>
                         <ul>
+                            <li><a href="https://www.aims.gov.au/research-topics/monitoring-and-discovery/monitoring-great-barrier-reef/reef-monitoring-sampling-methods">Monitoring Methods</a></li>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Contact Us</a></li>
                             <li><a href="#">Privacy Policy</a></li>

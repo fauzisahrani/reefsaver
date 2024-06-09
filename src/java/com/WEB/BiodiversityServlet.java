@@ -20,10 +20,11 @@ import com.DAO.BiodiversityDAO;
 import com.Model.Biodiversity;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet("/listbiodiversity")    
+@WebServlet("/listbiodiversity")
 
 public class BiodiversityServlet extends HttpServlet {
 
@@ -100,22 +101,11 @@ public class BiodiversityServlet extends HttpServlet {
         String coralScientificName = request.getParameter("coralScientificName");
         String coralCategory = request.getParameter("coralCategory");
         String coralStation = request.getParameter("coralStation");
-        // Assuming coralObservationDate is a String parameter obtained from the request
-        String coralObservationDateString = request.getParameter("coralObservationDate");
-        java.util.Date coralObservationDateUtil = null;
 
-        // Define the format of the date string
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-
-        try {
-            // Parse the string into a java.util.Date object
-            coralObservationDateUtil = dateFormat.parse(coralObservationDateString);
-        } catch (ParseException e) {
-            // Handle parsing exception
-            e.printStackTrace(); // Or handle it in an appropriate way
-        }
-
-        // Convert java.util.Date to java.sql.Date
+        //Parsing to date format
+        String coralObservationDateStr = request.getParameter("coralObservationDate");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy"); // Change the format according to your date string
+        Date coralObservationDateUtil = dateFormat.parse(coralObservationDateStr);
         java.sql.Date coralObservationDate = new java.sql.Date(coralObservationDateUtil.getTime());
 
         double coralLatitude = Double.parseDouble(request.getParameter("coralLatitude"));
@@ -123,13 +113,12 @@ public class BiodiversityServlet extends HttpServlet {
         String coralLocality = request.getParameter("coralLocality");
         double coralDepth = Double.parseDouble(request.getParameter("coralDepth"));
         String coralRepository = request.getParameter("coralRepository");
-        String coralSamplingEquipment = request.getParameter("coralSamplingEquipment");
         String coralDataProvider = request.getParameter("coralDataProvider");
 
         Biodiversity newBiodiversity = new Biodiversity(coralScientificName,
                 coralCategory, coralStation, coralObservationDate, coralLatitude,
                 coralLongitude, coralLocality, coralDepth, coralRepository,
-                coralSamplingEquipment, coralDataProvider);
+                coralDataProvider);
         BiodiversityDAO.insertBiodiversity(newBiodiversity);
         response.sendRedirect("listBiodiversity");
     }
@@ -140,23 +129,11 @@ public class BiodiversityServlet extends HttpServlet {
         String coralScientificName = request.getParameter("coralScientificName");
         String coralCategory = request.getParameter("coralCategory");
         String coralStation = request.getParameter("coralStation");
-        
-        // Assuming coralObservationDate is a String parameter obtained from the request
-        String coralObservationDateString = request.getParameter("coralObservationDate");
-        java.util.Date coralObservationDateUtil = null;
 
-        // Define the format of the date string
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-
-        try {
-            // Parse the string into a java.util.Date object
-            coralObservationDateUtil = dateFormat.parse(coralObservationDateString);
-        } catch (ParseException e) {
-            // Handle parsing exception
-            e.printStackTrace(); // Or handle it in an appropriate way
-        }
-
-        // Convert java.util.Date to java.sql.Date
+        //Parsing to date format
+        String coralObservationDateStr = request.getParameter("coralObservationDate");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); // Change the format according to your date string
+        Date coralObservationDateUtil = dateFormat.parse(coralObservationDateStr);
         java.sql.Date coralObservationDate = new java.sql.Date(coralObservationDateUtil.getTime());
 
         double coralLatitude = Double.parseDouble(request.getParameter("coralLatitude"));
@@ -164,13 +141,12 @@ public class BiodiversityServlet extends HttpServlet {
         String coralLocality = request.getParameter("coralLocality");
         double coralDepth = Double.parseDouble(request.getParameter("coralDepth"));
         String coralRepository = request.getParameter("coralRepository");
-        String coralSamplingEquipment = request.getParameter("coralSamplingEquipment");
         String coralDataProvider = request.getParameter("coralDataProvider");
 
         Biodiversity Biodiversity = new Biodiversity(coralSampleID, coralScientificName,
                 coralCategory, coralStation, coralObservationDate, coralLatitude,
                 coralLongitude, coralLocality, coralDepth, coralRepository,
-                coralSamplingEquipment, coralDataProvider);
+                coralDataProvider);
         BiodiversityDAO.updateBiodiversity(Biodiversity);
         response.sendRedirect("listBiodiversity");
     }

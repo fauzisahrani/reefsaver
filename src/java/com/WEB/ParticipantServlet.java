@@ -1,12 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.WEB;
 
+import com.DAO.ParticipantDAO;
+import com.Model.Participant;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,72 +15,110 @@ import javax.servlet.http.HttpServletResponse;
 /**
  *
  * @author Pojie
+ *
  */
+@WebServlet("/listparticipant")
 public class ParticipantServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    // private static final long serialVersionUID = 1 L;
+    private ParticipantDAO participantDAO;
+
+    public void init() {
+        participantDAO = new ParticipantDAO();
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ParticipantServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ParticipantServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        doPost(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String action = request.getServletPath();
+
+        try {
+            switch (action) {
+                case "/newparticipant":
+                    showNewForm(request, response);
+                    break;
+                case "/insertparticipant":
+                    insertParticipant(request, response);
+                    break;
+                case "/deleteparticipant":
+                    deleteParticipant(request, response);
+                    break;
+                case "/editparticipant":
+                    showEditForm(request, response);
+                    break;
+                case "/updateparticipant":
+                    updateParticipant(request, response);
+                    break;
+                default:
+                    listParticipant(request, response);
+                    break;
+            }
+        } catch (SQLException ex) {
+            throw new ServletException(ex);
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    private void listParticipant(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ServletException {
+        List<Participant> listParticipant = participantDAO.selectAllParticipant();
+        request.setAttribute("listParticipant", listParticipant);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ParticipantList.jsp");
+        dispatcher.forward(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ParticipantForm.jsp");
+        dispatcher.forward(request, response);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, ServletException, IOException {
+        int participantID = Integer.parseInt(request.getParameter("participantID"));
+        Participant existingParticipant = participantDAO.selectParticipant(participantID);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ParticipantForm.jsp");
+        request.setAttribute("participant", existingParticipant);
+        dispatcher.forward(request, response);
+    }
 
+    private void insertParticipant(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        String participantName = request.getParameter("participantName");
+        String participantPhoneNo = request.getParameter("participantPhoneNo");
+        String participantAddress = request.getParameter("participantAddress");
+        String participantInstitution = request.getParameter("participantInstitution");
+        String participantShirtSize = request.getParameter("participantShirtSize");
+
+        Participant newParticipant = new Participant(participantName, participantPhoneNo,
+                participantAddress, participantInstitution, participantShirtSize);
+        participantDAO.insertParticipant(newParticipant);
+        response.sendRedirect("listparticipant");
+    }
+
+    private void updateParticipant(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int participantID = Integer.parseInt(request.getParameter("participantID"));
+        String participantName = request.getParameter("participantName");
+        String participantPhoneNo = request.getParameter("participantPhoneNo");
+        String participantAddress = request.getParameter("participantAddress");
+        String participantInstitution = request.getParameter("participantInstitution");
+        String participantShirtSize = request.getParameter("participantShirtSize");
+
+        Participant participant = new Participant(participantID, participantName,
+                participantPhoneNo, participantAddress, participantInstitution,
+                participantShirtSize);
+        participantDAO.updateParticipant(participant);
+        response.sendRedirect("listparticipant");
+    }
+
+    private void deleteParticipant(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int participantID = Integer.parseInt(request.getParameter("participantID"));
+        participantDAO.deleteParticipant(participantID);
+        response.sendRedirect("listparticipant");
+    }
 }

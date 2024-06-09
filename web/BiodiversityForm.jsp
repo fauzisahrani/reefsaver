@@ -36,7 +36,7 @@
 
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listbiodiversity" class="btn light">Coral Biodiversity</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listbiodiversity" class="btn light">Coral Reefs Data</a></li>
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activity</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
@@ -169,17 +169,7 @@
 
                                         <div class="row">
                                             <div class="col-25">
-                                                <label for="fname">Sampling Equipment</label>
-                                            </div>
-                                            <div class="col-75">
-                                                <input type="text" value="<c:out value='${biodiversity.coralSamplingEquipment}'/>"
-                                                       name="coralSamplingEquipment">
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-25">
-                                                <label for="fname">Data Provider</label>
+                                                <label for="fname">Data Collector</label>
                                             </div>
                                             <div class="col-75">
                                                 <input type="text" value="<c:out value='${biodiversity.coralDataProvider}'/>"

@@ -10,6 +10,10 @@
         <servlet-class>com.WEB.ActivityServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ParticipantServlet</servlet-name>
+        <servlet-class>com.WEB.ParticipantServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>com.WEB.UserServlet</servlet-class>
     </servlet>
@@ -17,16 +21,9 @@
         <servlet-name>ResearchersServlet</servlet-name>
         <servlet-class>com.WEB.ResearchersServlet</servlet-class>
     </servlet>
+    
     <!--Servlet Mapping-->
     <!--Biodiversity Module-->
-    <servlet>
-        <servlet-name>UserImageServlet</servlet-name>
-        <servlet-class>com.WEB.UserImageServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ParticipantServlet</servlet-name>
-        <servlet-class>com.WEB.ParticipantServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>BiodiversityServlet</servlet-name>
         <url-pattern>/listBiodiversity</url-pattern>
@@ -51,6 +48,7 @@
         <servlet-name>BiodiversityServlet</servlet-name>
         <url-pattern>/updatebiodiversity</url-pattern>
     </servlet-mapping>
+    
     <!--Activity Module-->
     <servlet-mapping>
         <servlet-name>ActivityServlet</servlet-name>
@@ -80,6 +78,33 @@
         <servlet-name>ActivityServlet</servlet-name>
         <url-pattern>/updateactivity</url-pattern>
     </servlet-mapping>
+    
+    <!--Participant Module-->
+    <servlet-mapping>
+        <servlet-name>ParticipantServlet</servlet-name>
+        <url-pattern>/listParticipant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ParticipantServlet</servlet-name>
+        <url-pattern>/newparticipant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ParticipantServlet</servlet-name>
+        <url-pattern>/insertparticipant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ParticipantServlet</servlet-name>
+        <url-pattern>/deleteparticipant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ParticipantServlet</servlet-name>
+        <url-pattern>/editparticipant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ParticipantServlet</servlet-name>
+        <url-pattern>/updateparticipant</url-pattern>
+    </servlet-mapping>
+    
     <!--User Module-->
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
@@ -142,14 +167,6 @@
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.js</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UserImageServlet</servlet-name>
-        <url-pattern>/UserImageServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ParticipantServlet</servlet-name>
-        <url-pattern>/ParticipantServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -29,7 +29,7 @@ x<%--
                     <div class="logo">ReefSaver</div>
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Biodiversity</a></li>
+                        <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Reefs Data</a></li>
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
@@ -90,7 +90,7 @@ x<%--
 
                                         // Retrieve BLOB data from the database
                                         stmt = conn.createStatement();
-                                        rs = stmt.executeQuery("SELECT userImage FROM user WHERE userID = 3");
+                                        rs = stmt.executeQuery("SELECT userImage FROM user WHERE userID = 1");
 
                                         if (rs.next()) {
                                             // Convert BLOB data to Base64

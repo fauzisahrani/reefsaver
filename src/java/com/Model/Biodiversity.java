@@ -23,7 +23,6 @@ public class Biodiversity {
     protected String coralLocality;
     protected double coralDepth;
     protected String coralRepository;
-    protected String coralSamplingEquipment;
     protected String coralDataProvider;
 
     public Biodiversity() {
@@ -33,8 +32,7 @@ public class Biodiversity {
     public Biodiversity(String coralScientificName, String coralCategory,
             String coralStation, Date coralObservationDate, double coralLatitude,
             double coralLongitude, String coralLocality, double coralDepth,
-            String coralRepository, String coralSamplingEquipment,
-            String coralDataProvider) {
+            String coralRepository, String coralDataProvider) {
         this.coralScientificName = coralScientificName;
         this.coralCategory = coralCategory;
         this.coralStation = coralStation;
@@ -44,7 +42,6 @@ public class Biodiversity {
         this.coralLocality = coralLocality;
         this.coralDepth = coralDepth;
         this.coralRepository = coralRepository;
-        this.coralSamplingEquipment = coralSamplingEquipment;
         this.coralDataProvider = coralDataProvider;
     }
 
@@ -52,8 +49,7 @@ public class Biodiversity {
     public Biodiversity(int coralSampleID, String coralScientificName, String coralCategory,
             String coralStation, Date coralObservationDate, double coralLatitude,
             double coralLongitude, String coralLocality, double coralDepth,
-            String coralRepository, String coralSamplingEquipment,
-            String coralDataProvider) {
+            String coralRepository, String coralDataProvider) {
         this.coralSampleID = coralSampleID;
         this.coralScientificName = coralScientificName;
         this.coralCategory = coralCategory;
@@ -64,7 +60,6 @@ public class Biodiversity {
         this.coralLocality = coralLocality;
         this.coralDepth = coralDepth;
         this.coralRepository = coralRepository;
-        this.coralSamplingEquipment = coralSamplingEquipment;
         this.coralDataProvider = coralDataProvider;
     }
 
@@ -146,14 +141,6 @@ public class Biodiversity {
 
     public void setCoralRepository(String coralRepository) {
         this.coralRepository = coralRepository;
-    }
-
-    public String getCoralSamplingEquipment() {
-        return coralSamplingEquipment;
-    }
-
-    public void setCoralSamplingEquipment(String coralSamplingEquipment) {
-        this.coralSamplingEquipment = coralSamplingEquipment;
     }
 
     public String getCoralDataProvider() {

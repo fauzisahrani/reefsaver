@@ -32,7 +32,7 @@ public class ParticipantDAO {
             + "where participantID = ?;";
     private static final String UPDATE_PARTICIPANT_SQL = "update participant set "
             + "participantName = ?, participantPhoneNo = ?, participantAddress = ?, "
-            + "participantInstitution = ?, participantShirtSize where participantID = ?;";
+            + "participantInstitution = ?, participantShirtSize = ? where participantID = ?;";
 
     //UserDAO constructor
     public ParticipantDAO() {
@@ -98,6 +98,62 @@ public class ParticipantDAO {
             printSQLException(e);
         }
         return Participant;
+    }
+
+    public List<Participant> selectAllParticipant() {
+        // using try-with-resources to avoid closing resources (boiler plate code)
+        List<Participant> participant = new ArrayList<>();
+        // Step 1: Establishing a Connection
+        try (Connection connection = getConnection(); //Step 2: Create a statement using connection object
+                 PreparedStatement preparedStatement
+                = connection.prepareStatement(SELECT_ALL_PARTICIPANT);) {
+            System.out.println(preparedStatement);
+            //Step 3: Execute the query or update query
+            ResultSet rs = preparedStatement.executeQuery();
+
+            //Step 4: Process the ResultSet object.
+            while (rs.next()) {
+                int participantID = rs.getInt("participantID");
+                String participantName = rs.getString("participantName");
+                String participantPhoneNo = rs.getString("participantPhoneNo");
+                String participantAddress = rs.getString("participantAddress");
+                String participantInstitution = rs.getString("participantInstitution");
+                String participantShirtSize = rs.getString("participantShirtSize");
+
+                participant.add(new Participant(participantID, participantName,
+                        participantPhoneNo, participantAddress, participantInstitution,
+                        participantShirtSize));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return participant;
+    }
+
+    public boolean deleteParticipant(int participantID) throws SQLException {
+        boolean rowDeleted;
+        try (Connection connection = getConnection(); PreparedStatement statement
+                = connection.prepareStatement(DELETE_PARTICIPANT_SQL);) {
+            statement.setInt(1, participantID);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
+    }
+
+    public boolean updateParticipant(Participant participant) throws SQLException {
+        boolean rowUpdated;
+        try (Connection connection = getConnection(); PreparedStatement statement
+                = connection.prepareStatement(UPDATE_PARTICIPANT_SQL);) {
+            statement.setString(1, participant.getParticipantName());
+            statement.setString(2, participant.getParticipantPhoneNo());
+            statement.setString(3, participant.getParticipantAddress());
+            statement.setString(4, participant.getParticipantInstitution());
+            statement.setString(5, participant.getParticipantShirtSize());
+            statement.setInt(6, participant.getParticipantID());
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
     }
 
     //method to print SQL Statement

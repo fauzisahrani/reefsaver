@@ -30,11 +30,11 @@ public class BiodiversityDAO {
     private static final String INSERT_BIODIVERSITY_SQL = "insert into biodiversity "
             + "(coralScientificName, coralCategory, coralStation, coralObservationDate, "
             + "coralLatitude, coralLongitude, coralLocality, coralDepth, coralRepository, "
-            + "coralSamplingEquipment, coralDataProvider) values (?,?,?,?,?,?,?,?,?,?,?)";
+            + "coralDataProvider) values (?,?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_BIODIVERSITY_BY_ID = "select coralSampleID, "
             + "coralScientificName, coralCategory, coralStation, coralObservationDate, "
             + "coralLatitude, coralLongitude, coralLocality, coralDepth, coralRepository, "
-            + "coralSamplingEquipment, coralDataProvider from biodiversity where coralSampleID = ?";
+            + "coralDataProvider from biodiversity where coralSampleID = ?";
     private static final String SELECT_ALL_BIODIVERSITY = "select * from biodiversity";
     private static final String DELETE_BIODIVERSITY_SQL = "delete from biodiversity "
             + "where coralSampleID = ?";
@@ -42,7 +42,7 @@ public class BiodiversityDAO {
             + "coralScientificName = ?, coralCategory = ?, coralStation = ?, "
             + "coralObservationDate = ?, coralLatitude = ?, coralLongitude = ?, "
             + "coralLocality = ?, coralDepth = ?, coralRepository = ?, "
-            + "coralSamplingEquipment = ?, coralDataProvider = ? where coralSampleID = ?";
+            + "coralDataProvider = ? where coralSampleID = ?";
 
     //BiodiversityDAO constructor
     public BiodiversityDAO() {
@@ -78,8 +78,7 @@ public class BiodiversityDAO {
             preparedStatement.setString(7, Biodiversity.getCoralLocality());
             preparedStatement.setDouble(8, Biodiversity.getCoralDepth());
             preparedStatement.setString(9, Biodiversity.getCoralRepository());
-            preparedStatement.setString(10, Biodiversity.getCoralSamplingEquipment());
-            preparedStatement.setString(11, Biodiversity.getCoralDataProvider());
+            preparedStatement.setString(10, Biodiversity.getCoralDataProvider());
             System.out.println(preparedStatement); //print prepared statement
             preparedStatement.executeUpdate(); //execute statement
         } catch (SQLException e) {
@@ -109,12 +108,11 @@ public class BiodiversityDAO {
                 String coralLocality = rs.getString("coralLocality");
                 double coralDepth = rs.getDouble("coralDepth");
                 String coralRepository = rs.getString("coralRepository");
-                String coralSamplingEquipment = rs.getString("coralSamplingEquipment");
                 String coralDataProvider = rs.getString("coralDataProvider");
                 Biodiversity = new Biodiversity(coralSampleID, coralScientificName,
                         coralCategory, coralStation, coralObservationDate,
                         coralLatitude, coralLongitude, coralLocality, coralDepth,
-                        coralRepository, coralSamplingEquipment, coralDataProvider);
+                        coralRepository, coralDataProvider);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -145,12 +143,11 @@ public class BiodiversityDAO {
                 String coralLocality = rs.getString("coralLocality");
                 double coralDepth = rs.getDouble("coralDepth");
                 String coralRepository = rs.getString("coralRepository");
-                String coralSamplingEquipment = rs.getString("coralSamplingEquipment");
                 String coralDataProvider = rs.getString("coralDataProvider");
                 Biodiversity.add(new Biodiversity(coralSampleID, coralScientificName,
                         coralCategory, coralStation, coralObservationDate,
                         coralLatitude, coralLongitude, coralLocality, coralDepth,
-                        coralRepository, coralSamplingEquipment, coralDataProvider));
+                        coralRepository, coralDataProvider));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -182,9 +179,8 @@ public class BiodiversityDAO {
             statement.setString(7, Biodiversity.getCoralLocality());
             statement.setDouble(8, Biodiversity.getCoralDepth());
             statement.setString(9, Biodiversity.getCoralRepository());
-            statement.setString(10, Biodiversity.getCoralSamplingEquipment());
-            statement.setString(11, Biodiversity.getCoralDataProvider());
-            statement.setInt(12, Biodiversity.getCoralSampleID());
+            statement.setString(10, Biodiversity.getCoralDataProvider());
+            statement.setInt(11, Biodiversity.getCoralSampleID());
 
             rowUpdated = statement.executeUpdate() > 0;
         }
