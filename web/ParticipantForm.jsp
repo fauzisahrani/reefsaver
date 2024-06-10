@@ -3,9 +3,13 @@
     Created on : 9 Jun 2024, 11:41:51 am
     Author     : Pojie
 --%>
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -58,16 +62,17 @@
                         </c:if>
                         <div class="form">
                             <c:if test="${participant != null}">
-                                <form action="updateparticipant" method="psot">
+                                <form action="updateParticipant" method="psot">
                                 </c:if>
                                 <c:if test="${participant == null}">
-                                    <form action="insertparticipant" method="post">
+                                    <form action="insertParticipant" method="post">
                                     </c:if>
                                     <div>
                                         <c:if test="${participant != null}">
                                             <input type="hidden" name="participantID" 
                                                    value="<c:out value="${participant.participantID}" />"/>
                                         </c:if>
+
                                         <div class="row">
                                             <div class="col-25">
                                                 <label for="fname">Participant Name</label>
@@ -78,6 +83,7 @@
                                                        name="participantName" required="required">
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-25">
                                                 <label for="fname">Phone Number</label>
@@ -88,6 +94,7 @@
                                                        name="participantPhoneNo" required="required">
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-25">
                                                 <label for="fname">Address</label>
@@ -98,6 +105,7 @@
                                                        name="participantAddress" required="required">
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-25">
                                                 <label for="fname">Institution</label>
@@ -108,6 +116,7 @@
                                                        name="participantInstitution" required="required">
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-25">
                                                 <label for="fname">Shirt Size</label>
@@ -116,6 +125,39 @@
                                                 <input type="text" 
                                                        value="<c:out value="${participant.participantShirtSize}"/>"
                                                        name="participantShirtSize" required="required">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Activity Name</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <select id="activityID" name="activityID">
+                                                    <%
+                                                        try {
+                                                            Class.forName("com.mysql.cj.jdbc.Driver");
+                                                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/reefsaver", "root", "admin");
+                                                            Statement st = con.createStatement();
+                                                            String query = "select * from activity";
+                                                            //get table data
+                                                            ResultSet rs = st.executeQuery(query);
+                                                            //get activity id one by one
+                                                            while (rs.next()) {
+                                                    %>
+
+                                                    <option value="<%= rs.getString("activityID")%>"> <%=rs.getString("activityName")%></option>
+
+                                                    <%
+                                                            }
+
+                                                        } catch (ClassNotFoundException | SQLException e) {
+                                                            out.println("Error: " + e.getMessage());
+                                                            e.printStackTrace();
+                                                        }
+
+                                                    %>
+                                                </select>
                                             </div>
                                         </div>
 

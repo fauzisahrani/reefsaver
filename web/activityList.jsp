@@ -68,6 +68,7 @@
                             <p><c:out value="${activity.activityVenue}"/></p>
                             <!-- Links for editing and deleting activity -->
                             <div class="actionbtn">
+                                <a class="btn dark" href="listParticipantByActivityID?activityID=<c:out value='${activity.activityID}'/>">List Participant</a>
                                 <a class="btn dark" href="viewactivity?activityID=<c:out value='${activity.activityID}'/>">View Details</a>
                                 <a class="btn dark" href="editactivity?activityID=<c:out value='${activity.activityID}'/>">Edit</a>
                                 <a class="btn dark" href="deleteactivity?activityID=<c:out value='${activity.activityID}'/>" onclick="return confirm('Are you sure you want to delete <c:out value="${activity.activityName}"/>?');">Delete</a>

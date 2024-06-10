@@ -86,23 +86,27 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ParticipantServlet</servlet-name>
-        <url-pattern>/newparticipant</url-pattern>
+        <url-pattern>/listParticipantByActivityID</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ParticipantServlet</servlet-name>
-        <url-pattern>/insertparticipant</url-pattern>
+        <url-pattern>/newParticipant</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ParticipantServlet</servlet-name>
-        <url-pattern>/deleteparticipant</url-pattern>
+        <url-pattern>/insertParticipant</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ParticipantServlet</servlet-name>
-        <url-pattern>/editparticipant</url-pattern>
+        <url-pattern>/deleteParticipant</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ParticipantServlet</servlet-name>
-        <url-pattern>/updateparticipant</url-pattern>
+        <url-pattern>/editParticipant</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ParticipantServlet</servlet-name>
+        <url-pattern>/updateParticipant</url-pattern>
     </servlet-mapping>
     
     <!--User Module-->

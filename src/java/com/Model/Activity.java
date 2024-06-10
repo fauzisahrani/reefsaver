@@ -63,6 +63,11 @@ public class Activity {
         this.activityImage = activityImage;
     }
 
+    //constructor with activityID only
+    public Activity(int activityID) {
+        this.activityID = activityID;
+    }
+
     public int getActivityID() {
         return activityID;
     }
@@ -134,6 +139,5 @@ public class Activity {
     public void setActivityImage(String activityImage) {
         this.activityImage = activityImage;
     }
-    
-    
+
 }

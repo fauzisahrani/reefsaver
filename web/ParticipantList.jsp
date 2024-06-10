@@ -43,8 +43,8 @@
                         <li><a href="LoginForm.jsp">Log Out</a></li> 
                     </ul>
                     <ul>
-                        <li> <a href="http://localhost:8080/reefsaver/listparticipant">All Participant List</a></li>
-                        <li> <a href="http://localhost:8080/reefsaver/newparticipant">Register a New Participant</a></li>
+                        <li> <a href="http://localhost:8080/reefsaver/listParticipant">All Participant List</a></li>
+                        <li> <a href="http://localhost:8080/reefsaver/newParticipant">Register a New Participant</a></li>
                     </ul>
                 </nav>
                 <!-- End of Desktop Navigation Menu-->
@@ -89,8 +89,8 @@
                                     <c:out value="${participant.participantShirtSize}"/>
                                 </td>
                                 <td>
-                                    <a class="button"href="editparticipant?participantID=<c:out value='${participant.participantID}'/>">Edit</a> 
-                                    <a class="button" href="deleteparticipant?participantID=<c:out value='${participant.participantID}'/>">Delete</a>
+                                    <a class="button"href="editParticipant?participantID=<c:out value='${participant.participantID}'/>">Edit</a> 
+                                    <a class="button" href="deleteParticipant?participantID=<c:out value='${participant.participantID}'/>">Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>

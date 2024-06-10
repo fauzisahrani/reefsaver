@@ -1,9 +1,12 @@
 package com.DAO;
 
-/**
- *
- * @author Pojie
- */
+//import referenced table DAO
+import com.DAO.ActivityDAO;
+//import referenced table Model
+import com.Model.Activity;
+//import com.Model
+import com.Model.Participant;
+//import other classes
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,28 +14,38 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.Model.Participant;
 
+/**
+ *
+ * @author Pojie
+ */
 public class ParticipantDAO {
 
+    //declare database url, username, password
     Connection connection = null;
     private String jdbcURL = "jdbc:mysql://localhost:3306/reefsaver"; //change 'reefsaver into database name'
     private String jdbcUsername = "root"; //username
     private String jdbcPassword = "admin"; //password
 
+    //Declare referenced DAO object
+    private ActivityDAO activityDAO = new ActivityDAO();
+
     //Declare all sql statement up here CRUD
     private static final String INSERT_PARTICIPANT_SQL = "INSERT INTO participant "
-            + "(participantID, participantName, participantPhoneNo, participantAddress, "
-            + "participantInstitution, participantShirtSize) values (?,?,?,?,?,?)";
+            + "(participantName, participantPhoneNo, participantAddress, "
+            + "participantInstitution, participantShirtSize, activityID) values (?,?,?,?,?,?)";
     private static final String SELECT_PARTICIPANT_BY_ID = "select * from participant "
             + "where participantID = ?";
-    private static final String SELECT_ALL_PARTICIPANT = "select * from participant";
-    private static final String DELETE_PARTICIPANT_SQL = "delete from participant "
-            + "where participantID = ?;";
-    private static final String UPDATE_PARTICIPANT_SQL = "update participant set "
+    private static final String SELECT_ALL_PARTICIPANT_BY_ACTIVITY_ID = "select * from participant "
+            + "where activityID = ?";
+    private static final String SELECT_ALL_PARTICIPANT = "SELECT * FROM participant";
+    private static final String DELETE_PARTICIPANT_SQL = "DELETE from participant "
+            + "WHERE participantID = ?;";
+    private static final String UPDATE_PARTICIPANT_SQL = "UPDATE participant SET "
             + "participantName = ?, participantPhoneNo = ?, participantAddress = ?, "
-            + "participantInstitution = ?, participantShirtSize = ? where participantID = ?;";
+            + "participantInstitution = ?, participantShirtSize = ?, activityID = ? "
+            + "WHERE participantID = ?;";
 
     //UserDAO constructor
     public ParticipantDAO() {
@@ -55,16 +68,18 @@ public class ParticipantDAO {
     }
 
     //method to create new participant
-    public void insertParticipant(Participant Participant) throws SQLException {
+    public void insertParticipant(Participant participant) throws SQLException {
         System.out.println(INSERT_PARTICIPANT_SQL);
         //try-with-resource statement will auto close the connection
-        try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PARTICIPANT_SQL)) {
-            preparedStatement.setInt(1, Participant.getParticipantID());
-            preparedStatement.setString(2, Participant.getParticipantName());
-            preparedStatement.setString(3, Participant.getParticipantPhoneNo());
-            preparedStatement.setString(4, Participant.getParticipantAddress());
-            preparedStatement.setString(5, Participant.getParticipantInstitution());
-            preparedStatement.setString(6, Participant.getParticipantShirtSize());
+        try (Connection connection = getConnection(); PreparedStatement preparedStatement
+                = connection.prepareStatement(INSERT_PARTICIPANT_SQL)) {
+            preparedStatement.setString(1, participant.getParticipantName());
+            preparedStatement.setString(2, participant.getParticipantPhoneNo());
+            preparedStatement.setString(3, participant.getParticipantAddress());
+            preparedStatement.setString(4, participant.getParticipantInstitution());
+            preparedStatement.setString(5, participant.getParticipantShirtSize());
+            //first call getter from Participant.java then getter from Activity.java
+            preparedStatement.setInt(6, participant.getActivity().getActivityID());
             System.out.println(preparedStatement); //print prepared statement
             preparedStatement.executeUpdate(); //execute statement
         } catch (SQLException e) {
@@ -72,12 +87,13 @@ public class ParticipantDAO {
         }
     }
 
-    //method to select user by ID
-    public Participant selectParticipant(int participantID) {
+    //method to select participant by ParticipantID
+    public Participant selectParticipantByID(int participantID) {
         Participant Participant = null;
         //Step1: Establishing a Connection
         try (Connection connection = getConnection(); //Step 2: Create a statement using connection object
-                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PARTICIPANT_BY_ID);) {
+                 PreparedStatement preparedStatement
+                = connection.prepareStatement(SELECT_PARTICIPANT_BY_ID);) {
             preparedStatement.setInt(1, participantID);
             System.out.println(preparedStatement);
             //Step 3: Execute the query or update query
@@ -90,14 +106,50 @@ public class ParticipantDAO {
                 String participantAddress = rs.getString("participantAddress");
                 String participantInstitution = rs.getString("participantInstitution");
                 String participantShirtSize = rs.getString("participantShirtSize");
-
+                //fetch this from activity table
+                int activityID = rs.getInt("activityID");
+                Activity activity = new Activity(activityID);
                 Participant = new Participant(participantID, participantName, participantPhoneNo,
-                        participantAddress, participantInstitution, participantShirtSize);
+                        participantAddress, participantInstitution, participantShirtSize, activity);
             }
         } catch (SQLException e) {
             printSQLException(e);
         }
         return Participant;
+    }
+
+    //method to select all participant by ActivityID
+    public List<Participant> selectAllParticipantByActivityID() {
+        // using try-with-resources to avoid closing resources (boiler plate code)
+        List<Participant> participant = new ArrayList<>();
+        // Step 1: Establishing a Connection
+        try (Connection connection = getConnection(); //Step 2: Create a statement using connection object
+                 PreparedStatement preparedStatement
+                = connection.prepareStatement(SELECT_ALL_PARTICIPANT_BY_ACTIVITY_ID);) {
+            System.out.println(preparedStatement);
+            //Step 3: Execute the query or update query
+            ResultSet rs = preparedStatement.executeQuery();
+
+            //Step 4: Process the ResultSet object.
+            while (rs.next()) {
+                int participantID = rs.getInt("participantID");
+                String participantName = rs.getString("participantName");
+                String participantPhoneNo = rs.getString("participantPhoneNo");
+                String participantAddress = rs.getString("participantAddress");
+                String participantInstitution = rs.getString("participantInstitution");
+                String participantShirtSize = rs.getString("participantShirtSize");
+                int activityID = rs.getInt("activityID");
+                // Retrieve the activity object from ActivityDAO
+                Activity activity = activityDAO.selectActivity(activityID);
+
+                participant.add(new Participant(participantID, participantName,
+                        participantPhoneNo, participantAddress, participantInstitution,
+                        participantShirtSize, activity));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return participant;
     }
 
     public List<Participant> selectAllParticipant() {
@@ -119,10 +171,13 @@ public class ParticipantDAO {
                 String participantAddress = rs.getString("participantAddress");
                 String participantInstitution = rs.getString("participantInstitution");
                 String participantShirtSize = rs.getString("participantShirtSize");
+                int activityID = rs.getInt("activityID");
+                // Retrieve the activity object from ActivityDAO
+                Activity activity = activityDAO.selectActivity(activityID);
 
                 participant.add(new Participant(participantID, participantName,
                         participantPhoneNo, participantAddress, participantInstitution,
-                        participantShirtSize));
+                        participantShirtSize, activity));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -149,7 +204,9 @@ public class ParticipantDAO {
             statement.setString(3, participant.getParticipantAddress());
             statement.setString(4, participant.getParticipantInstitution());
             statement.setString(5, participant.getParticipantShirtSize());
-            statement.setInt(6, participant.getParticipantID());
+            //first call getter from Participant.java then getter from Activity.java
+            statement.setInt(6, participant.getActivity().getActivityID());
+            statement.setInt(7, participant.getParticipantID());
 
             rowUpdated = statement.executeUpdate() > 0;
         }

@@ -4,6 +4,8 @@ package com.Model;
  *
  * @author Pojie
  */
+import com.Model.Activity;
+
 public class Participant {
 
     protected int participantID;
@@ -12,31 +14,32 @@ public class Participant {
     protected String participantAddress;
     protected String participantInstitution;
     protected String participantShirtSize;
+    protected Activity activity;
 
-    public Participant() {
-    }
-
-    //constructor without id for insert participant
-    public Participant(String participantName,
-            String participantPhoneNo, String participantAddress,
-            String participantInstitution, String participantShirtSize) {
-        this.participantName = participantName;
-        this.participantPhoneNo = participantPhoneNo;
-        this.participantAddress = participantAddress;
-        this.participantInstitution = participantInstitution;
-        this.participantShirtSize = participantShirtSize;
-    }
-
-    //constructor with id
+    //constructor with ID and referenced table variable
     public Participant(int participantID, String participantName,
             String participantPhoneNo, String participantAddress,
-            String participantInstitution, String participantShirtSize) {
+            String participantInstitution, String participantShirtSize,
+            Activity activity) {
         this.participantID = participantID;
         this.participantName = participantName;
         this.participantPhoneNo = participantPhoneNo;
         this.participantAddress = participantAddress;
         this.participantInstitution = participantInstitution;
         this.participantShirtSize = participantShirtSize;
+        this.activity = activity;
+    }
+
+    //constructor without id and referenced table variables for insert participant
+    public Participant(String participantName, String participantPhoneNo,
+            String participantAddress, String participantInstitution,
+            String participantShirtSize, Activity activity) {
+        this.participantName = participantName;
+        this.participantPhoneNo = participantPhoneNo;
+        this.participantAddress = participantAddress;
+        this.participantInstitution = participantInstitution;
+        this.participantShirtSize = participantShirtSize;
+        this.activity = activity;
     }
 
     public int getParticipantID() {
@@ -86,6 +89,13 @@ public class Participant {
     public void setParticipantShirtSize(String participantShirtSize) {
         this.participantShirtSize = participantShirtSize;
     }
-    
-    
+
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
+    }
+
 }
