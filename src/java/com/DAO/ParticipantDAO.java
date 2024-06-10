@@ -139,12 +139,10 @@ public class ParticipantDAO {
                 String participantInstitution = rs.getString("participantInstitution");
                 String participantShirtSize = rs.getString("participantShirtSize");
                 int activityID = rs.getInt("activityID");
-                // Retrieve the activity object from ActivityDAO
-                Activity activity = activityDAO.selectActivity(activityID);
 
                 participant.add(new Participant(participantID, participantName,
                         participantPhoneNo, participantAddress, participantInstitution,
-                        participantShirtSize, activity));
+                        participantShirtSize, activityID));
             }
         } catch (SQLException e) {
             printSQLException(e);

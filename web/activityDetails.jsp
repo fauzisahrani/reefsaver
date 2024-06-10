@@ -115,7 +115,11 @@
                                 </div>
                             </div>
 
-                            <button class='btn dark' type="#">Register</button>
+
+                            <button>
+                                <a class="btn dark" href="listParticipantByActivityID?activityID=<c:out value='${activity.activityID}'/>">List Participant</a>
+                            </button>
+                            <button class='btn dark'>Register</button>
                         </div>
                     </div>
                 </section>

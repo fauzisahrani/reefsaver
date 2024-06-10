@@ -15,6 +15,7 @@ public class Participant {
     protected String participantInstitution;
     protected String participantShirtSize;
     protected Activity activity;
+    protected int activityID;
 
     //constructor with ID and referenced table variable
     public Participant(int participantID, String participantName,
@@ -40,6 +41,19 @@ public class Participant {
         this.participantInstitution = participantInstitution;
         this.participantShirtSize = participantShirtSize;
         this.activity = activity;
+    }
+
+    //constructor with id and referenced table ID
+    public Participant(int participantID, String participantName,
+            String participantPhoneNo, String participantAddress,
+            String participantInstitution, String participantShirtSize,
+            int activityID) {
+        this.participantName = participantName;
+        this.participantPhoneNo = participantPhoneNo;
+        this.participantAddress = participantAddress;
+        this.participantInstitution = participantInstitution;
+        this.participantShirtSize = participantShirtSize;
+        this.activityID = activityID;
     }
 
     public int getParticipantID() {
@@ -96,6 +110,14 @@ public class Participant {
 
     public void setActivity(Activity activity) {
         this.activity = activity;
+    }
+
+    public int getActivityID() {
+        return activityID;
+    }
+
+    public void setActivityID(int activityID) {
+        this.activityID = activityID;
     }
 
 }

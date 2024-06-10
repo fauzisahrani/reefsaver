@@ -85,9 +85,10 @@ public class ParticipantServlet extends HttpServlet {
 
     private void listParticipantByActivityID(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ServletException {
+        int activityID = Integer.parseInt(request.getParameter("activityID"));
         List<Participant> listParticipant = participantDAO.selectAllParticipantByActivityID();
-        request.setAttribute("listParticipant", listParticipant);
         RequestDispatcher dispatcher = request.getRequestDispatcher("ParticipantList.jsp");
+        request.setAttribute("participant", listParticipant);
         dispatcher.forward(request, response);
     }
 
