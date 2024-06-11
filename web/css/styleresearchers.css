@@ -150,11 +150,12 @@ nav.scrolled {
 }
 
 .researcher-card .researcherimage {
-    height: fit-content;
-    width: fit-content;
+    height: 150px;
+    width: 150px;
 }
 
 .researcher-card img {
+    border-radius: 50%;
     height: 100%;
     width: fit-content;
     margin-top:20px;

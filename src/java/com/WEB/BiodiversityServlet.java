@@ -99,6 +99,7 @@ public class BiodiversityServlet extends HttpServlet {
     private void insertBiodiversity(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ParseException {
         String coralScientificName = request.getParameter("coralScientificName");
+        String coralSpecies = request.getParameter("coralSpecies");
         String coralCategory = request.getParameter("coralCategory");
         String coralStation = request.getParameter("coralStation");
 
@@ -113,12 +114,13 @@ public class BiodiversityServlet extends HttpServlet {
         String coralLocality = request.getParameter("coralLocality");
         double coralDepth = Double.parseDouble(request.getParameter("coralDepth"));
         String coralRepository = request.getParameter("coralRepository");
+        String coralCondition = request.getParameter("coralCondition");
         String coralDataProvider = request.getParameter("coralDataProvider");
 
         Biodiversity newBiodiversity = new Biodiversity(coralScientificName,
-                coralCategory, coralStation, coralObservationDate, coralLatitude,
-                coralLongitude, coralLocality, coralDepth, coralRepository,
-                coralDataProvider);
+                coralSpecies, coralCategory, coralStation, coralObservationDate,
+                coralLatitude, coralLongitude, coralLocality, coralDepth,
+                coralRepository, coralCondition, coralDataProvider);
         BiodiversityDAO.insertBiodiversity(newBiodiversity);
         response.sendRedirect("listBiodiversity");
     }
@@ -127,6 +129,7 @@ public class BiodiversityServlet extends HttpServlet {
             throws SQLException, IOException, ParseException {
         int coralSampleID = Integer.parseInt(request.getParameter("coralSampleID"));
         String coralScientificName = request.getParameter("coralScientificName");
+        String coralSpecies = request.getParameter("coralSpecies");
         String coralCategory = request.getParameter("coralCategory");
         String coralStation = request.getParameter("coralStation");
 
@@ -141,12 +144,13 @@ public class BiodiversityServlet extends HttpServlet {
         String coralLocality = request.getParameter("coralLocality");
         double coralDepth = Double.parseDouble(request.getParameter("coralDepth"));
         String coralRepository = request.getParameter("coralRepository");
+        String coralCondition = request.getParameter("coralCondition");
         String coralDataProvider = request.getParameter("coralDataProvider");
 
         Biodiversity Biodiversity = new Biodiversity(coralSampleID, coralScientificName,
-                coralCategory, coralStation, coralObservationDate, coralLatitude,
-                coralLongitude, coralLocality, coralDepth, coralRepository,
-                coralDataProvider);
+                coralSpecies, coralCategory, coralStation, coralObservationDate,
+                coralLatitude, coralLongitude, coralLocality, coralDepth, coralRepository,
+                coralCondition, coralDataProvider);
         BiodiversityDAO.updateBiodiversity(Biodiversity);
         response.sendRedirect("listBiodiversity");
     }

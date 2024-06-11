@@ -62,14 +62,16 @@
                             <!-- Display activity details -->
                             <input type="hidden" name="activityID" value="<c:out value='${activity.activityID}'/>">                            
                             <h1><c:out value="${activity.activityName}"/></h1>
-                            <img src='<c:out value="${activity.activityImage}"/>'>
-                            <img src="images/fauziprofile.JPG" alt="yahh"/>
+<!--                            <img src='<c:out value="${activity.activityImage}"/>'>-->
+                            <img src="images/coralbiodiversity.jpg" alt=""/>
                             <p><c:out value="${activity.activityDate}"/></p>
                             <p><c:out value="${activity.activityVenue}"/></p>
                             <!-- Links for editing and deleting activity -->
                             <div class="actionbtn">
-                                <a class="btn dark" href="listParticipantByActivityID?activityID=<c:out value='${activity.activityID}'/>">View Details</a>
-                                <a class="btn dark" href="viewactivity?activityID=<c:out value='${activity.activityID}'/>">View Details</a>
+                                <a class="btn dark" href="listParticipantByActivityID?activityID=<c:out value='${activity.activityID}'/>">Participant</a>
+                                <a class="btn dark" href="viewactivity?activityID=<c:out value='${activity.activityID}'/>">Details</a>
+                            </div>
+                            <div class="actionbtn">
                                 <a class="btn dark" href="editactivity?activityID=<c:out value='${activity.activityID}'/>">Edit</a>
                                 <a class="btn dark" href="deleteactivity?activityID=<c:out value='${activity.activityID}'/>" onclick="return confirm('Are you sure you want to delete <c:out value="${activity.activityName}"/>?');">Delete</a>
                             </div>

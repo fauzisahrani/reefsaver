@@ -47,7 +47,7 @@
                                 <th>Coral Genera</th>
                                 <th>Coral Species (if any)</th>
                                 <th>Growth Form</th>
-                                <th>Station</th>
+                                <th>Site</th>
                                 <th>Observation Date</th>
                                 <th>Latitude</th>
                                 <th>Longitude</th>
@@ -68,7 +68,7 @@
                                     <c:out value="${biodiversity.coralScientificName}"/>
                                 </td>
                                 <td>
-                                    <p>TBD</p>
+                                    <c:out value="${biodiversity.coralSpecies}"/>
                                 </td>
                                 <td>
                                     <c:out value="${biodiversity.coralCategory}"/>
@@ -95,7 +95,7 @@
                                     <c:out value="${biodiversity.coralRepository}"/>
                                 </td>
                                 <td>
-                                    <p>TBD</p>                           
+                                    <c:out value="${biodiversity.coralCondition}"/>
                                 </td>
                                 <td>
                                     <c:out value="${biodiversity.coralDataProvider}"/>
@@ -111,7 +111,8 @@
                                             }
                                             return false;
                                         }
-                                    </script>                                </td>
+                                    </script>                                
+                                </td>
                             </tr>
                         </c:forEach>
                     </table>

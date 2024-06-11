@@ -81,25 +81,41 @@
                                                        name="coralScientificName" required="required">
                                             </div>
                                         </div>
+                                                       
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Species (if any)</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text"
+                                                       value="<c:out value='${biodiversity.coralSpecies}'/>"
+                                                       name="coralSpecies">
+                                            </div>
+                                        </div>
 
                                         <div class="row">
                                             <div class="col-25">
-                                                <label for="coralCategory">Category</label>
+                                                <label for="coralCategory">Growth Form</label>
                                             </div>  
-                                            <select class="col-75" name="coralCategory" id="coralCategory" required="required">
-                                                <option value="">Select Category</option>
-                                                <option value="Stony Coral (branching)">Stony Coral (branching)</option>
-                                                <option value="Gorgonian coral">Gorgonian coral</option>
-                                                <option value="Stony coral (cup coral)">Stony coral (cup coral)</option>
-                                                <option value="Black coral">Black coral</option>
-                                                <option value="Others">Others (Please specify)</option>
+                                            <select class="col-75" name="coralCategory" id="coralCategory">
+                                                <option value="N/A">Select Growth Form</option>
+                                                <option value="Branching">Branching</option>
+                                                <option value="Digitate">Digitate</option>
+                                                <option value="Encrusting">Encrusting</option>
+                                                <option value="Foliose">Foliose</option>
+                                                <option value="Laminar">Laminar</option>
+                                                <option value="Massive">Massive</option>
+                                                <option value="Massive-platy">Massive-platy</option>
+                                                <option value="Submassive">Submassive</option>
+                                                <option value="Tabulate">Tabulate</option>
+
                                                 <!-- Add more options as needed -->
                                             </select>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-25">
-                                                <label for="fname">Station</label>
+                                                <label for="fname">Site</label>
                                             </div>
                                             <div class="col-75">
                                                 <input type="text" value="<c:out value='${biodiversity.coralStation}'/>"
@@ -165,6 +181,20 @@
                                                 <input type="text" value="<c:out value='${biodiversity.coralRepository}'/>"
                                                        name="coralRepository" required="required">
                                             </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-25">
+                                                <label for="fname">Condition</label>
+                                            </div>
+                                            <select class="col-75" name="coralCondition" id="coralCondition" required="required"
+                                                    value="<c:out value='${biodiversity.coralCondition}'/>">
+                                                <option value="">Select Condition</option>
+                                                <option value="Good">Good</option>
+                                                <option value="Fair">Fair</option>
+                                                <option value="Poor">Poor</option>
+                                                <!-- Add more options as needed -->
+                                            </select>
                                         </div>
 
                                         <div class="row">

@@ -1,8 +1,3 @@
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.Model;
 
 import java.sql.Date;
@@ -15,6 +10,7 @@ public class Biodiversity {
 
     protected int coralSampleID;
     protected String coralScientificName;
+    protected String coralSpecies;
     protected String coralCategory;
     protected String coralStation;
     protected Date coralObservationDate;
@@ -23,18 +19,21 @@ public class Biodiversity {
     protected String coralLocality;
     protected double coralDepth;
     protected String coralRepository;
+    protected String coralCondition;
     protected String coralDataProvider;
 
     public Biodiversity() {
     }
 
     //constructor without coralID for retrieve by coralUD, update and delete
-    public Biodiversity(String coralScientificName, String coralCategory,
-            String coralStation, Date coralObservationDate, double coralLatitude,
-            double coralLongitude, String coralLocality, double coralDepth,
-            String coralRepository, String coralDataProvider) {
+    public Biodiversity(String coralScientificName, String coralSpecies,
+            String coralCategory,String coralStation, Date coralObservationDate,
+            double coralLatitude, double coralLongitude, String coralLocality,
+            double coralDepth, String coralRepository, String coralCondition,
+            String coralDataProvider) {
         this.coralScientificName = coralScientificName;
         this.coralCategory = coralCategory;
+        this.coralSpecies = coralSpecies;
         this.coralStation = coralStation;
         this.coralObservationDate = coralObservationDate;
         this.coralLatitude = coralLatitude;
@@ -42,16 +41,19 @@ public class Biodiversity {
         this.coralLocality = coralLocality;
         this.coralDepth = coralDepth;
         this.coralRepository = coralRepository;
+        this.coralCondition = coralCondition;
         this.coralDataProvider = coralDataProvider;
     }
 
     //constructor with id for new biodiversity
-    public Biodiversity(int coralSampleID, String coralScientificName, String coralCategory,
-            String coralStation, Date coralObservationDate, double coralLatitude,
-            double coralLongitude, String coralLocality, double coralDepth,
-            String coralRepository, String coralDataProvider) {
+    public Biodiversity(int coralSampleID, String coralScientificName,
+            String coralSpecies, String coralCategory, String coralStation,
+            Date coralObservationDate, double coralLatitude, double coralLongitude,
+            String coralLocality, double coralDepth, String coralRepository,
+            String coralCondition, String coralDataProvider) {
         this.coralSampleID = coralSampleID;
         this.coralScientificName = coralScientificName;
+        this.coralSpecies = coralSpecies;
         this.coralCategory = coralCategory;
         this.coralStation = coralStation;
         this.coralObservationDate = coralObservationDate;
@@ -60,6 +62,7 @@ public class Biodiversity {
         this.coralLocality = coralLocality;
         this.coralDepth = coralDepth;
         this.coralRepository = coralRepository;
+        this.coralCondition = coralCondition;
         this.coralDataProvider = coralDataProvider;
     }
 
@@ -77,6 +80,14 @@ public class Biodiversity {
 
     public void setCoralScientificName(String coralScientificName) {
         this.coralScientificName = coralScientificName;
+    }
+
+    public String getCoralSpecies() {
+        return coralSpecies;
+    }
+
+    public void setCoralSpecies(String coralSpecies) {
+        this.coralSpecies = coralSpecies;
     }
 
     public String getCoralCategory() {
@@ -141,6 +152,14 @@ public class Biodiversity {
 
     public void setCoralRepository(String coralRepository) {
         this.coralRepository = coralRepository;
+    }
+
+    public String getCoralCondition() {
+        return coralCondition;
+    }
+
+    public void setCoralCondition(String coralCondition) {
+        this.coralCondition = coralCondition;
     }
 
     public String getCoralDataProvider() {

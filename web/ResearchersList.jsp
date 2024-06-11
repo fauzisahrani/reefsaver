@@ -58,7 +58,7 @@
                             <div class='researcher-card'> <!-- Start the researcher card div -->
                                 <!-- Display researcher details -->
                                 <div class="researcherimage">
-                                    <img src="images/Feeback 1.png" alt="researchers"/>
+                                    <img src="images/defaultUser.jpg" alt=""/>
                                 </div>
                                 <div class="researcherdetails">
                                     <h3><c:out value="${user.userName}"/></h3>

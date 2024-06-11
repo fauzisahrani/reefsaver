@@ -55,7 +55,7 @@ body {
     background-color: var(--dark-color);
     color: var(--light-color);
     padding: 10px 15px;
-    margin: none;
+    width: 120px;
 }
 
 .btn.dark:hover{
@@ -244,22 +244,20 @@ nav.scrolled {
 }
 
 .activity-card img {
-    height: auto;
-    width: 200px;
+    height: 200px;
+    width: fit-content;
     border-radius: 24px;
 }
 
-.actionbtn{
+.actionbtn {
     text-align: center;
     position: sticky;
+    margin-bottom: 10px;
 }
 
 .actionbtn a:hover{
     background: var(--light-color);
     color: var(--dark-color);
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--dark-color);
 }
 /*end of activityList.jsp CSS*/
 
