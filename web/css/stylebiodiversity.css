@@ -18,6 +18,9 @@ body {
     margin: 0;
     font-family: "Poppins", sans-serif;
     background:url("images/background2.jpg");
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+
 }
 
 .wrapper {
@@ -254,6 +257,45 @@ tr:nth-child(even) .action:hover {
     border-width: 1px;
 }
 /*end of biodiversltyList.jsp CSS*/
+.biodiversity-container{
+    display: flex;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center; /*    Align horizontally*/
+    align-items: center;  /*Align vertically*/
+    background-color: white;
+    border-radius: 24px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+    height: 80vh; /*Set height to viewport height*/
+    width: 567px;
+}
+
+gmp-map {
+    display: block;
+    width: 97%; /* For example, 80% of the container width */
+    height: 95%; /* Adjust height as needed */
+    border: 1px solid #ccc; /* Map border */
+    border-radius: 24px; /* Map border radius */
+    overflow: hidden; /* Hide overflowing markers */
+    position: relative; /* Make marker positions relative to map */
+}
+
+/* Styling the marker titles */
+gmp-advanced-marker::after {
+    content: attr(title); /* Display the title */
+    position: relative;
+    top: -25px; /* Adjust the distance of the title from the marker */
+    left: 30px; /* Adjust the alignment of the title */
+    background-color: #fff; /* Title background color */
+    padding: 5px; /* Title padding */
+    border-radius: 5px; /* Title border radius */
+    font-size: 14px; /* Title font size */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Title box shadow */
+}
+
 
 /* footer */
 footer {

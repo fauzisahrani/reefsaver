@@ -42,16 +42,17 @@
                         <li><a href="UserProfile.jsp">Profile</a></li>
                         <li><a href="LoginForm.jsp">Log Out</a></li> 
                     </ul>
-                    <ul>
-                        <li> <a href="http://localhost:8080/reefsaver/listParticipant">All Participant List</a></li>
-                        <li> <a href="http://localhost:8080/reefsaver/newParticipant">Register a New Participant</a></li>
-                    </ul>
+
+
+
                 </nav>
                 <!-- End of Desktop Navigation Menu-->
             </div>
         </header>
         <br>
         <div class="row">
+                <a href="http://localhost:8080/reefsaver/listParticipant">All Participant List</a>
+                <a href="http://localhost:8080/reefsaver/newParticipant">Register a New Participant</a>
             <div class="container">
                 <br>
 
