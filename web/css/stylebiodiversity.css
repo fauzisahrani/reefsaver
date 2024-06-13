@@ -98,6 +98,44 @@ nav ul li a {
     color: var(--light-color);
     text-decoration: none;
     text-align: center;
+    top: 100%;
+}
+
+/*navbar dropdown*/
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add shadow */
+    z-index: 1;
+    border-radius: 24px; /* Rounded corners */
+}
+
+.dropdown-content a {
+    color: var(--dark-color);
+    background-color: var(--slight-dark-color); /* Adjust as needed */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 24px; /* Rounded corners */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    border-radius: 24px; /* Rounded corners */
+}
+
+.dropdown-content a:hover{
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    border-radius: 24px; /* Rounded corners */
 }
 
 /*nav scrolled*/
@@ -257,10 +295,121 @@ tr:nth-child(even) .action:hover {
     border-width: 1px;
 }
 /*end of biodiversltyList.jsp CSS*/
+
+/*begin of pie chart css*/
 .biodiversity-container{
     display: flex;
+    margin-top: 120px;
 }
 
+.charts-container{
+    width: fit-content;
+}
+
+.pie-chart-container{
+    display: flex;
+    justify-content: center; /*    Align horizontally*/
+    align-items: center;  /*Align vertically*/
+    background-color: white;
+    border-radius: 24px;
+    margin-bottom: 10px;
+    height: 258px; /*Set height to viewport height*/
+    width: 600px;
+}
+
+.pie-chart {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #071920 0% var(--poor),
+        #515E62 var(--poor) calc(var(--fair) + var(--poor)),
+        #CACECF calc(var(--fair) + var(--poor)) 100%
+        );
+}
+
+.label-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px; /* Adjust as needed */
+}
+
+.label {
+    font-size: 18px;
+    font-weight: normal;
+    color: black;
+    text-align: center;
+    margin-bottom: 5px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    font-family: "Raleway", sans-serif;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; /* Adjust as needed */
+    border: 1px solid black;
+}
+
+.poor-label .color-box {
+    background-color: #071920; /* Add background color for the poor segment */
+}
+
+.fair-label .color-box {
+    background-color: #515E62; /* Add background color for the fair segment */
+}
+
+.good-label .color-box {
+    background-color: #CACECF; /* Add background color for the good segment */
+}
+/*end of pie chart css*/
+
+/*begin of bar chart css*/
+.bar-chart-container {
+    border: 1px solid #ccc;
+    padding: 10px 0 15px 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    justify-content: center; /*    Align horizontally*/
+    align-items: center;  /*Align vertically*/
+    background-color: white;
+    border-radius: 24px;
+    margin-bottom: 10px;
+    height: fit-content; /*Set height to viewport height*/
+    width: 600px;
+}
+.bar {
+    overflow: hidden;
+}
+
+.bar p{
+    font-family: sans-serif;
+    padding-left: 5px;
+}
+
+.bar span {
+    display: block;
+    background-color: #071920;
+    height: 20px; /* You can adjust the height of bars */
+    transition: width 0.6s ease;
+    color: #fff;
+    padding: 1px 0 1px 10px;
+    border-radius: 15px; /* Set border radius */
+    font-size: 12px;
+}
+
+.bar:nth-child(even) span{
+    background-color: #515E62;
+}
+
+.bar p {
+    margin: 2px 0;
+}
+/*end of bar css*/
+
+/*begin of map css*/
 .map-container {
     display: flex;
     justify-content: center; /*    Align horizontally*/
@@ -269,7 +418,7 @@ tr:nth-child(even) .action:hover {
     border-radius: 24px;
     margin-left: 10px;
     margin-bottom: 50px;
-    height: 80vh; /*Set height to viewport height*/
+    height: 548px; /*Set height to viewport height*/
     width: 567px;
 }
 
@@ -295,6 +444,7 @@ gmp-advanced-marker::after {
     font-size: 14px; /* Title font size */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Title box shadow */
 }
+/*end of map css*/
 
 
 /* footer */

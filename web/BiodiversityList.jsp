@@ -30,7 +30,12 @@
                     <div class="logo">ReefSaver</div>
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listbiodiversity" class="btn light">Coral Reefs Data</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="btn light">Coral Reefs Data</a>
+                            <div class="dropdown-content">
+                                <a href="<%=request.getContextPath()%>/newbiodiversity">Add Coral Data</a>
+                            </div>
+                        </li>                        
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activity</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
@@ -40,9 +45,9 @@
                     </ul>
                 </nav>
                 <section>
-                    <div class="newbutton">
-                        <a href="<%=request.getContextPath()%>/newbiodiversity" class="btn light"> Add Coral Data</a> <!--hyperlink act as button-->
-                    </div>
+                    <!--                    <div class="newbutton">
+                                            <a href="<%=request.getContextPath()%>/newbiodiversity" class="btn light"> Add Coral Data</a> hyperlink act as button
+                                        </div>-->
                     <!--                    <table>
                                             <thead>
                                                 <tr>
@@ -119,13 +124,60 @@
                 </tr>
                     </c:forEach>
                 </table>-->
+
                     <div class="biodiversity-container">
-                        <div class="map-container">
-                            <canvas id="pieChart" width="100" height="400"></canvas>
+                        <div class="charts-container">
+                            <div class="pie-chart-container">
+                                <%
+                                    // Define value here
+                                    String poorValue = "20%";
+                                    String fairValue = "20%";
+                                    String goodValue = "60%";
+                                %>
+                                <div class="pie-chart" 
+                                     style="
+                                     --poor: <%= poorValue%>;
+                                     --fair: <%= fairValue%>;
+                                     --good: <%= goodValue%>;">
+                                </div>
+                                <div class="label-container">
+                                    <div class="label poor-label"><span class="color-box"></span>Poor</div>
+                                    <div class="label fair-label"><span class="color-box"></span>Fair</div>
+                                    <div class="label good-label"><span class="color-box"></span>Good</div>
+                                </div>
+                            </div>
+                            <div class="bar-chart-container">
+                                <div class="bar">
+                                    <p>Acropora</p>
+                                    <span style="width: 20%;">20</span>
+                                </div>
+                                <div class="bar">
+                                    <p>Anacropora</p>
+                                    <span style="width: 60%;">60</span>
+                                </div>
+                                <div class="bar">
+                                    <p>Astreopora</p>
+                                    <span style="width: 40%;">40</span>
+                                </div>
+                                <div class="bar">
+                                    <p>Cynarina</p>
+                                    <span style="width: 20%;">20</span>
+                                </div>
+                                <div class="bar">
+                                    <p>Diploastrea</p>
+                                    <span style="width: 10%;">10</span>
+                                </div>
+                                <div class="bar">
+                                    <p>Favites</p>
+                                    <span style="width: 20%;">10</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="map-container">
                             <gmp-map center="4.2105,101.9758" zoom="6.8" map-id="DEMO_MAP_ID">
-                                <gmp-advanced-marker position="6.0613888889,100.041555555" title="Banana Reefs"></gmp-advanced-marker>
+                                <a href="https://chatgpt.com/?oai-dm=1">
+                                    <gmp-advanced-marker position="6.0613888889,100.041555555" title="Banana Reefs"></gmp-advanced-marker>
+                                </a>
                                 <gmp-advanced-marker position="2.7602222222,104.2217777778" title="Benuang Bay"></gmp-advanced-marker>
                                 <gmp-advanced-marker position="6.0428611111,99.9243055556" title="Segantang Bay"></gmp-advanced-marker>
                             </gmp-map>    
