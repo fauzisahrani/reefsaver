@@ -285,7 +285,7 @@ section p {
 
 .features-section .feature-cards {
     /*gap between left and right*/
-    gap: 55px;
+    gap: 45px;
     width: 100%;
     /* Arrange feature card side by side */
     display: flex;
