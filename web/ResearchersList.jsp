@@ -56,18 +56,25 @@
                             </c:if>
                             <c:set var="count" value="${count + 1}" /> <!-- Increment the counter -->
                             <div class='researcher-card'> <!-- Start the researcher card div -->
-                                <!-- Display researcher details -->
-                                <div class="researcherimage">
-                                    <img src="images/defaultUser.jpg" alt=""/>
+                                <div class="researcherField">
+                                    <h2><c:out value="${user.userField}"/></h2>
                                 </div>
-                                <div class="researcherdetails">
-                                    <h3><c:out value="${user.userName}"/></h3>
-                                    <p><c:out value="${user.userEmail}"/></p>
-                                    <p><c:out value="${user.userField}"/></p>
-                                    <p><c:out value="${user.userInstitution}"/></p>
-                                    <a class="btn dark"href="mailto:<c:out value="${user.userEmail}"/>">Contact</a>
+
+                                <!-- Display researcher details -->
+                                <div class="details">
+                                    <div class="researcherimage">
+                                        <img src="images/defaultUser.jpg" alt=""/>
+                                    </div>
+                                    <div class="researcherdetails">
+                                        <h3><c:out value="${user.userName}"/></h3>
+                                        <p><c:out value="${user.userEmail}"/></p>
+                                        <p><c:out value="${user.userInstitution}"/></p>
+                                        <a class="btn dark"href="mailto:<c:out value="${user.userEmail}"/>">Contact</a>
+                                    </div>
                                 </div>
                             </div> <!-- Close the researcher card div -->
+
+
                         </c:forEach> <!-- End of forEach loop -->
                     </div> <!-- Close the outer div -->
                 </section>

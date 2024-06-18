@@ -40,7 +40,7 @@
                         <h1>Discover the Reefs</h1>
                         <p>The world's finest wilderness lies beneath the waves. Together we protect the beauty of marine
                             nature</p>
-                        <a href="#" class="btn light">Explore</a>
+                        <a href="#features" class="btn light">Explore</a>
                     </div>
                     <div class="right">
                         <img src="images/Coral Icon.png" alt="">
@@ -48,23 +48,16 @@
                     <div class="achievement-cards">
                         <div class="achievement-card student-enrolled">
                             <div class="content">
-                                <div>
-                                    <h3>32k</h3>
+                                <div class="country">
+                                    <h3>Malaysia</h3>
                                 </div>
-                                <p>Researchers Worldwide</p>
                             </div>
-                            <div class="bg"></div>
                         </div>
 
                         <div class="achievement-card overall-rating">
                             <div class="content">
-                                <div>
-                                    <h3>5.0</h3>
-                                    <img src="images/Star Icon.svg" alt="" />
-                                </div>
-                                <p>Overall Ratings</p>
+                                <h3>Coral reefs support 25% of all marine life</h3>
                             </div>
-                            <div class="bg"></div>
                         </div>
                     </div>
                 </div>
@@ -77,26 +70,36 @@
                 <div class="left">
                     <div class="testimonial-card">
                         <div class="content">
-                            This is a great platform. It helped me to collaborate with others.
+                            This is a great platform. It helped me to learn new knowledge from different field
                         </div>
 
                         <div class="info">
-                            <h4>Jane Cooper</h4>
-                            <p class="company">Reefs Specialist</p>
+                            <h4>Fauzi Sahrani</h4>
+                            <p class="company">Software Engineering Students</p>
                         </div>
-
-                        <img src="images/Feeback 1.png" alt="">
+                        <img src="images/fauziprofile.JPG" alt=""/>
                     </div>
 
                     <div class="testimonial-card">
-                        <div class="content">I can continue my study and share my knowledge at the same time</div>
+                        <div class="content">This platform help me collaborate with other researchers</div>
 
                         <div class="info">
-                            <h4>Jacob Jones</h4>
-                            <p class="company">Marine Science Student</p>
+                            <h4>Dr. Sharifah Mashita</h4>
+                            <p class="company">Computer Science Researchers</p>
+                        </div>
+                        <img src="images/drSharifahMashita.jpg" alt=""/>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="content">
+                            This platform makes my research tasks easier
                         </div>
 
-                        <img src="images/Feedback 2.png" alt="">
+                        <div class="info">
+                            <h4>Dr. Tengku Fara Kamilia</h4>
+                            <p class="company">Reefs Researchers</p>
+                        </div>
+                        <img src="images/drTengkuFara.jpeg" alt=""/>
                     </div>
                 </div>
 
@@ -108,7 +111,7 @@
                         <p>Everything about coral reefs in one platform</p>
                     </div>
 
-                    <a href="#" class="btn dark">Explore</a>
+                    <a href="#features" class="btn dark">Explore</a>
                 </div>
             </div>
 
@@ -125,35 +128,43 @@
             <div class="feature-cards">
 
                 <div class="left">
-                    <div class="feature-card">
-                        <img src="images/biodiversityicon.png" alt="">
-                        <div class="info">
-                            <h3>Coral Biodiversity</h3>
+                    <a href="<%=request.getContextPath()%>/listbiodiversity">
+                        <div class="feature-card">
+                            <img src="images/biodiversityicon.png" alt="">
+                            <div class="info">
+                                <h3>Coral Biodiversity</h3>
+                            </div>
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="feature-card">
-                        <img src="images/conservationactivitiesicon.png" alt="">
-                        <div class="info">
-                            <h3>Conservation Activities</h3>
+                    <a href="<%=request.getContextPath()%>/listactivity">
+                        <div class="feature-card">
+                            <img src="images/conservationactivitiesicon.png" alt="">
+                            <div class="info">
+                                <h3>Conservation Activities</h3>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="right">
-                    <div class="feature-card">
-                        <img src="images/marinenewsicon.png" alt="">
-                        <div class="info">
-                            <h3>Marine News</h3>
+                    <a href="News.jsp">
+                        <div class="feature-card">
+                            <img src="images/marinenewsicon.png" alt="">
+                            <div class="info">
+                                <h3>Marine News</h3>
+                            </div>
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="feature-card">
-                        <img src="images/researchersnetworkicon.png" alt="">
-                        <div class="info">
-                            <h3>Researchers Network</h3>
+                    <a href="<%=request.getContextPath()%>/listresearchers">
+                        <div class="feature-card">
+                            <img src="images/researchersnetworkicon.png" alt="">
+                            <div class="info">
+                                <h3>Researchers Network</h3>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
             </div>
@@ -163,18 +174,18 @@
 
     <section class="app-section">
         <div class="wrapper">
-            <h2>Get Our App</h2>
-            <p>You can use our App for better experience on smartphones</p>
+            <h2>Our Social Platfrom</h2>
+            <p>Connect with us now</p>
 
             <div class="app-buttons">
                 <div class="app-btn">
-                    <img src="images/Appstore Icon.png" alt="" />
-                    <span>App Store</span>
+                    <img src="images/Insta Icon.svg">
+                    <span>Instagram</span>
                 </div>
 
                 <div class="app-btn">
-                    <img src="images/Playstore Icon.png" alt="" />
-                    <span>Google Play</span>
+                    <img src="images/Facebook Icon.svg">
+                    <span>Facebook</span>
                 </div>
             </div>
         </div>

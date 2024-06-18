@@ -53,11 +53,9 @@
                             <input type="hidden" name="activityID" 
                                    value="<c:out value="${activity.activityID}" />"/>
                             <div class="container">
-                                <div class="label">
-                                    <label>Image:</label>
-                                </div>
                                 <div class="details">
-                                    <span><c:out value="${activity.activityImage}"/></span>
+                                    <img src="images/coralbiodiversity.jpg" alt=""/>
+                                    <!--<span><c:out value="${activity.activityImage}"/></span>-->
                                 </div>
                             </div>
 
@@ -115,11 +113,10 @@
                                 </div>
                             </div>
 
-
-                            <button>
-                                <a class="btn dark" href="listParticipantByActivityID?activityID=<c:out value='${activity.activityID}'/>">List Participant</a>
-                            </button>
-                            <button class='btn dark'>Register</button>
+                            <div class="btn button-container">
+                                <a href="listParticipantByActivityID?activityID=<c:out value='${activity.activityID}'/>">List Participant</a>
+                                <a href="ParticipantForm.jsp">Register</a>
+                            </div>
                         </div>
                     </div>
                 </section>

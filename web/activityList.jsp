@@ -64,16 +64,16 @@
                             <h1><c:out value="${activity.activityName}"/></h1>
 <!--                            <img src='<c:out value="${activity.activityImage}"/>'>-->
                             <img src="images/coralbiodiversity.jpg" alt=""/>
-                            <p><c:out value="${activity.activityDate}"/></p>
-                            <p><c:out value="${activity.activityVenue}"/></p>
+                            <h3><c:out value="${activity.activityDate}"/></h3>
+                            <h4><c:out value="${activity.activityVenue}"/></h4>
                             <!-- Links for editing and deleting activity -->
                             <div class="actionbtn">
-                                <a class="btn dark" href="listParticipantByActivityID?activityID=<c:out value='${activity.activityID}'/>">Participant</a>
+                                <!--<a class="btn dark" href="listParticipantByActivityID?activityID=<c:out value='${activity.activityID}'/>">Participant</a>-->
                                 <a class="btn dark" href="viewactivity?activityID=<c:out value='${activity.activityID}'/>">Details</a>
                             </div>
                             <div class="actionbtn">
-                                <a class="btn dark" href="editactivity?activityID=<c:out value='${activity.activityID}'/>">Edit</a>
-                                <a class="btn dark" href="deleteactivity?activityID=<c:out value='${activity.activityID}'/>" onclick="return confirm('Are you sure you want to delete <c:out value="${activity.activityName}"/>?');">Delete</a>
+                                <!--<a class="btn dark" href="editactivity?activityID=<c:out value='${activity.activityID}'/>">Edit</a>-->
+                                <!--<a class="btn dark" href="deleteactivity?activityID=<c:out value='${activity.activityID}'/>" onclick="return confirm('Are you sure you want to delete <c:out value="${activity.activityName}"/>?');">Delete</a>-->
                             </div>
                         </div> <!-- Close the activity card div -->
                     </c:forEach> <!-- End of forEach loop -->
