@@ -8,6 +8,10 @@ window.addEventListener("scroll", () => {
     }
 })
 
+function confirmNavigation(message) {
+    return confirm(message);
+}
+
 const toTop = document.querySelector(".to-top");
 
 window.addEventListener("scroll", () => {

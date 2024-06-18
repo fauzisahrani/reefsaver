@@ -68,7 +68,8 @@ public class BiodiversityDAO {
     public void insertBiodiversity(Biodiversity Biodiversity) throws SQLException {
         System.out.println(INSERT_BIODIVERSITY_SQL);
         //try-with-resource statement will auto close the connection
-        try (Connection connection = getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_BIODIVERSITY_SQL)) {
+        try (Connection connection = getConnection(); PreparedStatement preparedStatement
+                = connection.prepareStatement(INSERT_BIODIVERSITY_SQL)) {
             preparedStatement.setString(1, Biodiversity.getCoralScientificName());
             preparedStatement.setString(2, Biodiversity.getCoralCategory());
             preparedStatement.setString(3, Biodiversity.getCoralSpecies());
@@ -93,7 +94,8 @@ public class BiodiversityDAO {
         Biodiversity Biodiversity = null;
         //Step1: Establishing a Connection
         try (Connection connection = getConnection(); //Step 2: Create a statement using connection object
-                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BIODIVERSITY_BY_ID);) {
+                 PreparedStatement preparedStatement
+                = connection.prepareStatement(SELECT_BIODIVERSITY_BY_ID);) {
             preparedStatement.setInt(1, coralSampleID);
             System.out.println(preparedStatement);
             //Step 3: Execute the query or update query
@@ -130,7 +132,8 @@ public class BiodiversityDAO {
         List<Biodiversity> Biodiversity = new ArrayList<>();
         //Step 1: Establishing a Connection
         try (Connection connection = getConnection(); //Step 2: Create a statement using connection object
-                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_BIODIVERSITY);) {
+                 PreparedStatement preparedStatement
+                = connection.prepareStatement(SELECT_ALL_BIODIVERSITY);) {
             System.out.println(preparedStatement);
             //Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
@@ -175,7 +178,8 @@ public class BiodiversityDAO {
     //method to update biodiversity
     public boolean updateBiodiversity(Biodiversity Biodiversity) throws SQLException {
         boolean rowUpdated;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_BIODIVERSITY_SQL);) {
+        try (Connection connection = getConnection(); PreparedStatement statement
+                = connection.prepareStatement(UPDATE_BIODIVERSITY_SQL);) {
             statement.setString(1, Biodiversity.getCoralScientificName());
             statement.setString(2, Biodiversity.getCoralCategory());
             statement.setString(3, Biodiversity.getCoralSpecies());

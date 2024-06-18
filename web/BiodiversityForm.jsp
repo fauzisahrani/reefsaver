@@ -25,7 +25,7 @@
 
         <!-- Stylesheet -->
         <style>
-            <%@ include file="css/stylebiodiversity.css"%>
+            <%@ include file="css/styleBiodiversity.css"%>
         </style>
     </head>
     <body>
@@ -36,7 +36,12 @@
 
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listbiodiversity" class="btn light">Coral Reefs Data</a></li>
+                        <li>
+                            <a href="<%=request.getContextPath()%>/listbiodiversity" class="btn light"
+                               onclick="return confirm('Are you sure you want to discard current progress?');">
+                                Coral Reefs Data
+                            </a>
+                        </li>
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activity</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
@@ -81,7 +86,7 @@
                                                        name="coralScientificName" required="required">
                                             </div>
                                         </div>
-                                                       
+
                                         <div class="row">
                                             <div class="col-25">
                                                 <label for="fname">Species (if any)</label>
@@ -216,52 +221,11 @@
     </div>
 </header>
 <!-- End of the header section -->
-<footer>
-    <div class="wrapper">
-        <div class="links-container">
-            <div class="links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
 
-            <div class="links">
-                <h3>Course</h3>
-                <ul>
-                    <li><a href="#">Log In</a></li>
-                    <li><a href="#">Download</a></li>
-                    <li><a href="#">All Courses</a></li>
-                </ul>
-            </div>
+<!--include footer-->
+<jsp:include page="footer.jsp" />
 
-            <div class="links">
-                <h3>Contact Us</h3>
-                <ul>
-                    <li>s63721@ocean.umt.edu.my</li>
-                </ul>
-                <div class="social">
-                    <a href="#">
-                        <img src="images/Facebook Icon.svg" alt="">
-                    </a>
-                    <a href="#">
-                        <img src="images/Insta Icon.svg" alt="">
-                    </a>
-                </div>
-
-                <form action="#">
-                    <input type="text" placeholder="Email Address" />
-                    <button class="submit-btn">Subscribe</button>
-                </form>
-            </div>
-
-        </div>
-        <p class="copyright">This website is developed by Fauzi Sahrani © 2023</p>
-    </div>
-</footer>
+<!--include JavaScript-->
 <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>

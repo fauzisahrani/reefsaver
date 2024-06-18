@@ -18,11 +18,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;900&display=swap"
               rel="stylesheet">
-        <style><%@ include file="css/stylebiodiversity.css"%></style>
+        <style><%@ include file="css/styleBiodiversity.css"%></style>
         <script 
             async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCun7d3IS8UBp6MDTQHdmOLQzaCGLwOFDM&callback=console.debug&libraries=maps,marker&v=beta">
         </script>
     </head>
+
     <body>
         <header>
             <div class="wrapper">
@@ -45,10 +46,10 @@
                     </ul>
                 </nav>
                 <section>
-                    <!--                    <div class="newbutton">
+<!--                                        <div class="newbutton">
                                             <a href="<%=request.getContextPath()%>/newbiodiversity" class="btn light"> Add Coral Data</a> hyperlink act as button
-                                        </div>-->
-                    <!--                    <table>
+                                        </div>
+                                        <table>
                                             <thead>
                                                 <tr>
                                                     <th>Sample ID</th>
@@ -175,65 +176,25 @@
                         </div>
                         <div class="map-container">
                             <gmp-map center="4.2105,101.9758" zoom="6.8" map-id="DEMO_MAP_ID">
-                                <a href="https://chatgpt.com/?oai-dm=1">
+                                <a href="#">
                                     <gmp-advanced-marker position="6.0613888889,100.041555555" title="Banana Reefs"></gmp-advanced-marker>
                                 </a>
-                                <gmp-advanced-marker position="2.7602222222,104.2217777778" title="Benuang Bay"></gmp-advanced-marker>
-                                <gmp-advanced-marker position="6.0428611111,99.9243055556" title="Segantang Bay"></gmp-advanced-marker>
+                                <a href="#">
+                                    <gmp-advanced-marker position="2.7602222222,104.2217777778" title="Benuang Bay"></gmp-advanced-marker>
+                                </a>
+                                <a href="#">
+                                    <gmp-advanced-marker position="6.0428611111,99.9243055556" title="Segantang Bay"></gmp-advanced-marker>
+                                </a>
                             </gmp-map>    
                         </div>
                     </div>
                 </section>
             </div>
         </header>
-        <footer>
-            <div class="wrapper">
-                <div class="links-container">
-                    <div class="links">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="https://www.aims.gov.au/research-topics/monitoring-and-discovery/monitoring-great-barrier-reef/reef-monitoring-sampling-methods">Monitoring Methods</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
+        <!--include footer-->
+        <jsp:include page="footer.jsp" />
 
-                    <div class="links">
-                        <h3>Course</h3>
-                        <ul>
-                            <li><a href="#">Log In</a></li>
-                            <li><a href="#">Download</a></li>
-                            <li><a href="#">All Courses</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="links">
-                        <h3>Contact Us</h3>
-                        <ul>
-                            <li>s63721@ocean.umt.edu.my</li>
-                        </ul>
-                        <div class="social">
-                            <a href="#">
-                                <img src="images/Facebook Icon.svg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="images/Insta Icon.svg" alt="">
-                            </a>
-                        </div>
-
-                        <form action="#">
-                            <input type="text" placeholder="Email Address" />
-                            <button class="submit-btn">Subscribe</button>
-                        </form>
-                    </div>
-
-                </div>
-
-                <p class="copyright">This website is developed by Fauzi Sahrani © 2023</p>
-            </div>
-        </footer>
+        <!--include JavaScript-->
         <script src="js/main.js" type="text/javascript"></script>
     </body>
 </html>
