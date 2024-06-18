@@ -1,0 +1,100 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 18 Jun 2024, 8:03:41 pm
+    Author     : Pojie
+*/
+
+:root {
+    --dark-color: #071920;
+    --slight-dark-color: #E6E8E8;
+    --light-color: #E8F7FB;
+    --slight-light-color: #b9c5c8;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+/* Buttons */
+.btn {
+    padding: 16px 32px;
+    border-radius: 24px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    position: relative;
+}
+
+.btn.light {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 10px 15px;
+}
+.btn.light:hover{
+    background-color: var(--slight-dark-color);
+    color: var(--dark-color);
+}
+
+.btn.dark {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 10px 15px;
+    margin: none;
+}
+
+.btn.dark:hover{
+    background-color: var(--slight-dark-color);
+    color: var(--dark-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 1134px;
+    top: 0;
+    padding: 30px 0;
+    z-index: 100;
+    transition: all 500ms ease;
+}
+
+nav .logo {
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    color: var(--light-color);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    text-align: center;
+    list-style: none;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--light-color);
+    text-decoration: none;
+    text-align: center;
+}
+
+/*nav scrolled*/
+nav.scrolled {
+    background: var(--dark-color);
+    box-shadow: 0 16px 14px -8px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 8px 8px;
+    top: 0;
+    padding: 12px;
+}

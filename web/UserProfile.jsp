@@ -48,7 +48,7 @@
                         </div>
                         <div class="details">
                             <div class="left">
-                                <img src="images/fauziprofile.JPG" alt=""/>
+                                <img src="images/fauziSahrani.JPG" alt=""/>
                             </div>
                             <div class="right">
                                 <h3>${userName}</h3>
