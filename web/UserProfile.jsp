@@ -21,14 +21,14 @@
               rel="stylesheet">
         <!--import stylesheet-->
         <style>
-            <%@ include file="css/profilestyle.css"%>
+            <%@ include file="css/styleProfile.css"%>
         </style>
     </head>
     <body>
         <header>
             <div class="wrapper">
                 <nav>
-                    <div class="logo">ReefSaver</div>
+                    <div class="logo">Reef Saver</div>
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
                         <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Reefs Data</a></li>
@@ -65,5 +65,10 @@
                 </section>
             </div>
         </header>
+        <!--include footer-->
+        <jsp:include page="footer.jsp" />
+
+        <!--include JavaScript-->
+        <script src="js/main.js" type="text/javascript"></script>
     </body>
 </html>

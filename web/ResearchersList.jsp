@@ -24,7 +24,7 @@
 
         <!-- Stylesheet -->
         <style>
-            <%@ include file="css/styleresearchers.css"%>
+            <%@ include file="css/styleResearchers.css"%>
         </style>
 
     </head>
@@ -32,7 +32,7 @@
         <header>
             <div class="wrapper">
                 <nav>
-                    <div class="logo">ReefSaver</div>
+                    <div class="logo">Reef Saver</div>
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
                         <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Reefs Data</a></li>
@@ -50,12 +50,15 @@
                     <c:set var="count" value="0" /> <!-- Initialize a counter variable -->
                     <div class='researchers-cards'> <!-- Start the outer div -->
                         <c:forEach var="user" items="${listUser}" varStatus="status"> <!-- Iterate over the list of researchers -->
+                            
                             <c:if test="${count % 2 == 0 && count != 0}"> <!-- Check if count is divisible by 2 and not equal to 0 -->
                             </div>
                             <div class='researchers-cards'> <!-- Close the current div and start a new one -->
                             </c:if>
+                                
                             <c:set var="count" value="${count + 1}" /> <!-- Increment the counter -->
                             <div class='researcher-card'> <!-- Start the researcher card div -->
+                                
                                 <div class="researcherField">
                                     <h2><c:out value="${user.userField}"/></h2>
                                 </div>
@@ -72,9 +75,8 @@
                                         <a class="btn dark"href="mailto:<c:out value="${user.userEmail}"/>">Contact</a>
                                     </div>
                                 </div>
+                                    
                             </div> <!-- Close the researcher card div -->
-
-
                         </c:forEach> <!-- End of forEach loop -->
                     </div> <!-- Close the outer div -->
                 </section>
@@ -82,53 +84,10 @@
         </header>
         <!--end of header section-->
 
-        <footer>
-            <div class="wrapper">
-                <div class="links-container">
-                    <div class="links">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
+        <!--include footer-->
+        <jsp:include page="footer.jsp" />
 
-                    <div class="links">
-                        <h3>Course</h3>
-                        <ul>
-                            <li><a href="#">Log In</a></li>
-                            <li><a href="#">Download</a></li>
-                            <li><a href="#">All Courses</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="links">
-                        <h3>Contact Us</h3>
-                        <ul>
-                            <li>s63721@ocean.umt.edu.my</li>
-                        </ul>
-                        <div class="social">
-                            <a href="#">
-                                <img src="images/Facebook Icon.svg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="images/Insta Icon.svg" alt="">
-                            </a>
-                        </div>
-
-                        <form action="#">
-                            <input type="text" placeholder="Email Address" />
-                            <button class="submit-btn">Subscribe</button>
-                        </form>
-                    </div>
-
-                </div>
-
-                <p class="copyright">This website is developed by Fauzi Sahrani © 2023</p>
-            </div>
-        </footer>
+        <!--include Javascript-->
         <script src="js/main.js"></script>    
     </body>
 </html>

@@ -25,14 +25,14 @@
 
         <!-- Stylesheet -->
         <style>
-            <%@ include file="css/styleactivities.css"%>
+            <%@ include file="css/styleActivity.css"%>
         </style>
     </head>
     <body>
         <header>
             <div class="wrapper">
                 <nav>
-                    <div class="logo">ReefSaver</div>
+                    <div class="logo">Reef Saver</div>
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
                         <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Reefs Data</a></li>
@@ -47,24 +47,31 @@
                 <!-- End of Desktop Navigation Menu-->
                 <section class="form-section">
                     <div class="form-card">
+
                         <c:if test="${activity != null}">
                             <div class="prompt">
                                 Update Activity Details
                             </div>
                         </c:if>
+
                         <c:if test="${activity == null}">      
                             <div class="prompt">
                                 Create New Activity
                             </div>
                         </c:if>
+
                         <div class="form">
+
                             <c:if test="${activity != null}">
                                 <form action="updateactivity" method="psot">
                                 </c:if>
+
                                 <c:if test="${activity == null}">
                                     <form action="insertactivity" method="post">
                                     </c:if>
+
                                     <div>
+
                                         <c:if test="${activity != null}">
                                             <input type="hidden" name="activityID" 
                                                    value="<c:out value="${activity.activityID}" />"/>
@@ -163,61 +170,19 @@
                                             <button class='btn dark' type="submit">Update</button>                                            </c:if>
                                         <c:if test="${activity == null}">
                                             <button class='btn dark' type="submit">Create</button>                                                </c:if>
-                                </form>
+                                    </form>
+                            </div>
                         </div>
-                    </div>
-            </div>
-        </section>
-    </div>
-</header>
-<!-- End of the header section -->
-<footer>
-    <div class="wrapper">
-        <div class="links-container">
-            <div class="links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
-
-            <div class="links">
-                <h3>Course</h3>
-                <ul>
-                    <li><a href="#">Log In</a></li>
-                    <li><a href="#">Download</a></li>
-                    <li><a href="#">All Courses</a></li>
-                </ul>
-            </div>
-
-            <div class="links">
-                <h3>Contact Us</h3>
-                <ul>
-                    <li>s63721@ocean.umt.edu.my</li>
-                </ul>
-                <div class="social">
-                    <a href="#">
-                        <img src="images/Facebook Icon.svg" alt="">
-                    </a>
-                    <a href="#">
-                        <img src="images/Insta Icon.svg" alt="">
-                    </a>
                 </div>
-
-                <form action="#">
-                    <input type="text" placeholder="Email Address" />
-                    <button class="submit-btn">Subscribe</button>
-                </form>
-            </div>
-
+            </section>
         </div>
+    </header>
+    <!-- End of the header section -->
 
-        <p class="copyright">This website is developed by Fauzi Sahrani © 2023</p>
-    </div>
-</footer>
+    <!--include footer-->
+<jsp:include page="footer.jsp" />
+
+<!--include Javascript-->
 <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>

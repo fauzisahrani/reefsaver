@@ -20,13 +20,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;900&display=swap"
               rel="stylesheet">
         <!-- import stylesheet -->
-        <style><%@ include file="css/stylenews.css"%></style>
+        <style><%@ include file="css/styleNews.css"%></style>
     </head>
 
     <body>
         <header>
             <nav>
-                <div class="logo">ReefSaver</div>
+                <div class="logo">Reef Saver</div>
 
                 <ul>
                     <li><a href="Homepage.jsp">Home</a></li>
@@ -63,53 +63,11 @@
                 <p class="">^</p>
             </a>
     </body>
-    <footer>
-        <div class="wrapper">
-            <div class="links-container">
-                <div class="links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                    </ul>
-                </div>
 
-                <div class="links">
-                    <h3>Course</h3>
-                    <ul>
-                        <li><a href="#">Log In</a></li>
-                        <li><a href="#">Download</a></li>
-                        <li><a href="#">All Courses</a></li>
-                    </ul>
-                </div>
+    <!--include footer-->
+    <jsp:include page="footer.jsp" />
 
-                <div class="links">
-                    <h3>Contact Us</h3>
-                    <ul>
-                        <li>s63721@ocean.umt.edu.my</li>
-                    </ul>
-                    <div class="social">
-                        <a href="#">
-                            <img src="images/Facebook Icon.svg" alt="">
-                        </a>
-                        <a href="#">
-                            <img src="images/Insta Icon.svg" alt="">
-                        </a>
-                    </div>
-
-                    <form action="#">
-                        <input type="text" placeholder="Email Address" />
-                        <button class="submit-btn">Subscribe</button>
-                    </form>
-                </div>
-
-            </div>
-
-            <p class="copyright">This website is developed by Fauzi Sahrani © 2023</p>
-        </div>
-    </footer>
+    <!--include Javascript-->
     <script src="js/news.js"></script>
 
 </html>

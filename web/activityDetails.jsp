@@ -22,16 +22,16 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;900&display=swap"
               rel="stylesheet">
 
-        <!-- Stylesheet -->
+        <!-- Include Stylesheet -->
         <style>
-            <%@ include file="css/styleactivities.css"%>
+            <%@ include file="css/styleActivity.css"%>
         </style>
     </head>
     <body>
         <header>
             <div class="wrapper">
                 <nav>
-                    <div class="logo">ReefSaver</div>
+                    <div class="logo">Reef Saver</div>
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
                         <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Reefs Data</a></li>
@@ -50,8 +50,10 @@
                             <c:out value="${activity.activityName}"/>                        
                         </div>
                         <div class="form">
+
                             <input type="hidden" name="activityID" 
                                    value="<c:out value="${activity.activityID}" />"/>
+
                             <div class="container">
                                 <div class="details">
                                     <img src="images/coralbiodiversity.jpg" alt=""/>
@@ -91,9 +93,19 @@
                                     <label>Max Participant:</label>
                                 </div>
                                 <div class="details">
-                                    <span><c:out value="${activity.activityParticipantNo}"/></span>
+                                    <span>
+                                        <c:choose>
+                                            <c:when test="${empty activity.activityParticipantNo}">
+                                                N/A
+                                            </c:when>
+                                            <c:otherwise>
+                                                <c:out value="${activity.activityParticipantNo}" />
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </span>
                                 </div>
                             </div>
+
 
                             <div class="container">
                                 <div class="label">
@@ -114,62 +126,22 @@
                             </div>
 
                             <div class="btn button-container">
-                                <a href="listParticipantByActivityID?activityID=<c:out value='${activity.activityID}'/>">List Participant</a>
+                                <a href="listParticipantByActivityID?activityID=<c:out 
+                                       value='${activity.activityID}'/>">List Participant</a>
                                 <a href="ParticipantForm.jsp">Register</a>
                             </div>
+
                         </div>
                     </div>
                 </section>
             </div>
         </header>
         <!-- End of the header section -->
-        <footer>
-            <div class="wrapper">
-                <div class="links-container">
-                    <div class="links">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
+        
+        <!--include footer-->
+        <jsp:include page="footer.jsp" />
 
-                    <div class="links">
-                        <h3>Course</h3>
-                        <ul>
-                            <li><a href="#">Log In</a></li>
-                            <li><a href="#">Download</a></li>
-                            <li><a href="#">All Courses</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="links">
-                        <h3>Contact Us</h3>
-                        <ul>
-                            <li>s63721@ocean.umt.edu.my</li>
-                        </ul>
-                        <div class="social">
-                            <a href="#">
-                                <img src="images/Facebook Icon.svg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="images/Insta Icon.svg" alt="">
-                            </a>
-                        </div>
-
-                        <form action="#">
-                            <input type="text" placeholder="Email Address" />
-                            <button class="submit-btn">Subscribe</button>
-                        </form>
-                    </div>
-
-                </div>
-
-                <p class="copyright">This website is developed by Fauzi Sahrani © 2023</p>
-            </div>
-        </footer>
+        <!--include Javascript-->
         <script src="js/main.js" type="text/javascript"></script>
     </body>
 </html>

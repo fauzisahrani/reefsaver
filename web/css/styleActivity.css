@@ -1,7 +1,3 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
 /* 
     Created on : 27 May 2024, 2:35:29 pm
     Author     : Pojie
@@ -112,7 +108,7 @@ nav.scrolled {
     box-shadow: 0 16px 14px -8px rgba(0, 0, 0, 0.3);
     border-radius: 0 0 8px 8px;
     top: 0;
-    padding: 12px;
+    padding: 10px;
 }
 
 /*begin of activityForm.jsp CSS*/
@@ -208,7 +204,7 @@ nav.scrolled {
     column-gap: 24px;
     justify-content: center;
     width: 1134px;
-    margin: 0 150px 40px 150px;
+    margin: 0 150px 40px 156px;
 }
 
 /* set top margin for after 1st child */
@@ -318,80 +314,4 @@ nav.scrolled {
 .button-container a:hover{
     background-color: var(--light-color);
     color: var(--dark-color);
-}
-
-/* footer */
-footer {
-    background: var(--dark-color);
-    color: #fff;
-    padding: 70px 0;
-}
-
-footer a {
-    text-decoration: none;
-    color: #ffffff;
-}
-
-footer h3 {
-    color: var(--orange-color);
-}
-
-footer ul {
-    list-style: none;
-    padding-left: 20px;
-}
-
-footer ul li {
-    margin: 16px 0;
-}
-
-footer .links-container {
-    display: grid;
-    grid-template-columns: 2fr 2fr 3fr;
-}
-
-footer .social {
-    margin-left: 20px;
-}
-
-footer .social a {
-    margin-right: 28px;
-}
-
-footer form {
-    margin-left: 20px;
-    margin-top: 16px;
-    position: relative;
-}
-
-footer form input {
-    font-family: "Poppins", sans-serif;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 200%;
-    border-radius: 8px;
-    padding: 8px 32px;
-    border: none;
-    width: 100%;
-    color: #000000;
-}
-
-footer form .submit-btn {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--dark-color);
-    border-radius: 8px;
-    padding: 5px 15px;
-    border: 0;
-    font-family: "Poppins", sans-serif;
-    font-weight: normal;
-    font-size: 16px;
-    color: var(--light-color);
-    cursor: pointer;
-}
-
-footer .copyright {
-    margin-top: 36px;
 }

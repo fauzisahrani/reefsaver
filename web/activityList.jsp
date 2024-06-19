@@ -25,7 +25,7 @@
 
         <!-- Stylesheet -->
         <style>
-            <%@ include file="css/styleactivities.css"%>
+            <%@ include file="css/styleActivity.css"%>
         </style>
     </head>
     <body>
@@ -47,9 +47,11 @@
                 <!-- End of Desktop Navigation Menu-->
             </div>
             <section class='activities-section'>
+
                 <div class="newbutton">
                     <a href="<%=request.getContextPath()%>/newactivity" class="btn light"> Add New Activity</a> <!--hyperlink act as button-->
                 </div>
+
                 <c:set var="count" value="0" /> <!-- Initialize a counter variable -->
                 <div class='activities-cards'> <!-- Start the outer div -->
                     <c:forEach var="activity" items="${listActivity}" varStatus="status"> <!-- Iterate over the list of activities -->
@@ -81,53 +83,11 @@
             </section>
         </header>
         <!-- End of the header section -->
-        <footer>
-            <div class="wrapper">
-                <div class="links-container">
-                    <div class="links">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
 
-                    <div class="links">
-                        <h3>Course</h3>
-                        <ul>
-                            <li><a href="#">Log In</a></li>
-                            <li><a href="#">Download</a></li>
-                            <li><a href="#">All Courses</a></li>
-                        </ul>
-                    </div>
+        <!--include footer-->
+        <jsp:include page="footer.jsp" />
 
-                    <div class="links">
-                        <h3>Contact Us</h3>
-                        <ul>
-                            <li>s63721@ocean.umt.edu.my</li>
-                        </ul>
-                        <div class="social">
-                            <a href="#">
-                                <img src="images/Facebook Icon.svg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="images/Insta Icon.svg" alt="">
-                            </a>
-                        </div>
-
-                        <form action="#">
-                            <input type="text" placeholder="Email Address" />
-                            <button class="submit-btn">Subscribe</button>
-                        </form>
-                    </div>
-
-                </div>
-
-                <p class="copyright">This website is developed by Fauzi Sahrani © 2023</p>
-            </div>
-        </footer>
-        <script src="js/main.js"></script>
+        <!--include Javascript-->
+        <script src="js/main.js" type="text/javascript"></script>
     </body>
 </html>

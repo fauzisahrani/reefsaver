@@ -16,13 +16,13 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;900&display=swap"
               rel="stylesheet">
-        <style><%@ include file="css/styleuser.css"%></style>
+        <style><%@ include file="css/styleUser.css"%></style>
     </head>
     <body>
         <header>
             <div class="wrapper">
                 <nav>
-                    <div class="logo">ReefSaver</div>
+                    <div class="logo">Reef Saver</div>
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
                         <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Reefs Data</a></li>
@@ -65,9 +65,10 @@
                     <button type="submit" class="submit-button">Update Details</button>
                     <button type="button" class="submit-button" onclick="return confirm('Are you sure you want to cancel?') ? window.history.back() : false;">Cancel</button>
 
-                    </body>
                 </div>
             </div>
         </form>
+        <!--include footer-->
+        <jsp:include page="footer.jsp" />
     </body>
 </html>

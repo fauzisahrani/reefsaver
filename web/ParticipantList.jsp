@@ -31,7 +31,7 @@
         <header>
             <div class='wrapper'>
                 <nav>
-                    <div class="logo">ReefSaver</div>
+                    <div class="logo">Reef Saver</div>
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
                         <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Reefs Data</a></li>
@@ -42,17 +42,14 @@
                         <li><a href="UserProfile.jsp">Profile</a></li>
                         <li><a href="LoginForm.jsp">Log Out</a></li> 
                     </ul>
-
-
-
                 </nav>
                 <!-- End of Desktop Navigation Menu-->
             </div>
         </header>
         <br>
         <div class="row">
-                <a href="http://localhost:8080/reefsaver/listParticipant">All Participant List</a>
-                <a href="http://localhost:8080/reefsaver/newParticipant">Register a New Participant</a>
+            <a href="http://localhost:8080/reefsaver/listParticipant">All Participant List</a>
+            <a href="http://localhost:8080/reefsaver/newParticipant">Register a New Participant</a>
             <div class="container">
                 <br>
 
@@ -99,53 +96,10 @@
                 </table>
             </div>
         </div>
-        <footer>
-            <div class="wrapper">
-                <div class="links-container">
-                    <div class="links">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
+        <!--include footer-->
+        <jsp:include page="footer.jsp" />
 
-                    <div class="links">
-                        <h3>Course</h3>
-                        <ul>
-                            <li><a href="#">Log In</a></li>
-                            <li><a href="#">Download</a></li>
-                            <li><a href="#">All Courses</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="links">
-                        <h3>Contact Us</h3>
-                        <ul>
-                            <li>s63721@ocean.umt.edu.my</li>
-                        </ul>
-                        <div class="social">
-                            <a href="#">
-                                <img src="images/Facebook Icon.svg" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="images/Insta Icon.svg" alt="">
-                            </a>
-                        </div>
-
-                        <form action="#">
-                            <input type="text" placeholder="Email Address" />
-                            <button class="submit-btn">Subscribe</button>
-                        </form>
-                    </div>
-
-                </div>
-
-                <p class="copyright">This website is developed by Fauzi Sahrani © 2023</p>
-            </div>
-        </footer>
+        <!--include Javascript-->
         <script src="js/main.js" type="text/javascript"></script>
     </body>
 </html>

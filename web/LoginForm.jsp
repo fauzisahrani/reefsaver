@@ -23,12 +23,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;900&display=swap"
               rel="stylesheet">
-        <style><%@ include file="css/styleuser.css"%></style>
+        <style><%@ include file="css/styleUser.css"%></style>
     </head>
     <body>
         <div class="project-name">
             <img src="images/Coral Icon.png" alt=""/>
-            <p class="logo">ReefSaver.</p>
+            <p class="logo">Reef Saver.</p>
             <p>Coral Conservation & Awareness Platform</p>
         </div>
         <form>
