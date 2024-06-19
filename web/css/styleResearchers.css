@@ -1,0 +1,180 @@
+/* 
+    Created on : 28 May 2024, 12:40:50 pm
+    Author     : Pojie
+*/
+:root {
+    --dark-color: #071920;
+    --slight-dark-color: #E6E8E8;
+    --light-color: #E8F7FB;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background:url("images/background1.jpg");
+}
+
+.wrapper {
+    max-width: 1134px;
+    margin: 0 auto;
+}
+
+/* Buttons */
+.btn {
+    padding: 16px 32px;
+    border-radius: 24px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    position: relative;
+}
+
+.btn.light {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 10px 15px;
+}
+
+.btn.dark {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+.btn.dark:hover{
+    color: var(--dark-color);
+    background-color: var(--slight-dark-color );
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: fit-content;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 1134px;
+    top: 0;
+    padding: 30px 0;
+    z-index: 100;
+    transition: all 500ms ease;
+}
+
+nav .logo {
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    color: var(--light-color);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    text-align: center;
+    list-style: none;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--light-color);
+    text-decoration: none;
+    text-align: center;
+}
+
+/*nav scrolled*/
+nav.scrolled {
+    background: var(--dark-color);
+    box-shadow: 0 16px 14px -8px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 8px 8px;
+    top: 0;
+    padding: 12px;
+}
+
+/* researchers card */
+.researchers-section {
+    padding: 70px 0;
+    padding-bottom: 20px;
+}
+
+.researchers-section .researchers-cards {
+    justify-content: center;
+    width: fit-content;
+    margin-top: 60px;
+    display: flex;
+    padding-left: 40px;
+}
+
+.researchers-section .researchers-cards:not(:first-child){
+    margin-top: 1px;
+}
+
+/* set top margin for after 1st child */
+.researchers-section .researcher-card {
+    background: #ffffff;
+    border-radius: 24px;
+    margin: 10px;
+    width: 500px;
+    min-height: 225px;
+    max-height: fit-content;
+    display: flex;
+    padding: 10px 10px 20px 10px;
+}
+.researcherField{
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 150%;
+    color: #ffffff;
+    border-radius: 24px;
+    padding: 5px 3px;
+    background: var(--dark-color);
+}
+
+.researcher-card h3{
+    margin-bottom: 0;
+}
+
+.researcher-card h3, p {
+    color: var(--dark-color);
+}
+
+.researcher-card p {
+    margin: auto;
+    text-align: left;
+}
+
+.researcher-card .researcherimage {
+    height: 150px;
+    width: 150px;
+}
+
+.researcher-card img {
+    border-radius: 50%;
+    height: 100%;
+    width: fit-content;
+    margin-top:20px;
+    margin-left: 20px;
+}
+
+.researcherdetails {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
