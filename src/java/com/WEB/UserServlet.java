@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
-//Servlet = Controller
 package com.WEB;
 
 import java.io.IOException;
@@ -19,12 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 import com.DAO.UserDAO;
 import com.Model.User;
 
-@WebServlet("/User")
+//import annotation to allow file uploading
+import javax.servlet.annotation.MultipartConfig;
+
+//import to accept file as Part from JSP
+import javax.servlet.http.Part;
+
+//import to ccnvert Part to InputStream before store in database
+import java.io.InputStream;
 
 /**
  *
  * @author Pojie act to perform CRUD process
  */
+@WebServlet("/User")
+@MultipartConfig(maxFileSize = 16177216) //up to 16mb
 public class UserServlet extends HttpServlet {
 
     //private static final long serialVersionUID = 1 L;
@@ -42,7 +46,9 @@ public class UserServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         String action = request.getServletPath();
+
         try {
             switch (action) {
                 case "/newUser":
@@ -98,7 +104,6 @@ public class UserServlet extends HttpServlet {
         String userEmail = request.getParameter("userEmail");
         String userPassword = request.getParameter("userPassword");
         String userType = request.getParameter("userType");
-        String userImage = request.getParameter("userType");
         User newUser = new User(userName, userEmail, userPassword, userType);
         UserDAO.insertUser(newUser);
         response.sendRedirect("Homepage.jsp");
@@ -112,7 +117,12 @@ public class UserServlet extends HttpServlet {
         String userPassword = request.getParameter("userPassword");
         String userType = request.getParameter("userType");
 
-        User User = new User(userID, userName, userEmail, userPassword, userType);
+        //Handling Image
+        Part imagePart = request.getPart("userImage");//accept as Part
+        InputStream imageInputStream = imagePart.getInputStream();//convert to InputStream
+
+        User User = new User(userID, userName, userEmail, userPassword,
+                userType, imageInputStream);
         UserDAO.updateUser(User);
         response.sendRedirect("listUser");
     }

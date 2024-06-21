@@ -1,10 +1,11 @@
-/*
-The DAO class function is to connect, open and close database
- */
-//DAO = Model
-//Name package as DAO
 package com.DAO;
 
+/**
+ *
+ * @author Pojie
+ * @DAO = Data Access Object
+ * @DAO connects Model(Javabeans) and Database
+ */
 //Import all classes
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,26 +17,30 @@ import java.util.List;
 
 //Import User Class
 import com.Model.User;
+
+//import this class to get image from database
 import java.sql.Blob;
-import java.io.InputStream;
+
+//import this class to display image to JSP
+import java.util.Base64;
 
 public class UserDAO {
 
-    Connection connection = null;
+    //declare variables for connection to database
+    //use private so the data only restricted to this class
     private String jdbcURL = "jdbc:mysql://localhost:3306/reefsaver"; //change 'reefsaver into database name'
     private String jdbcUsername = "root"; //username
     private String jdbcPassword = "admin"; //password
 
     //Declare all sql statement up here CRUD
-    private static final String INSERT_USER_SQL = "INSERT INTO user (userName, userEmail, userPassword, userType) values (?,?,?,?)";
-    private static final String SELECT_USER_BY_ID = "select userID,userName,userEmail,userPassword, userType from user where userID = ?";
-    private static final String SELECT_ALL_USER = "select * from user";
-    private static final String DELETE_USER_SQL = "delete from user where userID = ?;";
-    private static final String UPDATE_USER_SQL = "update user set userName = ?,userEmail = ?, userPassword = ?, userType = ? where userID = ?;";
-
-    //UserDAO constructor
-    public UserDAO() {
-    }
+    private static final String INSERT_USER_SQL = "INSERT INTO user (userName, "
+            + "userEmail, userPassword, userType) values (?,?,?,?)";
+    private static final String SELECT_USER_BY_ID = "SELECT * FROM user WHERE userID = ?";
+    private static final String SELECT_ALL_USER = "SELECT * FROM user";
+    private static final String DELETE_USER_SQL = "DELETE FROM user WHERE userID = ?;";
+    private static final String UPDATE_USER_SQL = "UPDATE user SET userName = ?, "
+            + "userEmail = ?, userPassword = ?, userType = ? , userImage = ? "
+            + "WHERE userID = ?;";
 
     //separate method to get connection to database reefsaver
     protected Connection getConnection() {
@@ -74,7 +79,8 @@ public class UserDAO {
         User User = null;
         //Step1: Establishing a Connection
         try (Connection connection = getConnection(); //Step 2: Create a statement using connection object
-                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);) {
+                 PreparedStatement preparedStatement
+                = connection.prepareStatement(SELECT_USER_BY_ID);) {
             preparedStatement.setInt(1, userID);
             System.out.println(preparedStatement);
             //Step 3: Execute the query or update query
@@ -86,7 +92,16 @@ public class UserDAO {
                 String userEmail = rs.getString("userEmail");
                 String userPassword = rs.getString("userPassword");
                 String userType = rs.getString("userType");
-                User = new User(userID, userName, userEmail, userPassword, userType);
+                Blob UserImageBlob = rs.getBlob("userImage");
+
+                // Convert Blob to byte[]
+                byte[] imageBytes = UserImageBlob.getBytes(1, (int) UserImageBlob.length());
+
+                // Convert byte[] to Base64 String
+                String userImageBase64 = Base64.getEncoder().encodeToString(imageBytes);
+
+                User = new User(userID, userName, userEmail, userPassword,
+                        userType, userImageBase64);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -112,7 +127,16 @@ public class UserDAO {
                 String userEmail = rs.getString("userEmail");
                 String userPassword = rs.getString("userPassword");
                 String userType = rs.getString("userType");
-                User.add(new User(userID, userName, userEmail, userPassword, userType));
+                Blob imageBlob = rs.getBlob("userImage");
+
+                // Convert Blob to byte[]
+                byte[] imageBytes = imageBlob.getBytes(1, (int) imageBlob.length());
+
+                // Convert byte[] to Base64 String
+                String userImageBase64 = Base64.getEncoder().encodeToString(imageBytes);
+
+                User.add(new User(userID, userName, userEmail, userPassword,
+                        userType, userImageBase64));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -138,7 +162,8 @@ public class UserDAO {
             statement.setString(2, User.getUserEmail());
             statement.setString(3, User.getUserPassword());
             statement.setString(4, User.getUserType());
-            statement.setInt(5, User.getUserID());
+            statement.setBlob(5, User.getUserImageInputStream());
+            statement.setInt(6, User.getUserID());
 
             rowUpdated = statement.executeUpdate() > 0;
         }

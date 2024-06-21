@@ -36,15 +36,13 @@
                 </nav>
             </div>
         </header>
-        <form action="updateUser" method="post">
+        <form action="updateUser" method="post" enctype="multipart/form-data">
             <div class="form-head-update">
                 <h2>
                     Update User Details
                 </h2>
 
-                <c:if test="${user != null}">
-                    <input type="hidden" name="userID" value="<c:out value='${user.userID}' />"/>
-                </c:if>
+                <input type="hidden" name="userID" value="<c:out value='${user.userID}' />"/>
                 <div class="form-group">
                     <input type="text" value="<c:out value='${user.userName}'/>"
                            class="form-control" name="userName"required="required">
@@ -61,10 +59,13 @@
                         <input type="radio" id="option2" name="userType" value="Researcher">
                         <label for="option2">Researcher</label><br>
                     </div>
-                    <input type="file" class="form-control" name="userImage" accept="image/*">
+                    <!--upload image here-->
+                    <input type="file" 
+                           accept="image/*" 
+                           name="userImage" 
+                           required="required">
                     <button type="submit" class="submit-button">Update Details</button>
                     <button type="button" class="submit-button" onclick="return confirm('Are you sure you want to cancel?') ? window.history.back() : false;">Cancel</button>
-
                 </div>
             </div>
         </form>

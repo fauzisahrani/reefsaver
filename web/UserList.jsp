@@ -74,61 +74,10 @@ x<%--
                                 <td>
                                     <c:out value="${user.userType}"/>
                                 </td>
-                                <%
-                                    // Establish database connection
-                                    Connection conn = null;
-                                    Statement stmt = null;
-                                    ResultSet rs = null;
-
-                                    try {
-                                        String url = "jdbc:mysql://localhost:3306/reefsaver";
-                                        String user = "root";
-                                        String password = "admin";
-
-                                        Class.forName("com.mysql.jdbc.Driver");
-                                        conn = DriverManager.getConnection(url, user, password);
-
-                                        // Retrieve BLOB data from the database
-                                        stmt = conn.createStatement();
-                                        rs = stmt.executeQuery("SELECT userImage FROM user WHERE userID = 1");
-
-                                        if (rs.next()) {
-                                            // Convert BLOB data to Base64
-                                            Blob blob = rs.getBlob("userImage");
-                                            InputStream inputStream = blob.getBinaryStream();
-                                            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                                            byte[] buffer = new byte[4096];
-                                            int bytesRead = -1;
-
-                                            while ((bytesRead = inputStream.read(buffer)) != -1) {
-                                                outputStream.write(buffer, 0, bytesRead);
-                                            }
-
-                                            byte[] imageBytes = outputStream.toByteArray();
-                                            String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-
-                                            //servlet
-                                            // Set base64Image as an attribute for use in JSP
-                                            request.setAttribute("base64Image", base64Image);
-                                        }
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    } finally {
-                                        // Close resources
-                                        if (rs != null) {
-                                            rs.close();
-                                        }
-                                        if (stmt != null) {
-                                            stmt.close();
-                                        }
-                                        if (conn != null) {
-                                            conn.close();
-                                        }
-                                    }
-                                %>
                                 <td>
-                                    <img src="data:image/jpeg;base64,${base64Image}" alt="User Image" class="user-image">
+                                    <img src="data:image/jpeg;base64,${user.userImageBase64}" alt="User Image" class="user-image">
                                 </td>
+
                                 <td>
                                     <a class="button"href="editUser?userID=<c:out value='${user.userID}'/>">Edit</a> 
                                     <script>

@@ -24,7 +24,7 @@
 
         <!-- Stylesheet -->
         <style>
-            <%@ include file="css/styleParticipant.css"%>
+            <%@ include file="css/styleparticipant.css"%>
         </style>
     </head>
     <body>

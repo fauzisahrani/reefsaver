@@ -1,44 +1,55 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-//instance vairables
 package com.Model;
 
+//used to insert and update image to database
 import java.io.InputStream;
 
 /**
  *
- * @author Pojie act as a JavaBeans to represent business object
+ * @author Pojie
+ * @javabeans
  */
 public class User {
 
+    //Declare variables
+    //protected variables can only be access within the same package and by subclass in other package
     protected int userID;
     protected String userName;
     protected String userEmail;
     protected String userPassword;
     protected String userType;
+    protected String userImageBase64;
+    protected InputStream userImageInputStream;
 
-    public User() {
-    }
-
-    //constructor without userID for retrieve by userID, update and delete
-    public User(String userName, String userEmail, String userPassword, String userType) {
-        super();
+    //constructor without userID for new user
+    //userImage not included because user can only upload image when updating profile
+    public User(String userName, String userEmail, String userPassword,
+            String userType) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userType = userType;
     }
 
-    //constructor with id for new employees
-    public User(int userID, String userName, String userEmail, String userPassword, String userType) {
-        super();
+    //constructor with id for update and delete
+    public User(int userID, String userName, String userEmail,
+            String userPassword, String userType, InputStream userImageInputStream) {
         this.userID = userID;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userType = userType;
+        this.userImageInputStream = userImageInputStream;
+    }
+
+    //constructor with ID and Base64 for select all and select by ID from database
+    public User(int userID, String userName, String userEmail,
+            String userPassword, String userType, String userImageBase64) {
+        this.userID = userID;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.userType = userType;
+        this.userImageBase64 = userImageBase64;
     }
 
     //setter and getter
@@ -80,6 +91,22 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getUserImageBase64() {
+        return userImageBase64;
+    }
+
+    public void setUserImageBase64(String userImageBase64) {
+        this.userImageBase64 = userImageBase64;
+    }
+
+    public InputStream getUserImageInputStream() {
+        return userImageInputStream;
+    }
+
+    public void setUserImageInputStream(InputStream userImageInputStream) {
+        this.userImageInputStream = userImageInputStream;
     }
 
 }
