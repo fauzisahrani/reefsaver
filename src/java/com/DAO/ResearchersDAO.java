@@ -16,6 +16,8 @@ import java.util.List;
 
 //Import Researchers Class
 import com.Model.Researchers;
+import java.sql.Blob;
+import java.util.Base64;
 
 public class ResearchersDAO {
 
@@ -69,8 +71,16 @@ public class ResearchersDAO {
                 String userEmail = rs.getString("userEmail");
                 String userField = rs.getString("userField");
                 String userInstitution = rs.getString("userInstitution");
+                Blob userImageBlob = rs.getBlob("userImage");
+
+                // Convert Blob to byte[]
+                byte[] imageBytes = userImageBlob.getBytes(1, (int) userImageBlob.length());
+
+                // Convert byte[] to Base64 String
+                String userImageBase64 = Base64.getEncoder().encodeToString(imageBytes);
+
                 User.add(new Researchers(userID, userName, userEmail, userField,
-                        userInstitution));
+                        userInstitution, userImageBase64));
             }
         } catch (SQLException e) {
             printSQLException(e);

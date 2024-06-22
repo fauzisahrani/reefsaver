@@ -52,6 +52,12 @@ public class User {
         this.userImageBase64 = userImageBase64;
     }
 
+    //constructor with Email and password to verify user
+    public User(String userEmail, String userPassword) {
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+    }
+
     //setter and getter
     public int getUserID() {
         return userID;

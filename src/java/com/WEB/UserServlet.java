@@ -22,6 +22,7 @@ import javax.servlet.http.Part;
 
 //import to ccnvert Part to InputStream before store in database
 import java.io.InputStream;
+import static java.lang.System.out;
 
 /**
  *

@@ -50,15 +50,15 @@
                     <c:set var="count" value="0" /> <!-- Initialize a counter variable -->
                     <div class='researchers-cards'> <!-- Start the outer div -->
                         <c:forEach var="user" items="${listUser}" varStatus="status"> <!-- Iterate over the list of researchers -->
-                            
+
                             <c:if test="${count % 2 == 0 && count != 0}"> <!-- Check if count is divisible by 2 and not equal to 0 -->
                             </div>
                             <div class='researchers-cards'> <!-- Close the current div and start a new one -->
                             </c:if>
-                                
+
                             <c:set var="count" value="${count + 1}" /> <!-- Increment the counter -->
                             <div class='researcher-card'> <!-- Start the researcher card div -->
-                                
+
                                 <div class="researcherField">
                                     <h2><c:out value="${user.userField}"/></h2>
                                 </div>
@@ -66,8 +66,9 @@
                                 <!-- Display researcher details -->
                                 <div class="details">
                                     <div class="researcherimage">
-                                        <img src="images/defaultUser.jpg" alt=""/>
+                                        <img src="data:image/jpeg;base64,${user.userImageBase64}" alt="Image">
                                     </div>
+
                                     <div class="researcherdetails">
                                         <h3><c:out value="${user.userName}"/></h3>
                                         <p><c:out value="${user.userEmail}"/></p>
@@ -75,7 +76,7 @@
                                         <a class="btn dark"href="mailto:<c:out value="${user.userEmail}"/>">Contact</a>
                                     </div>
                                 </div>
-                                    
+
                             </div> <!-- Close the researcher card div -->
                         </c:forEach> <!-- End of forEach loop -->
                     </div> <!-- Close the outer div -->

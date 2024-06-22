@@ -11,17 +11,19 @@ public class Researchers {
     protected String userEmail;
     protected String userField;
     protected String userInstitution;
+    protected String userImageBase64;
 
     public Researchers() {
     }
 
     public Researchers(int userID, String userName, String userEmail,
-            String userField, String userInstitution) {
+            String userField, String userInstitution, String userImageBase64) {
         this.userID = userID;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userField = userField;
         this.userInstitution = userInstitution;
+        this.userImageBase64 = userImageBase64;
     }
 
     //setter and getter
@@ -63,6 +65,14 @@ public class Researchers {
 
     public void setUserInstitution(String userInstitution) {
         this.userInstitution = userInstitution;
+    }
+
+    public String getUserImageBase64() {
+        return userImageBase64;
+    }
+
+    public void setUserImageBase64(String userImageBase64) {
+        this.userImageBase64 = userImageBase64;
     }
 
 }
