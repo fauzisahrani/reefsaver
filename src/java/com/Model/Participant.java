@@ -56,6 +56,17 @@ public class Participant {
         this.activityID = activityID;
     }
 
+    //constructor with id and referenced table ID
+    public Participant(int participantID, String participantName,
+            String participantPhoneNo, String participantAddress,
+            String participantInstitution, String participantShirtSize) {
+        this.participantName = participantName;
+        this.participantPhoneNo = participantPhoneNo;
+        this.participantAddress = participantAddress;
+        this.participantInstitution = participantInstitution;
+        this.participantShirtSize = participantShirtSize;
+    }
+
     public int getParticipantID() {
         return participantID;
     }

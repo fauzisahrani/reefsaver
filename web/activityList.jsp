@@ -64,8 +64,7 @@
                             <!-- Display activity details -->
                             <input type="hidden" name="activityID" value="<c:out value='${activity.activityID}'/>">                            
                             <h1><c:out value="${activity.activityName}"/></h1>
-<!--                            <img src='<c:out value="${activity.activityImage}"/>'>-->
-                            <img src="images/coralbiodiversity.jpg" alt=""/>
+                            <img src="data:image/jpeg;base64,${activity.activityImageBase64}" alt="Image">
                             <h3><c:out value="${activity.activityDate}"/></h3>
                             <h4><c:out value="${activity.activityVenue}"/></h4>
                             <!-- Links for editing and deleting activity -->

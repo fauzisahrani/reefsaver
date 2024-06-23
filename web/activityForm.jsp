@@ -63,11 +63,11 @@
                         <div class="form">
 
                             <c:if test="${activity != null}">
-                                <form action="updateactivity" method="psot">
+                                <form action="updateactivity" method="post" enctype="multipart/form-data">
                                 </c:if>
 
                                 <c:if test="${activity == null}">
-                                    <form action="insertactivity" method="post">
+                                    <form action="insertactivity" method="post" enctype="multipart/form-data">
                                     </c:if>
 
                                     <div>
@@ -128,7 +128,7 @@
                                             <div class='col-75'>
                                                 <input type="number" 
                                                        value="<c:out value="${activity.activityParticipantNo}"/>"
-                                                       name="activityParticipantNo" required="required">
+                                                       name="activityParticipantNo">
                                             </div>
                                         </div>
 
@@ -159,9 +159,11 @@
                                                 <label for='fname'>Image</label>
                                             </div>
                                             <div class='col-75'>
-                                                <input type="file" accept="image/*"
-                                                       value="<c:out value="${activity.activityImage}"/>"
-                                                       name="activityImage" required="required">
+                                                <!--upload image here-->
+                                                <input type="file" 
+                                                       accept="image/*" 
+                                                       name="activityImagePart" 
+                                                       required="required">
                                             </div>
                                         </div>
 
@@ -170,19 +172,19 @@
                                             <button class='btn dark' type="submit">Update</button>                                            </c:if>
                                         <c:if test="${activity == null}">
                                             <button class='btn dark' type="submit">Create</button>                                                </c:if>
+                                        </div>
                                     </form>
                             </div>
                         </div>
+                    </section>
                 </div>
-            </section>
-        </div>
-    </header>
-    <!-- End of the header section -->
+            </header>
+            <!-- End of the header section -->
 
-    <!--include footer-->
-<jsp:include page="footer.jsp" />
+            <!--include footer-->
+        <jsp:include page="footer.jsp" />
 
-<!--include Javascript-->
-<script src="js/main.js" type="text/javascript"></script>
-</body>
+        <!--include Javascript-->
+        <script src="js/main.js" type="text/javascript"></script>
+    </body>
 </html>

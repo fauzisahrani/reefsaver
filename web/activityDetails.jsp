@@ -56,8 +56,7 @@
 
                             <div class="container">
                                 <div class="details">
-                                    <img src="images/coralbiodiversity.jpg" alt=""/>
-                                    <!--<span><c:out value="${activity.activityImage}"/></span>-->
+                                    <img src="data:image/jpeg;base64,${activity.activityImageBase64}" alt="Image">
                                 </div>
                             </div>
 
@@ -126,8 +125,8 @@
                             </div>
 
                             <div class="btn button-container">
-                                <a href="listParticipantByActivityID?activityID=<c:out 
-                                       value='${activity.activityID}'/>">List Participant</a>
+                                <a href="<%=request.getContextPath()%>/listParticipant?activityID=<c:out 
+                                       value='${activity.activityID}'/>"class="filter-link">List Participant</a>
                                 <a href="ParticipantForm.jsp">Register</a>
                             </div>
 
@@ -137,7 +136,7 @@
             </div>
         </header>
         <!-- End of the header section -->
-        
+
         <!--include footer-->
         <jsp:include page="footer.jsp" />
 

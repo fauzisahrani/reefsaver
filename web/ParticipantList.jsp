@@ -48,8 +48,7 @@
         </header>
         <br>
         <div class="row">
-            <a href="http://localhost:8080/reefsaver/listParticipant">All Participant List</a>
-            <a href="http://localhost:8080/reefsaver/newParticipant">Register a New Participant</a>
+            <!--<a href="http://localhost:8080/reefsaver/listParticipant">All Participant List</a>-->
             <div class="container">
                 <br>
 
@@ -62,35 +61,41 @@
                             <th>Address</th>
                             <th>Institution</th>
                             <th>Shirt Size</th>
+                            <!--                            <th>Activity ID</th>-->
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach var="participant" items="${listParticipant}">
-                            <tr>
-                                <td>                                    
-                                    <c:out value="${participant.participantID}"/>
-                                </td>
-                                <td>                                    
-                                    <c:out value="${participant.participantName}"/>
-                                </td>
-                                <td>                                    
-                                    <c:out value="${participant.participantPhoneNo}"/>
-                                </td>
-                                <td>                                    
-                                    <c:out value="${participant.participantAddress}"/>
-                                </td>
-                                <td>                                    
-                                    <c:out value="${participant.participantInstitution}"/>
-                                </td>
-                                <td>                                    
-                                    <c:out value="${participant.participantShirtSize}"/>
-                                </td>
-                                <td>
-                                    <a class="button"href="editParticipant?participantID=<c:out value='${participant.participantID}'/>">Edit</a> 
-                                    <a class="button" href="deleteParticipant?participantID=<c:out value='${participant.participantID}'/>">Delete</a>
-                                </td>
-                            </tr>
+                            <c:if test="${param.activityID == null || participant.activity.activityID == param.activityID}">
+                                <tr>
+                                    <td>                                    
+                                        <c:out value="${participant.participantID}"/>
+                                    </td>
+                                    <td>                                    
+                                        <c:out value="${participant.participantName}"/>
+                                    </td>
+                                    <td>                                    
+                                        <c:out value="${participant.participantPhoneNo}"/>
+                                    </td>
+                                    <td>                                    
+                                        <c:out value="${participant.participantAddress}"/>
+                                    </td>
+                                    <td>                                    
+                                        <c:out value="${participant.participantInstitution}"/>
+                                    </td>
+                                    <td>                                    
+                                        <c:out value="${participant.participantShirtSize}"/>
+                                    </td>
+                                    <!--                                    <td>                                    
+                                    <%--<c:out value="${participant.activity.activityID}"/>--%>
+                                </td>-->
+                                    <td>
+                                        <a class="button"href="editParticipant?participantID=<c:out value='${participant.participantID}'/>">Edit</a> 
+                                        <a class="button" href="deleteParticipant?participantID=<c:out value='${participant.participantID}'/>">Delete</a>
+                                    </td>
+                                </tr>
+                            </c:if>
                         </c:forEach>
                     </tbody>
                 </table>

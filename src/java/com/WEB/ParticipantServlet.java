@@ -86,7 +86,7 @@ public class ParticipantServlet extends HttpServlet {
     private void listParticipantByActivityID(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ServletException {
         int activityID = Integer.parseInt(request.getParameter("activityID"));
-        List<Participant> listParticipant = participantDAO.selectAllParticipantByActivityID();
+        List<Participant> listParticipant = participantDAO.selectAllParticipantByActivityID(activityID);
         RequestDispatcher dispatcher = request.getRequestDispatcher("ParticipantList.jsp");
         request.setAttribute("participant", listParticipant);
         dispatcher.forward(request, response);
@@ -126,7 +126,7 @@ public class ParticipantServlet extends HttpServlet {
         Participant newParticipant = new Participant(participantName, participantPhoneNo,
                 participantAddress, participantInstitution, participantShirtSize, activity);
         participantDAO.insertParticipant(newParticipant);
-        response.sendRedirect("listParticipant");
+        response.sendRedirect("listActivity");
     }
 
     private void updateParticipant(HttpServletRequest request, HttpServletResponse response)
@@ -146,7 +146,7 @@ public class ParticipantServlet extends HttpServlet {
                 participantPhoneNo, participantAddress, participantInstitution,
                 participantShirtSize, activity);
         participantDAO.updateParticipant(participant);
-        response.sendRedirect("listParticipant");
+        response.sendRedirect("listActivity");
     }
 
     private void deleteParticipant(HttpServletRequest request, HttpServletResponse response)

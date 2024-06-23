@@ -35,10 +35,10 @@ public class ParticipantDAO {
     private static final String INSERT_PARTICIPANT_SQL = "INSERT INTO participant "
             + "(participantName, participantPhoneNo, participantAddress, "
             + "participantInstitution, participantShirtSize, activityID) values (?,?,?,?,?,?)";
-    private static final String SELECT_PARTICIPANT_BY_ID = "select * from participant "
-            + "where participantID = ?";
-    private static final String SELECT_ALL_PARTICIPANT_BY_ACTIVITY_ID = "select * from participant "
-            + "where activityID = ?";
+    private static final String SELECT_PARTICIPANT_BY_ID = "SELECT * FROM participant "
+            + "WHERE participantID = ?";
+    private static final String SELECT_ALL_PARTICIPANT_BY_ACTIVITY_ID = "SELECT * FROM participant "
+            + "WHERE activityID = ?";
     private static final String SELECT_ALL_PARTICIPANT = "SELECT * FROM participant";
     private static final String DELETE_PARTICIPANT_SQL = "DELETE from participant "
             + "WHERE participantID = ?;";
@@ -119,13 +119,14 @@ public class ParticipantDAO {
     }
 
     //method to select all participant by ActivityID
-    public List<Participant> selectAllParticipantByActivityID() {
+    public List<Participant> selectAllParticipantByActivityID(int activityID) {
         // using try-with-resources to avoid closing resources (boiler plate code)
         List<Participant> participant = new ArrayList<>();
         // Step 1: Establishing a Connection
         try (Connection connection = getConnection(); //Step 2: Create a statement using connection object
                  PreparedStatement preparedStatement
                 = connection.prepareStatement(SELECT_ALL_PARTICIPANT_BY_ACTIVITY_ID);) {
+            preparedStatement.setInt(1, activityID);
             System.out.println(preparedStatement);
             //Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
@@ -138,11 +139,12 @@ public class ParticipantDAO {
                 String participantAddress = rs.getString("participantAddress");
                 String participantInstitution = rs.getString("participantInstitution");
                 String participantShirtSize = rs.getString("participantShirtSize");
-                int activityID = rs.getInt("activityID");
+                activityID = rs.getInt("activityID");
+                // Retrieve the activity object from ActivityDAO
 
                 participant.add(new Participant(participantID, participantName,
                         participantPhoneNo, participantAddress, participantInstitution,
-                        participantShirtSize, activityID));
+                        participantShirtSize));
             }
         } catch (SQLException e) {
             printSQLException(e);
