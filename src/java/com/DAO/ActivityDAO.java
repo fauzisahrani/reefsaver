@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.DAO;
 
 /**
@@ -16,17 +12,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+//import Model
 import com.Model.Activity;
 
-//activityID	
-//activityName	
-//activityDate
-//activityVenue
-//activityOrganizer
-//activityParticipantNo
-//activityRegisterDue	
-//activityDesc	
-//activityImage
+//import this class to get image from database
+import java.sql.Blob;
+
+//import this class to display image to JSP
+import java.util.Base64;
+
 public class ActivityDAO {
 
     Connection connection = null;
@@ -38,21 +32,16 @@ public class ActivityDAO {
             + "(activityName, activityDate, activityVenue, activityOrganizer, "
             + "activityParticipantNo, activityRegisterDue, activityDesc, "
             + "activityImage) VALUES (?,?,?,?,?,?,?,?)";
-    private static final String SELECT_ACTIVITY_BY_ID = "select activityID, "
-            + "activityName, activityDate, activityVenue, activityOrganizer, "
-            + "activityParticipantNo, activityRegisterDue, activityDesc, "
-            + "activityImage from activity where activityID = ?";
-    private static final String SELECT_ALL_ACTIVITY = "select * from activity";
-    private static final String DELETE_ACTIVITY_SQL = "delete from activity "
-            + "where activityID = ?;";
-    private static final String UPDATE_ACTIVITY_SQL = "update activity set "
+    private static final String SELECT_ACTIVITY_BY_ID = "SELECT * FROM activity "
+            + "WHERE activityID = ?";
+    private static final String SELECT_ALL_ACTIVITY = "SELECT * FROM activity";
+    private static final String DELETE_ACTIVITY_SQL = "DELETE FROM activity "
+            + "WHERE activityID = ?;";
+    private static final String UPDATE_ACTIVITY_SQL = "UPDATE activity SET "
             + "activityName = ?, activityDate = ?, activityVenue = ?, "
             + "activityOrganizer = ?, activityParticipantNo = ?, "
             + "activityRegisterDue = ?, activityDesc = ?, activityImage = ? "
-            + "where activityID = ?;";
-
-    public ActivityDAO() {
-    }
+            + "WHERE activityID = ?;";
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -81,7 +70,7 @@ public class ActivityDAO {
             preparedStatement.setString(5, activity.getActivityParticipantNo());
             preparedStatement.setString(6, activity.getActivityRegisterDue());
             preparedStatement.setString(7, activity.getActivityDesc());
-            preparedStatement.setString(8, activity.getActivityImage());
+            preparedStatement.setBlob(8, activity.getActivityImageInputStream());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -109,10 +98,17 @@ public class ActivityDAO {
                 String activityParticipantNo = rs.getString("activityParticipantNo");
                 String activityRegisterDue = rs.getString("activityRegisterDue");
                 String activityDesc = rs.getString("activityDesc");
-                String activityImage = rs.getString("activityImage");
+                Blob activityImageBlob = rs.getBlob("activityImage");
+
+                // Convert Blob to byte[]
+                byte[] imageBytes = activityImageBlob.getBytes(1, (int) activityImageBlob.length());
+
+                // Convert byte[] to Base64 String
+                String activityImageBase64 = Base64.getEncoder().encodeToString(imageBytes);
+
                 activity = new Activity(activityID, activityName, activityDate,
                         activityVenue, activityOrganizer, activityParticipantNo,
-                        activityRegisterDue, activityDesc, activityImage);
+                        activityRegisterDue, activityDesc, activityImageBase64);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -141,10 +137,17 @@ public class ActivityDAO {
                 String activityParticipantNo = rs.getString("activityParticipantNo");
                 String activityRegisterDue = rs.getString("activityRegisterDue");
                 String activityDesc = rs.getString("activityDesc");
-                String activityImage = rs.getString("activityImage");
+                Blob activityImageBlob = rs.getBlob("activityImage");
+
+                // Convert Blob to byte[]
+                byte[] imageBytes = activityImageBlob.getBytes(1, (int) activityImageBlob.length());
+
+                // Convert byte[] to Base64 String
+                String activityImageBase64 = Base64.getEncoder().encodeToString(imageBytes);
+
                 activity.add(new Activity(activityID, activityName, activityDate,
                         activityVenue, activityOrganizer, activityParticipantNo,
-                        activityRegisterDue, activityDesc, activityImage));
+                        activityRegisterDue, activityDesc, activityImageBase64));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -173,7 +176,7 @@ public class ActivityDAO {
             statement.setString(5, activity.getActivityParticipantNo());
             statement.setString(6, activity.getActivityRegisterDue());
             statement.setString(7, activity.getActivityDesc());
-            statement.setString(8, activity.getActivityImage());
+            statement.setBlob(8, activity.getActivityImageInputStream());
             statement.setInt(9, activity.getActivityID());
 
             rowUpdated = statement.executeUpdate() > 0;

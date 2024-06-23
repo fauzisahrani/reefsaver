@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.WEB;
 
 /**
@@ -19,13 +15,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//import DAO class
 import com.DAO.ActivityDAO;
+
+//import Model class
 import com.Model.Activity;
 
+//import annotation to allow file uploading
+import javax.servlet.annotation.MultipartConfig;
+
+//import to accept file as Part from JSP
+import javax.servlet.http.Part;
+
+//import to ccnvert Part to InputStream before store in database
+import java.io.InputStream;
+
 @WebServlet("/listactivity")
+@MultipartConfig(maxFileSize = 16177216) //up to 16mb
 public class ActivityServlet extends HttpServlet {
 
-    // private static final long serialVersionUID = 1 L;
     private ActivityDAO activityDAO;
 
     public void init() {
@@ -103,7 +111,7 @@ public class ActivityServlet extends HttpServlet {
     }
 
     private void insertActivity(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+            throws SQLException, IOException, ServletException {
         String activityName = request.getParameter("activityName");
         String activityDate = request.getParameter("activityDate");
         String activityVenue = request.getParameter("activityVenue");
@@ -111,16 +119,20 @@ public class ActivityServlet extends HttpServlet {
         String activityParticipantNo = request.getParameter("activityParticipantNo");
         String activityRegisterDue = request.getParameter("activityRegisterDue");
         String activityDesc = request.getParameter("activityDesc");
-        String activityImage = request.getParameter("activityImage");
+
+        //Handling Image
+        Part imagePart = request.getPart("activityImagePart");
+        InputStream activityImageInputStream = imagePart.getInputStream(); //convert to InputStream
+
         Activity newActivity = new Activity(activityName, activityDate,
                 activityVenue, activityOrganizer, activityParticipantNo,
-                activityRegisterDue, activityDesc, activityImage);
+                activityRegisterDue, activityDesc, activityImageInputStream);
         activityDAO.insertActivity(newActivity);
         response.sendRedirect("listactivity");
     }
 
     private void updateActivity(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+            throws SQLException, IOException, ServletException {
         int activityID = Integer.parseInt(request.getParameter("activityID"));
         String activityName = request.getParameter("activityName");
         String activityDate = request.getParameter("activityDate");
@@ -129,11 +141,14 @@ public class ActivityServlet extends HttpServlet {
         String activityParticipantNo = request.getParameter("activityParticipantNo");
         String activityRegisterDue = request.getParameter("activityRegisterDue");
         String activityDesc = request.getParameter("activityDesc");
-        String activityImage = request.getParameter("activityImage");
+
+        //Handling Image
+        Part imagePart = request.getPart("activityImagePart");
+        InputStream activityImageInputStream = imagePart.getInputStream(); //convert to InputStream
 
         Activity activity = new Activity(activityID, activityName, activityDate,
                 activityVenue, activityOrganizer, activityParticipantNo, activityRegisterDue,
-                activityDesc, activityImage);
+                activityDesc, activityImageInputStream);
         activityDAO.updateActivity(activity);
         response.sendRedirect("listactivity");
     }

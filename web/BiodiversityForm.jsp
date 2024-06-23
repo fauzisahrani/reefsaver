@@ -143,7 +143,7 @@
                                                 <label for="fname">Latitude</label>
                                             </div>
                                             <div class="col-75">
-                                                <input type="number" step="0.001" value="<c:out value='${biodiversity.coralLatitude}'/>"
+                                                <input type="number" step="0.00000000001" value="<c:out value='${biodiversity.coralLatitude}'/>"
                                                        name="coralLatitude" required="required">
                                             </div>
                                         </div>
@@ -153,7 +153,7 @@
                                                 <label for="fname">Longitude</label>
                                             </div>
                                             <div class="col-75">
-                                                <input type="number" step="0.001" value="<c:out value='${biodiversity.coralLongitude}'/>"
+                                                <input type="number" step="0.00000000001" value="<c:out value='${biodiversity.coralLongitude}'/>"
                                                        name="coralLongitude" required="required">
                                             </div>
                                         </div>
