@@ -90,7 +90,7 @@
                                     <!--                                    <td>                                    
                                     <%--<c:out value="${participant.activity.activityID}"/>--%>
                                 </td>-->
-                                    <td>
+                                    <td class="action-column">
                                         <a class="button"href="editParticipant?participantID=<c:out value='${participant.participantID}'/>">Edit</a> 
                                         <a class="button" href="deleteParticipant?participantID=<c:out value='${participant.participantID}'/>">Delete</a>
                                     </td>

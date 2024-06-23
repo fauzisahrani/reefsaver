@@ -114,7 +114,6 @@ nav.scrolled {
     padding: 12px;
 }
 
-
 .news-section {
     padding: 70px 147px;
     padding-bottom: 20px;
@@ -183,10 +182,9 @@ nav.scrolled {
 }
 
 .link:hover {
-    background-color: #fff;
+    background-color: var(--slight-dark-color);
     color: var(--dark-color);
-    border-style: solid;
-    border-width: 1px;
+    border: none;
 }
 
 .to-top {

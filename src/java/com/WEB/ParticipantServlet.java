@@ -63,9 +63,6 @@ public class ParticipantServlet extends HttpServlet {
                 case "/updateParticipant":
                     updateParticipant(request, response);
                     break;
-                case "/listParticipantByActivityID":
-                    listParticipantByActivityID(request, response);
-                    break;
                 default:
                     listParticipant(request, response);
                     break;
@@ -80,15 +77,6 @@ public class ParticipantServlet extends HttpServlet {
         List<Participant> listParticipant = participantDAO.selectAllParticipant();
         request.setAttribute("listParticipant", listParticipant);
         RequestDispatcher dispatcher = request.getRequestDispatcher("ParticipantList.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    private void listParticipantByActivityID(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ServletException {
-        int activityID = Integer.parseInt(request.getParameter("activityID"));
-        List<Participant> listParticipant = participantDAO.selectAllParticipantByActivityID(activityID);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("ParticipantList.jsp");
-        request.setAttribute("participant", listParticipant);
         dispatcher.forward(request, response);
     }
 

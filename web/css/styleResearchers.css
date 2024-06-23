@@ -109,7 +109,7 @@ nav.scrolled {
 /* researchers card */
 .researchers-section {
     padding: 70px 0;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 .researchers-section .researchers-cards {
@@ -132,19 +132,33 @@ nav.scrolled {
     width: 500px;
     min-height: 225px;
     max-height: fit-content;
-    display: flex;
-    padding: 10px 10px 20px 10px;
+    padding-bottom: 10px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
 }
-.researcherField{
-    text-align: center;
+
+.researchers-section .researcher-card .researcherField{
+    text-align: left;
     font-family: "Raleway", sans-serif;
     font-weight: 900;
-    font-size: 18px;
+    font-size: 12px;
     line-height: 150%;
     color: #ffffff;
     border-radius: 24px;
-    padding: 5px 3px;
+    padding: 10px 30px;
     background: var(--dark-color);
+    height: fit-content;
+    width: 100%;
+}
+
+.details{
+    display: flex;
+}
+
+.researcherField h2{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .researcher-card h3{
@@ -161,20 +175,25 @@ nav.scrolled {
 }
 
 .researcher-card .researcherimage {
-    height: 150px;
-    width: 150px;
+    height: 95px;
+    width: 95px;
 }
 
 .researcher-card img {
     border-radius: 50%;
     height: 100%;
     width: fit-content;
-    margin-top:20px;
-    margin-left: 20px;
+    margin-top: 23px;
+    margin-left: 30px;
 }
 
 .researcherdetails {
     padding-left: 50px;
     padding-right: 50px;
+}
+
+.researcherdetails h3{
+    min-height: 3em; /* Adjust this value based on the line height of your h3 */
+    display: flex;
 }
 

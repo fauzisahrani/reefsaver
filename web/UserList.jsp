@@ -78,7 +78,7 @@ x<%--
                                                                     <img src="data:image/jpeg;base64,${user.userImageBase64}" alt="User Image" class="user-image">
                                                                 </td>-->
 
-                                <td>
+                                <td class="action-column">
                                     <a class="button"href="editUser?userID=<c:out value='${user.userID}'/>">Edit</a> 
                                     <script>
                                         function deleteUser(userId) {

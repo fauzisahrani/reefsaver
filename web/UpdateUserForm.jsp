@@ -19,23 +19,7 @@
         <style><%@ include file="css/styleUser.css"%></style>
     </head>
     <body>
-        <header>
-            <div class="wrapper">
-                <nav>
-                    <div class="logo">Reef Saver</div>
-                    <ul>
-                        <li><a href="Homepage.jsp">Home</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Reefs Data</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
-                        <li><a href="News.jsp">News</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listUser" class="btn light">User</a></li>
-                        <li><a href="UserProfile.jsp">Profile</a></li>
-                        <li><a href="LoginForm.jsp">Log Out</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+
         <form action="updateUser" method="post" enctype="multipart/form-data">
             <div class="form-head-update">
                 <h2>
@@ -52,6 +36,13 @@
                            class="form-control" name="userPassword">
                     <input type="password" value="" placeholder="Confirm New Password"
                            class="form-control" name="userPassword">
+                    <!--upload image here-->
+                    <input class="form-control"
+                           type="file" 
+                           accept="image/*" 
+                           name="userImage" 
+                           required="required">
+
                     <div class="radiobtn">
                         <input type="radio" id="option1" name="userType" value="Public User" required="">
                         <label for="option1">Public User</label><br>
@@ -59,17 +50,13 @@
                         <input type="radio" id="option2" name="userType" value="Researcher">
                         <label for="option2">Researcher</label><br>
                     </div>
-                    <!--upload image here-->
-                    <input type="file" 
-                           accept="image/*" 
-                           name="userImage" 
-                           required="required">
-                    <button type="submit" class="submit-button">Update Details</button>
-                    <button type="button" class="submit-button" onclick="return confirm('Are you sure you want to cancel?') ? window.history.back() : false;">Cancel</button>
+                    
+                    <div class="button-container">
+                        <button type="submit" class="submit-button">Update Details</button>
+                        <button type="button" class="submit-button" onclick="return confirm('Are you sure you want to cancel?') ? window.history.back() : false;">Cancel</button>
+                    </div>
                 </div>
             </div>
         </form>
-        <!--include footer-->
-        <jsp:include page="footer.jsp" />
     </body>
 </html>

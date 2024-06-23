@@ -169,19 +169,21 @@
 
 
                                         <c:if test="${activity != null}">
-                                            <button class='btn dark' type="submit">Update</button>                                            </c:if>
+                                            <button class='btn dark' type="submit">Update</button>                                            
+                                        </c:if>
                                         <c:if test="${activity == null}">
-                                            <button class='btn dark' type="submit">Create</button>                                                </c:if>
-                                        </div>
-                                    </form>
-                            </div>
+                                            <button class='btn dark' type="submit">Create</button>                                                
+                                        </c:if>
+                                    </div>
+                                </form>
                         </div>
-                    </section>
-                </div>
-            </header>
-            <!-- End of the header section -->
+                    </div>
+                </section>
+            </div>
+        </header>
+        <!-- End of the header section -->
 
-            <!--include footer-->
+        <!--include footer-->
         <jsp:include page="footer.jsp" />
 
         <!--include Javascript-->

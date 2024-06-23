@@ -49,8 +49,8 @@ body {
 }
 
 .btn.dark {
-    background-color: var(--dark-color);
     color: var(--light-color);
+    background-color: var(--dark-color);
     padding: 10px 15px;
     margin-top: 10px;
 }

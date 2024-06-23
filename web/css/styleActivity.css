@@ -173,7 +173,6 @@ nav.scrolled {
 }
 
 .form-section .form-card .form button {
-    color: var(--light-color);
     border: none;
     position: relative;
     left: 995px;
@@ -268,6 +267,7 @@ nav.scrolled {
 .actionbtn a:hover{
     background: var(--light-color);
     color: var(--dark-color);
+    transition: background-color 0.3s ease; /* Transition effect */
 }
 /*end of activityList.jsp CSS*/
 
@@ -303,7 +303,7 @@ nav.scrolled {
 
 .button-container a{
     display: inline-block; /* Display as inline-block for styling */
-    padding: 5px 10px;
+    padding: 10px 15px;
     text-decoration: none;
     background-color: var(--dark-color);
     color: var(--light-color);
@@ -312,6 +312,6 @@ nav.scrolled {
 }
 
 .button-container a:hover{
-    background-color: var(--light-color);
+    background-color: var(--slight-dark-color);
     color: var(--dark-color);
 }
