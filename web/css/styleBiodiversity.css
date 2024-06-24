@@ -299,14 +299,15 @@ tr:nth-child(even) .action:hover {
 .biodiversity-container{
     display: flex;
     margin-top: 120px;
+    height: 100%;
 }
 
 .biodiversity-container .charts-container{
     width: fit-content;
+    height: 100%;
 }
 
 .biodiversity-container .charts-container .pie-chart-container{
-    display: flex;
     justify-content: center; /*    Align horizontally*/
     align-items: center;  /*Align vertically*/
     background-color: white;
@@ -316,15 +317,35 @@ tr:nth-child(even) .action:hover {
     width: 600px;
 }
 
+.biodiversity-container .charts-container .pie-chart-container h3{
+    margin: 0;
+    padding: 10px 0 10px 20px;
+    color:var(--dark-color);
+}
+
+
+.biodiversity-container .charts-container .pie-chart-container .pie-chart-label-container{
+    display: flex;
+    justify-content: center; /*Align horizontally*/
+}
+
 .biodiversity-container .charts-container .pie-chart-container .pie-chart {
     width: 200px;
     height: 200px;
+    padding: auto;
     border-radius: 50%;
     background: conic-gradient(
         #071920 0% var(--poor),
         #515E62 var(--poor) calc(var(--fair) + var(--poor)),
         #CACECF calc(var(--fair) + var(--poor)) 100%
         );
+}
+
+.pie-chart-segment-label {
+    position: absolute;
+    font-size: 14px;
+    color: var(--dark-color);
+    font-weight: bold;
 }
 
 .biodiversity-container .charts-container .pie-chart-container .label-container {
@@ -334,15 +355,27 @@ tr:nth-child(even) .action:hover {
     margin-left: 30px; /* Adjust as needed */
 }
 
+.biodiversity-container .charts-container .pie-chart-container .label-container a {
+    text-decoration: none;
+}
+
 .biodiversity-container .charts-container .pie-chart-container .label-container .label {
     font-size: 18px;
     font-weight: normal;
-    color: black;
+    color: var(--dark-color);
     text-align: center;
     margin-bottom: 5px; /* Adjust as needed */
     display: flex;
     align-items: center;
     font-family: "Raleway", sans-serif;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 140px;
+}
+
+.biodiversity-container .charts-container .pie-chart-container .label-container .label:hover {
+    color: var(--dark-color);
+    background-color: var(--slight-dark-color);
 }
 
 .biodiversity-container .charts-container .pie-chart-container .label-container .label .color-box {
@@ -368,7 +401,7 @@ tr:nth-child(even) .action:hover {
 /*begin of bar chart css*/
 .bar-chart-container {
     border: 1px solid #ccc;
-    padding: 10px 0 15px 15px;
+    padding: 10px 0 25px 15px;
     box-sizing: border-box;
     background-color: #fff;
     justify-content: center; /*    Align horizontally*/
@@ -380,13 +413,20 @@ tr:nth-child(even) .action:hover {
     width: 600px;
 }
 
+.bar-chart-container h3 {
+    color: var(--dark-color);
+    padding-left: 6px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
 .bar-chart-container .bar {
     overflow: hidden;
 }
 
 .bar-chart-container .bar p{
     font-family: sans-serif;
-    padding-left: 5px;
+    padding-left: 27px;
     margin: 2px 0;
 }
 
@@ -397,6 +437,7 @@ tr:nth-child(even) .action:hover {
     transition: width 0.6s ease;
     color: #fff;
     padding: 1px 0 1px 10px;
+    margin-left: 25px;
     border-radius: 15px; /* Set border radius */
     font-size: 12px;
 }
@@ -409,20 +450,20 @@ tr:nth-child(even) .action:hover {
 /*begin of map css*/
 .map-container {
     display: flex;
-    justify-content: center; /*    Align horizontally*/
+    justify-content: center; /*Align horizontally*/
     align-items: center;  /*Align vertically*/
     background-color: white;
     border-radius: 24px;
     margin-left: 10px;
     margin-bottom: 50px;
-    height: 548px; /*Set height to viewport height*/
+    height: 765px;
     width: 567px;
 }
 
 .map-container gmp-map {
     display: block;
     width: 97%; /* For example, 80% of the container width */
-    height: 95%; /* Adjust height as needed */
+    height: 97%; /* Adjust height as needed */
     border: 1px solid #ccc; /* Map border */
     border-radius: 24px; /* Map border radius */
     overflow: hidden; /* Hide overflowing markers */

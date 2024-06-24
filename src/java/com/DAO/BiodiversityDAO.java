@@ -43,10 +43,11 @@ public class BiodiversityDAO {
             + "coralLongitude = ?, coralLocality = ?, coralDepth = ?, "
             + "coralRepository = ?, coralCondition = ?, coralDataProvider = ? "
             + "where coralSampleID = ?";
-
-    //BiodiversityDAO constructor
-    public BiodiversityDAO() {
-    }
+    private static final String GET_CORAL_CONDITION_COUNT = "SELECT "
+            + "SUM(CASE WHEN coralCondition = 'good' THEN 1 ELSE 0 END) AS good_count, "
+            + "SUM(CASE WHEN coralCondition = 'poor' THEN 1 ELSE 0 END) AS poor_count, "
+            + "SUM(CASE WHEN coralCondition = 'fair' THEN 1 ELSE 0 END) AS fair_count "
+            + "FROM biodiversity;";
 
     //separate method to get connection to database reefsaver
     protected Connection getConnection() {
@@ -199,6 +200,7 @@ public class BiodiversityDAO {
         return rowUpdated;
     }
 
+    
     //method to print SQL Statement
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {

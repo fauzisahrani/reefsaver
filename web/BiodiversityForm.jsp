@@ -37,7 +37,7 @@
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
                         <li>
-                            <a href="<%=request.getContextPath()%>/listbiodiversity" class="btn light"
+                            <a href="<%=request.getContextPath()%>/BiodiversityLanding.jsp" class="btn light"
                                onclick="return confirm('Are you sure you want to discard current progress?');">
                                 Coral Reefs Data
                             </a>

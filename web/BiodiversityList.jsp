@@ -4,7 +4,9 @@
     Author     : Pojie
     This jsp used to display all coral biodiversity records
 --%>
-
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.naming.*" %>
+<%@ page import="javax.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -32,9 +34,10 @@
                     <ul>
                         <li><a href="Homepage.jsp">Home</a></li>
                         <li class="dropdown">
-                            <a href="#" class="btn light">Coral Reefs Data</a>
+                            <a href="<%=request.getContextPath()%>/BiodiversityLanding.jsp" class="btn light">Coral Reefs Data</a>
                             <div class="dropdown-content">
                                 <a href="<%=request.getContextPath()%>/newbiodiversity">Add Coral Data</a>
+                                <a href="<%=request.getContextPath()%>/listbiodiversity">All Coral Data</a>
                             </div>
                         </li>                        
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activity</a></li>
@@ -46,7 +49,7 @@
                     </ul>
                 </nav>
                 <section>
-<!--                    <div class="newbutton">
+                    <div class="newbutton">
                         <a href="<%=request.getContextPath()%>/newbiodiversity" class="btn light"> Add Coral Data</a> hyperlink act as button
                     </div>
                     <table>
@@ -69,125 +72,68 @@
                             </tr>
                         </thead>
                         <c:forEach var="biodiversity" items="${listBiodiversity}">
-                            <tr>
-                                <td>
-                                    <c:out value="${biodiversity.coralSampleID}"/>
-                                </td>
-                                <td>
-                                    <c:out value="${biodiversity.coralScientificName}"/>
-                                </td>
-                                <td>
-                                    <c:out value="${biodiversity.coralSpecies}"/>
-                                </td>
-                                <td>
-                                    <c:out value="${biodiversity.coralCategory}"/>
-                                </td>
-                                <td>
-                                    <c:out value="${biodiversity.coralStation}"/>
-                                </td>
-                                <td>
-                                    <fmt:formatDate value="${biodiversity.coralObservationDate}" pattern="dd.MM.yyyy" />
-                                </td>
-                                <td>
-                                    <fmt:formatNumber value="${biodiversity.coralLatitude}" pattern="#0.############" />
-                                </td>
-                                <td>
-                                    <fmt:formatNumber value="${biodiversity.coralLongitude}" pattern="#0.############" />
-                                </td>
-                                <td>
-                                    <c:out value="${biodiversity.coralLocality}"/>
-                                </td>
-                                <td>
-                                    <fmt:formatNumber value="${biodiversity.coralDepth}" pattern="#0.###" />
-                                </td>
-                                <td>
-                                    <c:out value="${biodiversity.coralRepository}"/>
-                                </td>
-                                <td>
-                                    <c:out value="${biodiversity.coralCondition}"/>
-                                </td>
-                                <td>
-                                    <c:out value="${biodiversity.coralDataProvider}"/>
-                                </td>
-                                <td>
-                                    <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a class="action" href="#" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
-
-                                    <script>
-                                        function confirmDelete(coralSampleID) {
-                                            if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
-                                                window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+                            <!-- First check for coralCondition -->
+                            <c:if test="${param.coralCondition == null || biodiversity.coralCondition == param.coralCondition}">
+                                <tr>
+                                    <td>
+                                        <c:out value="${biodiversity.coralSampleID}"/>
+                                    </td>
+                                    <td>
+                                        <c:out value="${biodiversity.coralScientificName}"/>
+                                    </td>
+                                    <td>
+                                        <c:out value="${biodiversity.coralSpecies}"/>
+                                    </td>
+                                    <td>
+                                        <c:out value="${biodiversity.coralCategory}"/>
+                                    </td>
+                                    <td>
+                                        <c:out value="${biodiversity.coralStation}"/>
+                                    </td>
+                                    <td>
+                                        <fmt:formatDate value="${biodiversity.coralObservationDate}" pattern="dd.MM.yyyy" />
+                                    </td>
+                                    <td>
+                                        <fmt:formatNumber value="${biodiversity.coralLatitude}" pattern="#0.############" />
+                                    </td>
+                                    <td>
+                                        <fmt:formatNumber value="${biodiversity.coralLongitude}" pattern="#0.############" />
+                                    </td>
+                                    <td>
+                                        <c:out value="${biodiversity.coralLocality}"/>
+                                    </td>
+                                    <td>
+                                        <fmt:formatNumber value="${biodiversity.coralDepth}" pattern="#0.###" />
+                                    </td>
+                                    <td>
+                                        <c:out value="${biodiversity.coralRepository}"/>
+                                    </td>
+                                    <td>
+                                        <c:out value="${biodiversity.coralCondition}"/>
+                                    </td>
+                                    <td>
+                                        <c:out value="${biodiversity.coralDataProvider}"/>
+                                    </td>
+                                    <td>
+                                        <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
+                                        <script>
+                                            function confirmDelete(coralSampleID) {
+                                                if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
+                                                    window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+                                                }
+                                                return false;
                                             }
-                                            return false;
-                                        }
-                                    </script>                                
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </table>-->
+                                        </script>                                
+                                    </td>
+                                </tr>
+                            </c:if>
+                            <c:if test="${param.coralCondition == null && param.coralScientificName != null || biodiversity.coralScientificName == param.coralScientificName}">
+                                <p>name</p>
+                            </c:if>
 
-                    <div class="biodiversity-container">
-                        <div class="charts-container">
-                            <div class="pie-chart-container">
-                                <%
-                                    // Define value here
-                                    String poorValue = "20%";
-                                    String fairValue = "20%";
-                                    String goodValue = "60%";
-                                %>
-                                <div class="pie-chart" 
-                                     style="
-                                     --poor: <%= poorValue%>;
-                                     --fair: <%= fairValue%>;
-                                     --good: <%= goodValue%>;">
-                                </div>
-                                <div class="label-container">
-                                    <div class="label poor-label"><span class="color-box"></span>Poor</div>
-                                    <div class="label fair-label"><span class="color-box"></span>Fair</div>
-                                    <div class="label good-label"><span class="color-box"></span>Good</div>
-                                </div>
-                            </div>
-                            <div class="bar-chart-container">
-                                <div class="bar">
-                                    <p>Acropora</p>
-                                    <span style="width: 20%;">20</span>
-                                </div>
-                                <div class="bar">
-                                    <p>Anacropora</p>
-                                    <span style="width: 60%;">60</span>
-                                </div>
-                                <div class="bar">
-                                    <p>Astreopora</p>
-                                    <span style="width: 40%;">40</span>
-                                </div>
-                                <div class="bar">
-                                    <p>Cynarina</p>
-                                    <span style="width: 20%;">20</span>
-                                </div>
-                                <div class="bar">
-                                    <p>Diploastrea</p>
-                                    <span style="width: 10%;">10</span>
-                                </div>
-                                <div class="bar">
-                                    <p>Favites</p>
-                                    <span style="width: 20%;">10</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="map-container">
-                            <gmp-map center="4.2105,101.9758" zoom="6.8" map-id="DEMO_MAP_ID">
-                                <a href="#">
-                                    <gmp-advanced-marker position="6.0613888889,100.041555555" title="Banana Reefs"></gmp-advanced-marker>
-                                </a>
-                                <a href="#">
-                                    <gmp-advanced-marker position="2.7602222222,104.2217777778" title="Benuang Bay"></gmp-advanced-marker>
-                                </a>
-                                <a href="#">
-                                    <gmp-advanced-marker position="6.0428611111,99.9243055556" title="Segantang Bay"></gmp-advanced-marker>
-                                </a>
-                            </gmp-map>    
-                        </div>
-                    </div>
+                        </c:forEach>
+                    </table>
                 </section>
             </div>
         </header>

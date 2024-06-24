@@ -30,7 +30,7 @@
 
                 <ul>
                     <li><a href="Homepage.jsp">Home</a></li>
-                    <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Reefs Data</a></li>
+                    <li><a href="<%=request.getContextPath()%>/BiodiversityLanding.jsp">Coral Reefs Data</a></li>
                     <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activity</a></li>
                     <li>
                         <input type="hidden" id="newsQuery">
