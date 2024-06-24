@@ -210,7 +210,7 @@
                                     double latitude = rs.getDouble("coralLatitude");
                                     double longitude = rs.getDouble("coralLongitude");
                             %>
-                            <a href="#">
+                            <a href="<%=request.getContextPath()%>/listBiodiversity?coralStation=<%= coralStation%>">
                                 <gmp-advanced-marker position="<%= latitude%>,<%= longitude%>" title="<%= coralStation%>"></gmp-advanced-marker>
                             </a>
                             <%

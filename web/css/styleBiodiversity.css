@@ -299,7 +299,8 @@ tr:nth-child(even) .action:hover {
 .biodiversity-container{
     display: flex;
     margin-top: 120px;
-    height: 100%;
+    margin-bottom: 20px;
+    height: 815.5px;
 }
 
 .biodiversity-container .charts-container{
@@ -422,6 +423,20 @@ tr:nth-child(even) .action:hover {
 
 .bar-chart-container .bar {
     overflow: hidden;
+    width: 550px;
+    margin: 0 0 0 10px;
+    padding-bottom: 5px;
+    border-radius: 24px;
+}
+
+.bar-chart-container .bar:hover {
+    background-color: var(--slight-dark-color);
+}
+
+
+.bar-chart-container .bar a{
+    text-decoration: none;
+    color:var(--dark-color);
 }
 
 .bar-chart-container .bar p{
@@ -456,18 +471,23 @@ tr:nth-child(even) .action:hover {
     border-radius: 24px;
     margin-left: 10px;
     margin-bottom: 50px;
-    height: 765px;
     width: 567px;
+    height: 100%;
 }
 
 .map-container gmp-map {
     display: block;
     width: 97%; /* For example, 80% of the container width */
-    height: 97%; /* Adjust height as needed */
+    height: 98%; /* Adjust height as needed */
     border: 1px solid #ccc; /* Map border */
     border-radius: 24px; /* Map border radius */
     overflow: hidden; /* Hide overflowing markers */
     position: relative; /* Make marker positions relative to map */
+}
+
+.map-container gmp-map a{
+    text-decoration: none;
+    color: var(--dark-color);
 }
 
 /* Styling the marker titles */

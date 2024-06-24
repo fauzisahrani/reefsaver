@@ -50,7 +50,7 @@
                 </nav>
                 <section>
                     <div class="newbutton">
-                        <a href="<%=request.getContextPath()%>/newbiodiversity" class="btn light"> Add Coral Data</a> hyperlink act as button
+                        <a href="<%=request.getContextPath()%>/newbiodiversity" class="btn light"> Add Coral Data</a> 
                     </div>
                     <table>
                         <thead>
@@ -71,9 +71,9 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
+                        <!-- First check for coralCondition -->
                         <c:forEach var="biodiversity" items="${listBiodiversity}">
-                            <!-- First check for coralCondition -->
-                            <c:if test="${param.coralCondition == null || biodiversity.coralCondition == param.coralCondition}">
+                            <c:if test="${biodiversity.coralCondition == param.coralCondition}">
                                 <tr>
                                     <td>
                                         <c:out value="${biodiversity.coralSampleID}"/>
@@ -128,11 +128,191 @@
                                     </td>
                                 </tr>
                             </c:if>
-                            <c:if test="${param.coralCondition == null && param.coralScientificName != null || biodiversity.coralScientificName == param.coralScientificName}">
-                                <p>name</p>
-                            </c:if>
-
                         </c:forEach>
+
+                        <!-- Second loop for filtering by coralScientificName -->
+                        <c:forEach var="biodiversity" items="${listBiodiversity}">
+                            <c:choose>
+                                <c:when test="${biodiversity.coralScientificName == param.coralScientificName}">
+                                    <tr>
+                                        <td>
+                                            <c:out value="${biodiversity.coralSampleID}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralScientificName}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralSpecies}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralCategory}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralStation}"/>
+                                        </td>
+                                        <td>
+                                            <fmt:formatDate value="${biodiversity.coralObservationDate}" pattern="dd.MM.yyyy" />
+                                        </td>
+                                        <td>
+                                            <fmt:formatNumber value="${biodiversity.coralLatitude}" pattern="#0.############" />
+                                        </td>
+                                        <td>
+                                            <fmt:formatNumber value="${biodiversity.coralLongitude}" pattern="#0.############" />
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralLocality}"/>
+                                        </td>
+                                        <td>
+                                            <fmt:formatNumber value="${biodiversity.coralDepth}" pattern="#0.###" />
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralRepository}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralCondition}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralDataProvider}"/>
+                                        </td>
+                                        <td>
+                                            <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
+                                            <script>
+                                                function confirmDelete(coralSampleID) {
+                                                    if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
+                                                        window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+                                                    }
+                                                    return false;
+                                                }
+                                            </script>                                
+                                        </td>
+                                    </tr>
+                                </c:when>
+                            </c:choose>
+                        </c:forEach>
+
+                        <!-- Third loop for filtering by coralStation -->
+                        <c:forEach var="biodiversity" items="${listBiodiversity}">
+                            <c:choose>
+                                <c:when test="${biodiversity.coralStation == param.coralStation}">
+                                    <tr>
+                                        <td>
+                                            <c:out value="${biodiversity.coralSampleID}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralScientificName}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralSpecies}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralCategory}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralStation}"/>
+                                        </td>
+                                        <td>
+                                            <fmt:formatDate value="${biodiversity.coralObservationDate}" pattern="dd.MM.yyyy" />
+                                        </td>
+                                        <td>
+                                            <fmt:formatNumber value="${biodiversity.coralLatitude}" pattern="#0.############" />
+                                        </td>
+                                        <td>
+                                            <fmt:formatNumber value="${biodiversity.coralLongitude}" pattern="#0.############" />
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralLocality}"/>
+                                        </td>
+                                        <td>
+                                            <fmt:formatNumber value="${biodiversity.coralDepth}" pattern="#0.###" />
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralRepository}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralCondition}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralDataProvider}"/>
+                                        </td>
+                                        <td>
+                                            <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
+                                            <script>
+                                                function confirmDelete(coralSampleID) {
+                                                    if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
+                                                        window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+                                                    }
+                                                    return false;
+                                                }
+                                            </script>                                
+                                        </td>
+                                    </tr>
+                                </c:when>
+                            </c:choose>
+                        </c:forEach>
+
+                        <!--No filter-->
+                        <c:forEach var="biodiversity" items="${listBiodiversity}">
+                            <c:choose>
+                                <c:when test="${param.coralScientificName == null && param.coralCondition == null && param.coralStation == null}">
+                                    <tr>
+                                        <td>
+                                            <c:out value="${biodiversity.coralSampleID}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralScientificName}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralSpecies}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralCategory}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralStation}"/>
+                                        </td>
+                                        <td>
+                                            <fmt:formatDate value="${biodiversity.coralObservationDate}" pattern="dd.MM.yyyy" />
+                                        </td>
+                                        <td>
+                                            <fmt:formatNumber value="${biodiversity.coralLatitude}" pattern="#0.############" />
+                                        </td>
+                                        <td>
+                                            <fmt:formatNumber value="${biodiversity.coralLongitude}" pattern="#0.############" />
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralLocality}"/>
+                                        </td>
+                                        <td>
+                                            <fmt:formatNumber value="${biodiversity.coralDepth}" pattern="#0.###" />
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralRepository}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralCondition}"/>
+                                        </td>
+                                        <td>
+                                            <c:out value="${biodiversity.coralDataProvider}"/>
+                                        </td>
+                                        <td>
+                                            <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
+                                            <script>
+                                                function confirmDelete(coralSampleID) {
+                                                    if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
+                                                        window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+                                                    }
+                                                    return false;
+                                                }
+                                            </script>                                
+                                        </td>
+                                    </tr>
+                                </c:when>
+                            </c:choose>
+                        </c:forEach>
+
                     </table>
                 </section>
             </div>
