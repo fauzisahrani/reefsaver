@@ -1,6 +1,6 @@
 <%-- 
-    Document   : forgetPasswordForm
-    Created on : 6 Jan 2024, 9:39:20 am
+    Document   : PrivacyPolicy
+    Created on : 25 Jun 2024, 12:15:52 am
     Author     : Pojie
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Forget PAssword</h1>
+        <h1>Privacy Policy</h1>
     </body>
 </html>

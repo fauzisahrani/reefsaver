@@ -80,11 +80,20 @@
                                             <div class="col-25">
                                                 <label for="fname">Scientific Name</label>
                                             </div>
-                                            <div class="col-75">
-                                                <input type="text"
-                                                       value="<c:out value='${biodiversity.coralScientificName}'/>"
-                                                       name="coralScientificName" required="required">
-                                            </div>
+                                            <select class="col-75" name="coralScientificName" id="coralCategory">
+                                                <option value="<c:out value='${biodiversity.coralScientificName}'/>">${biodiversity.coralScientificName}</option>
+                                                <option value="Barabattoia">Barabattoia</option>
+                                                <option value="Cynarina">Cynarina</option>
+                                                <option value="Cyphastrea">Cyphastrea</option>
+                                                <option value="Diploastrea">Diploastrea</option>
+                                                <option value="Echinopora">Echinopora</option>
+                                                <option value="Favia">Favia</option>
+                                                <option value="Goniopora">Goniopora</option>
+                                                <option value="Leptoria">Leptoria</option>
+                                                <option value="Montastrea">Montastrea</option>
+                                                <option value="Porites">Porites</option>
+                                                <!-- Add more options as needed -->
+                                            </select>
                                         </div>
 
                                         <div class="row">
@@ -103,6 +112,7 @@
                                                 <label for="coralCategory">Growth Form</label>
                                             </div>  
                                             <select class="col-75" name="coralCategory" id="coralCategory">
+                                                <option value="<c:out value='${biodiversity.coralCategory}'/>">${biodiversity.coralCategory}</option>
                                                 <option value="N/A">Select Growth Form</option>
                                                 <option value="Branching">Branching</option>
                                                 <option value="Digitate">Digitate</option>
@@ -192,8 +202,8 @@
                                             <div class="col-25">
                                                 <label for="fname">Condition</label>
                                             </div>
-                                            <select class="col-75" name="coralCondition" id="coralCondition" required="required"
-                                                    value="<c:out value='${biodiversity.coralCondition}'/>">
+                                            <select class="col-75" name="coralCondition" id="coralCondition" required="required">
+                                                <option value="<c:out value='${biodiversity.coralCondition}'/>">${biodiversity.coralCondition}</option>
                                                 <option value="">Select Condition</option>
                                                 <option value="Good">Good</option>
                                                 <option value="Fair">Fair</option>

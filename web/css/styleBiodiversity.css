@@ -116,7 +116,7 @@ nav ul li a {
 
 .dropdown-content a {
     color: var(--dark-color);
-    background-color: var(--slight-dark-color); /* Adjust as needed */
+    background-color: var(--light-color); /* Adjust as needed */
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -132,8 +132,7 @@ nav ul li a {
 }
 
 .dropdown-content a:hover{
-    background-color: var(--dark-color);
-    color: var(--light-color);
+    background-color: var(--slight-dark-color);
     border-radius: 24px; /* Rounded corners */
 }
 
@@ -250,15 +249,15 @@ th {
     background-color: var(--dark-color);
     color: var(--light-color);
     text-align: center;
+    padding: 10px;
+}
+
+td{
+    padding: 5px;
 }
 
 th , td {
     width: fit-content;
-    padding: 2px;
-}
-
-td:last-child{
-    text-align: center;
 }
 
 tr{
@@ -271,6 +270,24 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
     background-color: #fff;
+}
+
+.condition {
+    text-align: center;
+    border-radius: 24px;
+    margin: 8px;
+}
+
+.condition-good {
+    background-color: #d4edda; /* Light green for good condition */
+}
+
+.condition-fair {
+    background-color: #fff3cd; /* Light yellow for fair condition */
+}
+
+.condition-poor {
+    background-color: #f8d7da; /* Light red for poor condition */
 }
 
 td .action{

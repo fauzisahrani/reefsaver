@@ -109,13 +109,14 @@
                                         <c:out value="${biodiversity.coralRepository}"/>
                                     </td>
                                     <td>
-                                        <c:out value="${biodiversity.coralCondition}"/>
-                                    </td>
+                                        <div class="condition ${biodiversity.coralCondition eq 'Good' ? 'condition-good' : biodiversity.coralCondition eq 'Fair' ? 'condition-fair' : 'condition-poor'}">
+                                            <c:out value="${biodiversity.coralCondition}"/>
+                                        </div>                                    </td>
                                     <td>
                                         <c:out value="${biodiversity.coralDataProvider}"/>
                                     </td>
                                     <td>
-                                        <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> 
                                         <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
                                         <script>
                                             function confirmDelete(coralSampleID) {
@@ -169,8 +170,9 @@
                                             <c:out value="${biodiversity.coralRepository}"/>
                                         </td>
                                         <td>
-                                            <c:out value="${biodiversity.coralCondition}"/>
-                                        </td>
+                                            <div class="condition ${biodiversity.coralCondition eq 'Good' ? 'condition-good' : biodiversity.coralCondition eq 'Fair' ? 'condition-fair' : 'condition-poor'}">
+                                                <c:out value="${biodiversity.coralCondition}"/>
+                                            </div>                                        </td>
                                         <td>
                                             <c:out value="${biodiversity.coralDataProvider}"/>
                                         </td>
@@ -230,8 +232,9 @@
                                             <c:out value="${biodiversity.coralRepository}"/>
                                         </td>
                                         <td>
-                                            <c:out value="${biodiversity.coralCondition}"/>
-                                        </td>
+                                            <div class="condition ${biodiversity.coralCondition eq 'Good' ? 'condition-good' : biodiversity.coralCondition eq 'Fair' ? 'condition-fair' : 'condition-poor'}">
+                                                <c:out value="${biodiversity.coralCondition}"/>
+                                            </div>                                        </td>
                                         <td>
                                             <c:out value="${biodiversity.coralDataProvider}"/>
                                         </td>
@@ -291,7 +294,9 @@
                                             <c:out value="${biodiversity.coralRepository}"/>
                                         </td>
                                         <td>
-                                            <c:out value="${biodiversity.coralCondition}"/>
+                                            <div class="condition ${biodiversity.coralCondition eq 'Good' ? 'condition-good' : biodiversity.coralCondition eq 'Fair' ? 'condition-fair' : 'condition-poor'}">
+                                                <c:out value="${biodiversity.coralCondition}"/>
+                                            </div>
                                         </td>
                                         <td>
                                             <c:out value="${biodiversity.coralDataProvider}"/>
