@@ -109,8 +109,9 @@ nav.scrolled {
     box-shadow: 0 16px 14px -8px rgba(0, 0, 0, 0.3);
     border-radius: 0 0 8px 8px;
     top: 0;
-    padding: 12px;
+    padding: 10px;
 }
+
 /*RegsiterForm.jsp /LoginForm.jsp / UpdateUserForm.jsp*/
 .project-name{
     justify-content: center;
@@ -311,7 +312,6 @@ nav.scrolled {
 }
 
 .form-section .form-card .form button {
-    color: var(--light-color);
     border: none;
     position: relative;
     left: 995px;
@@ -320,7 +320,7 @@ nav.scrolled {
 }
 
 /*end of participantForm.jsp CSS*/
-/*UserList.jsp*/
+/*ParticipantList.jsp*/
 .container{
     display: flex;
     align-items: center;
@@ -348,13 +348,9 @@ td {
     padding: 8px;
 }
 
-.user-image{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    padding: 5px;
+.action-column{
+    text-align: center;
 }
-
 tr:nth-child(even) {
     background-color: #E8F7FB;
 }
@@ -368,14 +364,19 @@ tr:nth-child(odd) {
     border-radius: 24px;
     width: 70px;
     color: var(--light-color);
+    background-color: var(--dark-color);
     display: inline-block;
     font-weight: bold;
     font-size: 11px;
     text-decoration: none;
     position: relative;
-    background-color: var(--dark-color);
     text-align: center;
     cursor: pointer;
+}
+
+.button:hover{
+    color: var(--dark-color);
+    background-color: var(--slight-dark-color);
 }
 
 
