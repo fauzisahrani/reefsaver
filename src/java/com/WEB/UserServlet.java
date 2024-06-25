@@ -105,9 +105,10 @@ public class UserServlet extends HttpServlet {
         String userEmail = request.getParameter("userEmail");
         String userPassword = request.getParameter("userPassword");
         String userType = request.getParameter("userType");
+
         User newUser = new User(userName, userEmail, userPassword, userType);
         UserDAO.insertUser(newUser);
-        response.sendRedirect("Homepage.jsp");
+        response.sendRedirect("LoginForm.jsp");
     }
 
     private void updateUser(HttpServletRequest request, HttpServletResponse response)

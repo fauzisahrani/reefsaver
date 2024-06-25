@@ -24,7 +24,7 @@
 
         <!-- Include Stylesheet -->
         <style>
-            <%@ include file="css/styleAbout.css"%>
+            <%@ include file="css/styleOthers.css"%>
         </style>
     </head>
     <body>
@@ -77,8 +77,8 @@
                                 user base to further enhance coral reef conservation 
                                 initiatives worldwide.</p>
                             <div class="acknowledgemanet">
-                                <p>This website is developed by Fauzi Sahrani © 2023</p>
-                                <p>Finished Date: 26 June 2024</p>
+                                <p><strong>This website is developed by Fauzi Sahrani © 2023</strong></p>
+                                <p><strong>Finished Date: 26 June 2024</strong></p>
                             </div>
                         </div>
                     </div>

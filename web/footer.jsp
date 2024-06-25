@@ -29,7 +29,7 @@
                 <div class="links">
                     <h3>Features</h3>
                     <ul>
-                        <li><a href="<%=request.getContextPath()%>/listbiodiversity">Coral Reefs Data</a></li>
+                        <li><a href="BiodiversityLanding.jsp">Coral Reefs Data</a></li>
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
                         <li><a href="News.jsp">Marine News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers List</a></li>

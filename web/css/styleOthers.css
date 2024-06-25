@@ -124,6 +124,7 @@ nav.scrolled {
     border-radius: 10px;
     height: fit-content;
     padding-bottom: 50px;
+    width: fit-content;
 }
 
 .form-section .form-card .prompt {
@@ -149,8 +150,109 @@ nav.scrolled {
     font-size: 15px;
     color: #ffffff;
     border-radius: 23px;
-    padding: 24px 32px 0px 32px;
+    padding: 0 32px 0px 32px;
     color: var(--dark-color);
-    margin: 0;
+    margin: 0 10px 0 0;
 }
+
+.acknowledgemanet{
+    margin-top: 20px;
+}
+
+/*Terms and Condition/ Privacy Policy*/
+.section h2{
+    font-family: "Poppins", sans-serif;
+    color: var(--dark-color);
+    margin-left: 30px;
+}
+
+.section h3{
+    font-family: "Poppins", sans-serif;
+    color: var(--dark-color);
+    margin-left: 35px;
+}
+
+.section ul li{
+    font-family: "Poppins", sans-serif;
+    color: var(--dark-color);
+    margin-left: 30px;
+    margin-right: 100px;
+}
+
+/*forget password*/
+.reset-form{
+    background: #fff;
+    border-radius: 24px;
+    height: fit-content;
+    padding-bottom: 20px;
+    margin-left: 500px;
+    margin-top: 10px;
+    width: fit-content;
+}
+
+.reset-form .prompt{
+    width: fit-content;
+    line-height: 10px;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    border-radius: 23px;
+    padding: 1px 32px;
+    background: var(--dark-color);
+    position: relative;
+    top: -28px;
+}
+
+.reset-form input{
+    background: #d3d3d3;
+    font-weight: normal;
+    font-size: 16px;
+    height: fit-content;
+    border-radius: 8px;
+    padding: 8px 32px;
+    margin:0 19.59px;
+    margin-bottom: 11.07px;
+    border: none;
+    width: 402.89px;
+    color: #000000;
+    text-align: center;
+}
+
+.btn-reset{
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 24px;
+    padding: 8px 20px;
+    font-family: "Raleway", sans-serif;
+    margin-left: 18px;
+    display: inline-block;
+    width: 405px;
+    text-align: center;
+    font-weight: bold;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-reset:hover{
+    color: var(--dark-color);
+    background-color: var(--slight-dark-color);
+}
+
+.message{
+    padding-left: 20px;
+    font-family: "Poppins", sans-serif;
+    color: var(--dark-color);
+}
+
+.message a{
+    color: var(--dark-color);
+    text-align: center;
+    padding-left: 125px;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
 

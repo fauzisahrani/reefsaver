@@ -144,6 +144,9 @@ nav.scrolled {
     margin-bottom: 2px;
 }
 
+.card{
+    margin-top: 100px;
+}
 .form-head-update{
     width: 442px;
     height: fit-content;
@@ -258,6 +261,55 @@ nav.scrolled {
     text-align: center;
     height: 30px;
     font-size: 12px;
+}
+
+.password-box{
+    display: flex;
+}
+
+.popup {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    left: 180px;
+    bottom: 42px;
+}
+
+.popup button{
+    color: var(--dark-color);
+    background-color: inherit;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #ccc; /* Add border with your preferred color */
+    border-color: var(--dark-color);
+}
+
+.popup-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 24px;
+    width: 380px;
+    text-align: left;
+    top: 18px;
+    left: 10px;
+    color:var(--dark-color);
+    font-size: 12px;
+}
+
+.popup-content p {
+    margin: 5px 0;
+}
+.popup:hover .popup-content {
+    display: block;
+}
+
+.confirm-password-form{
+    position: relative;
+    bottom: 27px;
 }
 
 

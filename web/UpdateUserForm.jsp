@@ -20,7 +20,7 @@
     </head>
     <body>
 
-        <form action="updateUser" method="post" enctype="multipart/form-data">
+        <form action="updateUser" method="post" enctype="multipart/form-data" onsubmit="return validatePassword()">
             <div class="form-head-update">
                 <h2>
                     Update User Details
@@ -50,7 +50,7 @@
                         <input type="radio" id="option2" name="userType" value="Researcher">
                         <label for="option2">Researcher</label><br>
                     </div>
-                    
+
                     <div class="button-container">
                         <button type="submit" class="submit-button">Update Details</button>
                         <button type="button" class="submit-button" onclick="return confirm('Are you sure you want to cancel?') ? window.history.back() : false;">Cancel</button>
@@ -59,4 +59,5 @@
             </div>
         </form>
     </body>
+    <script src="js/main.js" type="text/javascript"></script>
 </html>
