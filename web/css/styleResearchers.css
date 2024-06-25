@@ -34,12 +34,19 @@ body {
     font-size: 16px;
     text-decoration: none;
     position: relative;
+    transition: background-color 0.3s ease; /* Transition effect */
 }
 
 .btn.light {
     background-color: var(--light-color);
     color: var(--dark-color);
     padding: 10px 15px;
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+.btn.light:hover{
+    color: var(--dark-color);
+    background-color: var(--slight-dark-color );
 }
 
 .btn.dark {

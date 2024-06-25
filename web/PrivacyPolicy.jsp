@@ -38,7 +38,11 @@
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listUser">User</a></li>
+                            <c:if test="${sessionScope.userType == 'Admin'}">
+                            <li>
+                                <a href="<%=request.getContextPath()%>/listUser">User</a>
+                            </li>                        
+                        </c:if>                        
                         <li><a href="UserProfile.jsp">Profile</a></li>
                         <li><a href="LoginForm.jsp">Log Out</a></li>
                     </ul>

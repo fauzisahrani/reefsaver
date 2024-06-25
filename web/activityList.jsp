@@ -39,7 +39,11 @@
                         <li><a href="<%=request.getContextPath()%>/listactivity" class="btn light">Conservation Activities</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listUser">User</a></li>
+                            <c:if test="${sessionScope.userType == 'Admin'}">
+                            <li>
+                                <a href="<%=request.getContextPath()%>/listUser">User</a>
+                            </li>                        
+                        </c:if>                        
                         <li><a href="UserProfile.jsp">Profile</a></li>
                         <li><a href="LoginForm.jsp">Log Out</a></li> 
                     </ul>
@@ -48,9 +52,11 @@
             </div>
             <section class='activities-section'>
 
-                <div class="newbutton">
-                    <a href="<%=request.getContextPath()%>/newactivity" class="btn light"> Add New Activity</a> <!--hyperlink act as button-->
-                </div>
+                <c:if test="${sessionScope.userType == 'Admin' || sessionScope.userType == 'Researcher'}">
+                    <div class="newbutton">
+                        <a href="<%=request.getContextPath()%>/newactivity" class="btn light"> Add New Activity</a> <!--hyperlink act as button-->
+                    </div>
+                </c:if>
 
                 <c:set var="count" value="0" /> <!-- Initialize a counter variable -->
                 <div class='activities-cards'> <!-- Start the outer div -->

@@ -47,6 +47,7 @@ body {
 .btn.light:hover{
     background-color: var(--slight-dark-color);
     color: var(--dark-color);
+    transition: background-color 0.3s ease; /* Transition effect */
 }
 
 .btn.dark {
@@ -59,6 +60,7 @@ body {
 .btn.dark:hover{
     background-color: var(--slight-dark-color);
     color: var(--dark-color);
+    transition: background-color 0.3s ease; /* Transition effect */
 }
 
 nav {
@@ -395,6 +397,11 @@ section p {
     width: 410px;
 }
 
+.features-section .feature-card:hover {
+    background-color: var(--slight-dark-color);
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
 .features-section .feature-card::after {
     content: "";
     height: 8px;
@@ -449,7 +456,6 @@ section p {
 
 .social-section .social-buttons a{
     text-decoration: none;
-
 }
 
 .social-section .social-btn {
@@ -464,6 +470,12 @@ section p {
     padding: 20px 0px;
     justify-content: center;
 }
+
+.social-section .social-btn:hover {
+    background-color: var(--slight-light-color);
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
 
 .social-section .social-btn img {
     height: 50px;

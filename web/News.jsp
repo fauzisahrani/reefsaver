@@ -3,6 +3,7 @@
     Created on : 13 May 2024, 3:01:48 pm
     Author     : Pojie
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!doctype html>
 <html lang="en">
@@ -46,7 +47,11 @@
                         };
                     </script>
                     <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
-                    <li><a href="<%=request.getContextPath()%>/listUser">User</a></li>
+                        <c:if test="${sessionScope.userType == 'Admin'}">
+                        <li>
+                            <a href="<%=request.getContextPath()%>/listUser">User</a>
+                        </li>                        
+                    </c:if>                    
                     <li><a href="UserProfile.jsp">Profile</a></li>
                     <li><a href="LoginForm.jsp">Log Out</a></li>
                 </ul>

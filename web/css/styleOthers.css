@@ -226,12 +226,12 @@ nav.scrolled {
     text-decoration: none;
     border-radius: 24px;
     padding: 8px 20px;
-    font-family: "Raleway", sans-serif;
+    font-family: "Poppins", sans-serif;
     margin-left: 18px;
     display: inline-block;
     width: 405px;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 

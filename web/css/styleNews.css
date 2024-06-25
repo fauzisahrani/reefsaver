@@ -36,6 +36,7 @@ body {
     font-size: 16px;
     text-decoration: none;
     position: relative;
+    transition: background-color 0.3s ease; /* Transition effect */
 }
 
 .btn.light {
@@ -179,6 +180,7 @@ nav.scrolled {
     padding: 5px 12px;
     border-radius: 24px;
     margin-top: 10px;
+    transition: background-color 0.3s ease; /* Transition effect */
 }
 
 .link:hover {

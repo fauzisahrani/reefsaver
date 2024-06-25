@@ -3,6 +3,8 @@
     Created on : 22 Jun 2023, 2:52:08 pm
     Author     : Pojie
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,12 +30,15 @@
                         <li><a href="<%=request.getContextPath()%>/listactivity">Conservation Activities</a></li>
                         <li><a href="News.jsp">News</a></li>
                         <li><a href="<%=request.getContextPath()%>/listresearchers">Researchers</a></li>
-                        <li><a href="<%=request.getContextPath()%>/listUser">User</a></li>
+                        <c:if test="${sessionScope.userType == 'Admin'}">
+                            <li>
+                                <a href="<%=request.getContextPath()%>/listUser">User</a>
+                            </li>                        
+                        </c:if>                      
                         <li><a href="UserProfile.jsp">Profile</a></li>
                         <li><a href="LoginForm.jsp">Log Out</a></li>
                     </ul>
                 </nav>
-
                 <!--begin of reef-section-->
                 <div class="reefs-section">
                     <div class="left">
