@@ -63,7 +63,7 @@
                     <c:forEach var="activity" items="${listActivity}" varStatus="status"> <!-- Iterate over the list of activities -->
                         <c:if test="${count % 3 == 0 && count != 0}"> <!-- Check if count is divisible by 3 and not equal to 0 -->
                         </div>
-                        <div class='activities-cards'> <!-- Close the current div and start a new one -->
+                        <div class='activities-cards'> <!-- C lose the current div and start a new one -->
                         </c:if>
                         <c:set var="count" value="${count + 1}" /> <!-- Increment the counter -->
                         <div class='activity-card'> <!-- Start the activity card div -->

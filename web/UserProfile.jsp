@@ -53,7 +53,6 @@
                         <div class="details">
                             <div class="left">
                                 <img src="data:image/jpeg;base64,${userImage}" alt=""/>
-
                             </div>
                             <div class="right">
                                 <h3>${userName}</h3>

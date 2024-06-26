@@ -36,9 +36,9 @@
                         <li class="dropdown">
                             <a href="#" class="btn light">Coral Reefs Data</a>
                             <div class="dropdown-content">
-                                <c:if test="${sessionScope.userType == 'Admin' || sessionScope.userType == 'Researcher'}">
+                                <c:if test="${sessionScope.userType == 'Researcher'}">
                                     <a href="<%=request.getContextPath()%>/newbiodiversity">Add Coral Data</a>
-                                </c:if>                                  
+                                </c:if>                                 
                                 <a href="<%=request.getContextPath()%>/listbiodiversity">All Coral Data</a>
                             </div>
                         </li>                        

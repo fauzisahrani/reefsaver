@@ -36,7 +36,7 @@
                         <li class="dropdown">
                             <a href="<%=request.getContextPath()%>/BiodiversityLanding.jsp" class="btn light">Coral Reefs Data</a>
                             <div class="dropdown-content">
-                                <c:if test="${sessionScope.userType == 'Admin' || sessionScope.userType == 'Researcher'}">
+                                <c:if test="${sessionScope.userType == 'Researcher'}">
                                     <a href="<%=request.getContextPath()%>/newbiodiversity">Add Coral Data</a>
                                 </c:if>                
                                 <a href="<%=request.getContextPath()%>/listbiodiversity">All Coral Data</a>
@@ -55,8 +55,11 @@
                     </ul>
                 </nav>
                 <section>
+
                     <div class="newbutton">
-                        <a href="<%=request.getContextPath()%>/newbiodiversity" class="btn light"> Add Coral Data</a> 
+                        <c:if test="${sessionScope.userType == 'Researcher'}">
+                            <a href="<%=request.getContextPath()%>/newbiodiversity" class="btn light"> Add Coral Data</a> 
+                        </c:if>
                     </div>
                     <table>
                         <thead>
@@ -74,7 +77,9 @@
                                 <th>Repository</th>
                                 <th>Condition</th>
                                 <th>Data Collector</th>
-                                <th>Action</th>
+                                    <c:if test="${sessionScope.userType == 'Admin' || sessionScope.userType == 'Researcher'}">
+                                    <th>Action</th>
+                                    </c:if>
                             </tr>
                         </thead>
                         <!-- First check for coralCondition -->
@@ -121,18 +126,21 @@
                                     <td>
                                         <c:out value="${biodiversity.coralDataProvider}"/>
                                     </td>
-                                    <td>
-                                        <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> 
-                                        <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
-                                        <script>
-                                            function confirmDelete(coralSampleID) {
-                                                if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
-                                                    window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+
+                                    <c:if test="${sessionScope.userType == 'Admin' || sessionScope.userType == 'Researcher'}">
+                                        <td>
+                                            <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> 
+                                            <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
+                                            <script>
+                                                function confirmDelete(coralSampleID) {
+                                                    if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
+                                                        window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+                                                    }
+                                                    return false;
                                                 }
-                                                return false;
-                                            }
-                                        </script>                                
-                                    </td>
+                                            </script>                                
+                                        </td>
+                                    </c:if>
                                 </tr>
                             </c:if>
                         </c:forEach>
@@ -182,18 +190,21 @@
                                         <td>
                                             <c:out value="${biodiversity.coralDataProvider}"/>
                                         </td>
-                                        <td>
-                                            <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
-                                            <script>
-                                                function confirmDelete(coralSampleID) {
-                                                    if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
-                                                        window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+
+                                        <c:if test="${sessionScope.userType == 'Admin' || sessionScope.userType == 'Researcher'}">
+                                            <td>
+                                                <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
+                                                <script>
+                                                    function confirmDelete(coralSampleID) {
+                                                        if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
+                                                            window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+                                                        }
+                                                        return false;
                                                     }
-                                                    return false;
-                                                }
-                                            </script>                                
-                                        </td>
+                                                </script>                                
+                                            </td>
+                                        </c:if>
                                     </tr>
                                 </c:when>
                             </c:choose>
@@ -244,18 +255,21 @@
                                         <td>
                                             <c:out value="${biodiversity.coralDataProvider}"/>
                                         </td>
-                                        <td>
-                                            <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
-                                            <script>
-                                                function confirmDelete(coralSampleID) {
-                                                    if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
-                                                        window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+
+                                        <c:if test="${sessionScope.userType == 'Admin' || sessionScope.userType == 'Researcher'}">
+                                            <td>
+                                                <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
+                                                <script>
+                                                    function confirmDelete(coralSampleID) {
+                                                        if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
+                                                            window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+                                                        }
+                                                        return false;
                                                     }
-                                                    return false;
-                                                }
-                                            </script>                                
-                                        </td>
+                                                </script>                                
+                                            </td>
+                                        </c:if>>
                                     </tr>
                                 </c:when>
                             </c:choose>
@@ -307,18 +321,21 @@
                                         <td>
                                             <c:out value="${biodiversity.coralDataProvider}"/>
                                         </td>
-                                        <td>
-                                            <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
-                                            <script>
-                                                function confirmDelete(coralSampleID) {
-                                                    if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
-                                                        window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+
+                                        <c:if test="${sessionScope.userType == 'Admin' || sessionScope.userType == 'Researcher'}">
+                                            <td>
+                                                <a class="action" href="editbiodiversity?coralSampleID=<c:out value='${biodiversity.coralSampleID}'/>">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a class="action" onclick="return confirmDelete(${biodiversity.coralSampleID});">Delete</a>
+                                                <script>
+                                                    function confirmDelete(coralSampleID) {
+                                                        if (confirm("Are you sure you want to delete coral sample with ID " + coralSampleID + "?")) {
+                                                            window.location.href = "deletebiodiversity?coralSampleID=" + coralSampleID;
+                                                        }
+                                                        return false;
                                                     }
-                                                    return false;
-                                                }
-                                            </script>                                
-                                        </td>
+                                                </script>                                
+                                            </td>
+                                        </c:if>
                                     </tr>
                                 </c:when>
                             </c:choose>

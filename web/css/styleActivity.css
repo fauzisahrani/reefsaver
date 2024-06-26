@@ -196,8 +196,14 @@ nav.scrolled {
 }
 
 .activities-section .newbutton .btn.light{
-    background: #fff;
+    background: var(--light-color);
 }
+
+.activities-section .newbutton .btn.light:hover{
+    background: var(--slight-dark-color);
+    transition: ease 0.3s;
+}
+
 
 .activities-section .activities-cards {
     display: flex;
