@@ -36,12 +36,12 @@
                             <div>
                                 <input type="email" class="form-control" name="userEmail" placeholder="Email" required="required">
                             </div>
-<!--                            <div>
+                            <div>
                                 <input type="text" class="form-control" name="userField" placeholder="Field of Study (Optional)">
                             </div>
                             <div>
                                 <input type="text" class="form-control" name="userInstitution" placeholder="Institution (Optional)">
-                            </div>-->
+                            </div>
                             <div class="password-box">
                                 <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Password" required="required">
                             </div>

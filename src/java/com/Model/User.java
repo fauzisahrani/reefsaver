@@ -30,8 +30,8 @@ public class User {
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userType = userType;
-        this.userType = userField;
-        this.userType = userInstitution;
+        this.userField = userField;
+        this.userInstitution = userInstitution;
     }
 
     //constructor with id for update and delete
@@ -43,8 +43,8 @@ public class User {
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userType = userType;
-        this.userType = userField;
-        this.userType = userInstitution;
+        this.userField = userField;
+        this.userInstitution = userInstitution;
         this.userImageInputStream = userImageInputStream;
     }
 

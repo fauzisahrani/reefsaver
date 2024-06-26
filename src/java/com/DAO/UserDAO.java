@@ -40,8 +40,8 @@ public class UserDAO {
     private static final String SELECT_ALL_USER = "SELECT * FROM user";
     private static final String DELETE_USER_SQL = "DELETE FROM user WHERE userID = ?;";
     private static final String UPDATE_USER_SQL = "UPDATE user SET userName = ?, "
-            + "userEmail = ?, userPassword = PASSWORD(?), userType = ? userField = ?"
-            + ", userImage = ?, userInstitution = ? WHERE userID = ?;";
+            + "userEmail = ?, userPassword = PASSWORD(?), userType = ?, userField = ?, "
+            + "userInstitution = ?, userImage = ? WHERE userID = ?;";
 
     //separate method to get connection to database reefsaver
     protected Connection getConnection() {
