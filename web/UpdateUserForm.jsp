@@ -32,15 +32,12 @@
                            class="form-control" name="userName"required="required">
                     <input type="text" value="<c:out value='${user.userEmail}'/>"
                            class="form-control" name="userEmail">
-                    <div>
-                        <input type="text" value="<c:out value='${user.userField}'/>"
-                               class="form-control" name="userField" placeholder="Field of Study (Optional)">
-                    </div>
-                    <div>
-                        <input type="text" value="<c:out value='${user.userInstitution}'/>"
-                               class="form-control" name="userInstitution" placeholder="Institution (Optional)">
-                    </div>
-                               
+                    <input type="text" value="<c:out value='${user.userField}'/>"
+                           class="form-control" name="userField" placeholder="Field of Study (Optional)">
+                    <input type="text" value="<c:out value='${user.userInstitution}'/>"
+                           class="form-control" name="userInstitution" placeholder="Institution (Optional)">
+
+
                     <div class="password-box">
                         <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Password" required="required">
                     </div>
@@ -57,7 +54,7 @@
                             </ul>
                         </div>
                     </div>
-                               
+
                     <div class="confirm-password-form">
                         <input type="password" class="form-control" id="userConfirmPassword" name="userConfirmPassword" placeholder="Confirm Password" required="required">
                     </div>

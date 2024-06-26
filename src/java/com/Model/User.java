@@ -57,6 +57,8 @@ public class User {
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userType = userType;
+        this.userField = userField;
+        this.userInstitution = userInstitution;
         this.userImageBase64 = userImageBase64;
     }
 
