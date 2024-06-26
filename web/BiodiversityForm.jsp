@@ -82,7 +82,7 @@
 
                                         <div class="row">
                                             <div class="col-25">
-                                                <label for="fname">Scientific Name</label>
+                                                <label for="fname">Coral Genera</label>
                                             </div>
                                             <select class="col-75" name="coralScientificName" id="coralCategory">
                                                 <option value="<c:out value='${biodiversity.coralScientificName}'/>">${biodiversity.coralScientificName}</option>
