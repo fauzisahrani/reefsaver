@@ -105,8 +105,11 @@ public class UserServlet extends HttpServlet {
         String userEmail = request.getParameter("userEmail");
         String userPassword = request.getParameter("userPassword");
         String userType = request.getParameter("userType");
+        String userField = request.getParameter("userField");
+        String userInstitution = request.getParameter("userInstitution");
 
-        User newUser = new User(userName, userEmail, userPassword, userType);
+        User newUser = new User(userName, userEmail, userPassword, userType,
+                userField, userInstitution);
         UserDAO.insertUser(newUser);
         response.sendRedirect("LoginForm.jsp");
     }
@@ -118,15 +121,17 @@ public class UserServlet extends HttpServlet {
         String userEmail = request.getParameter("userEmail");
         String userPassword = request.getParameter("userPassword");
         String userType = request.getParameter("userType");
+        String userField = request.getParameter("userField");
+        String userInstitution = request.getParameter("userInstitution");
 
         //Handling Image
         Part imagePart = request.getPart("userImage");//accept as Part
         InputStream imageInputStream = imagePart.getInputStream();//convert to InputStream
 
         User User = new User(userID, userName, userEmail, userPassword,
-                userType, imageInputStream);
+                userType, userField, userInstitution, imageInputStream);
         UserDAO.updateUser(User);
-        response.sendRedirect("listUser");
+        response.sendRedirect("Homepage.jsp");
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)

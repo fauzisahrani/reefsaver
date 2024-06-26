@@ -34,13 +34,14 @@ public class UserDAO {
 
     //Declare all sql statement up here CRUD
     private static final String INSERT_USER_SQL = "INSERT INTO user (userName, "
-            + "userEmail, userPassword, userType) values (?,?,?,?)";
+            + "userEmail, userPassword, userType, userField, userInstitution) "
+            + "values (?,?,PASSWORD(?),?,?,?)";
     private static final String SELECT_USER_BY_ID = "SELECT * FROM user WHERE userID = ?";
     private static final String SELECT_ALL_USER = "SELECT * FROM user";
     private static final String DELETE_USER_SQL = "DELETE FROM user WHERE userID = ?;";
     private static final String UPDATE_USER_SQL = "UPDATE user SET userName = ?, "
-            + "userEmail = ?, userPassword = ?, userType = ? , userImage = ? "
-            + "WHERE userID = ?;";
+            + "userEmail = ?, userPassword = PASSWORD(?), userType = ? userField = ?"
+            + ", userImage = ?, userInstitution = ? WHERE userID = ?;";
 
     //separate method to get connection to database reefsaver
     protected Connection getConnection() {
@@ -67,6 +68,8 @@ public class UserDAO {
             preparedStatement.setString(2, User.getUserEmail());
             preparedStatement.setString(3, User.getUserPassword());
             preparedStatement.setString(4, User.getUserType());
+            preparedStatement.setString(5, User.getUserField());
+            preparedStatement.setString(6, User.getUserInstitution());
             System.out.println(preparedStatement); //print prepared statement
             preparedStatement.executeUpdate(); //execute statement
         } catch (SQLException e) {
@@ -92,6 +95,8 @@ public class UserDAO {
                 String userEmail = rs.getString("userEmail");
                 String userPassword = rs.getString("userPassword");
                 String userType = rs.getString("userType");
+                String userField = rs.getString("userField");
+                String userInstitution = rs.getString("userInstitution");
                 Blob UserImageBlob = rs.getBlob("userImage");
 
                 // Convert Blob to byte[]
@@ -101,7 +106,7 @@ public class UserDAO {
                 String userImageBase64 = Base64.getEncoder().encodeToString(imageBytes);
 
                 User = new User(userID, userName, userEmail, userPassword,
-                        userType, userImageBase64);
+                        userType, userField, userInstitution, userImageBase64);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -127,6 +132,8 @@ public class UserDAO {
                 String userEmail = rs.getString("userEmail");
                 String userPassword = rs.getString("userPassword");
                 String userType = rs.getString("userType");
+                String userField = rs.getString("userField");
+                String userInstitution = rs.getString("userInstitution");
                 Blob imageBlob = rs.getBlob("userImage");
 
                 // Convert Blob to byte[]
@@ -136,7 +143,7 @@ public class UserDAO {
                 String userImageBase64 = Base64.getEncoder().encodeToString(imageBytes);
 
                 User.add(new User(userID, userName, userEmail, userPassword,
-                        userType, userImageBase64));
+                        userType, userField, userInstitution, userImageBase64));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -157,13 +164,16 @@ public class UserDAO {
     //method to update User
     public boolean updateUser(User User) throws SQLException {
         boolean rowUpdated;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_USER_SQL);) {
+        try (Connection connection = getConnection(); PreparedStatement statement
+                = connection.prepareStatement(UPDATE_USER_SQL);) {
             statement.setString(1, User.getUserName());
             statement.setString(2, User.getUserEmail());
             statement.setString(3, User.getUserPassword());
             statement.setString(4, User.getUserType());
-            statement.setBlob(5, User.getUserImageInputStream());
-            statement.setInt(6, User.getUserID());
+            statement.setString(5, User.getUserField());
+            statement.setString(6, User.getUserInstitution());
+            statement.setBlob(7, User.getUserImageInputStream());
+            statement.setInt(8, User.getUserID());
 
             rowUpdated = statement.executeUpdate() > 0;
         }

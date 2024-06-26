@@ -32,10 +32,36 @@
                            class="form-control" name="userName"required="required">
                     <input type="text" value="<c:out value='${user.userEmail}'/>"
                            class="form-control" name="userEmail">
-                    <input type="password" value="" placeholder="Enter New Password"
-                           class="form-control" name="userPassword">
-                    <input type="password" value="" placeholder="Confirm New Password"
-                           class="form-control" name="userPassword">
+                    <div>
+                        <input type="text" value="<c:out value='${user.userField}'/>"
+                               class="form-control" name="userField" placeholder="Field of Study (Optional)">
+                    </div>
+                    <div>
+                        <input type="text" value="<c:out value='${user.userInstitution}'/>"
+                               class="form-control" name="userInstitution" placeholder="Institution (Optional)">
+                    </div>
+                               
+                    <div class="password-box">
+                        <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Password" required="required">
+                    </div>
+                    <div class="popup">
+                        <button>ℹ</button>
+                        <div class="popup-content">
+                            <h3>Password Requirements:</h3>
+                            <ul>
+                                <li>Password must be at least <strong>8 characters</strong> long.</li>
+                                <li>Must contain at least one <strong>uppercase letter (A-Z)</strong>.</li>
+                                <li>Must contain at least one <strong>lowercase letter (a-z)</strong>.</li>
+                                <li>Must contain at least one <strong>digit (0-9)</strong>.</li>
+                                <li>Must contain at least one <strong>special character (!@#$%^&*)</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                               
+                    <div class="confirm-password-form">
+                        <input type="password" class="form-control" id="userConfirmPassword" name="userConfirmPassword" placeholder="Confirm Password" required="required">
+                    </div>
+
                     <!--upload image here-->
                     <input class="form-control"
                            type="file" 
@@ -43,13 +69,21 @@
                            name="userImage" 
                            required="required">
 
-                    <div class="radiobtn">
-                        <input type="radio" id="option1" name="userType" value="Public User" required="">
-                        <label for="option1">Public User</label><br>
+                    <input type="hidden" value="<c:out value='${user.userType}'/>"
+                           class="form-control" name="userType">
 
-                        <input type="radio" id="option2" name="userType" value="Researcher">
-                        <label for="option2">Researcher</label><br>
-                    </div>
+                    <span>
+                        <h4>Account Type: </h4><c:out value="${user.userType}"/>
+                    </span>
+
+
+                    <!--                    <div class="radiobtn">
+                                            <input type="radio" id="option1" name="userType" value="Public User" required="">
+                                            <label for="option1">Public User</label><br>
+                    
+                                            <input type="radio" id="option2" name="userType" value="Researcher">
+                                            <label for="option2">Researcher</label><br>
+                                        </div>-->
 
                     <div class="button-container">
                         <button type="submit" class="submit-button">Update Details</button>

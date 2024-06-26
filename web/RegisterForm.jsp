@@ -31,13 +31,17 @@
                         </h2>
                         <div class="form-group">
                             <div>
-                                <input type="text" value="<c:out value='${user.userName}'/>"
-                                       class="form-control" name="userName" placeholder="Full Name" required="required">
+                                <input type="text" class="form-control" name="userName" placeholder="Full Name" required="required">
                             </div>
                             <div>
-                                <input type="email" value="<c:out value='${user.userEmail}'/>"
-                                       class="form-control" name="userEmail" placeholder="Email" required="required">
+                                <input type="email" class="form-control" name="userEmail" placeholder="Email" required="required">
                             </div>
+<!--                            <div>
+                                <input type="text" class="form-control" name="userField" placeholder="Field of Study (Optional)">
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" name="userInstitution" placeholder="Institution (Optional)">
+                            </div>-->
                             <div class="password-box">
                                 <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Password" required="required">
                             </div>
