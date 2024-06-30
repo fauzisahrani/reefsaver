@@ -78,10 +78,12 @@
                                 <!--<a class="btn dark" href="listParticipantByActivityID?activityID=<c:out value='${activity.activityID}'/>">Participant</a>-->
                                 <a class="btn dark" href="viewactivity?activityID=<c:out value='${activity.activityID}'/>">Details</a>
                             </div>
-                            <div class="actionbtn">
-                                <!--<a class="btn dark" href="editactivity?activityID=<c:out value='${activity.activityID}'/>">Edit</a>-->
-                                <!--<a class="btn dark" href="deleteactivity?activityID=<c:out value='${activity.activityID}'/>" onclick="return confirm('Are you sure you want to delete <c:out value="${activity.activityName}"/>?');">Delete</a>-->
-                            </div>
+                            <c:if test="${sessionScope.userType == 'Admin' || sessionScope.userType == 'Researcher'}">
+                                <div class="actionbtn">
+                                    <a class="btn dark" href="editactivity?activityID=<c:out value='${activity.activityID}'/>">Edit</a>
+                                    <a class="btn dark" href="deleteactivity?activityID=<c:out value='${activity.activityID}'/>" onclick="return confirm('Are you sure you want to delete <c:out value="${activity.activityName}"/>?');">Delete</a>
+                                </div>
+                            </c:if>
                         </div> <!-- Close the activity card div -->
                     </c:forEach> <!-- End of forEach loop -->
                 </div> <!-- Close the outer div -->

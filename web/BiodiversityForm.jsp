@@ -95,6 +95,7 @@
                                                 <option value="Goniopora">Goniopora</option>
                                                 <option value="Leptoria">Leptoria</option>
                                                 <option value="Montastrea">Montastrea</option>
+                                                <option value="Montipora">Montipora</option>
                                                 <option value="Porites">Porites</option>
                                                 <!-- Add more options as needed -->
                                             </select>
