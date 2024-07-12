@@ -29,7 +29,7 @@ const newsdetails = document.getElementById("newsdetails");
 var newsDataArr = [];
 
 // apis 
-const API_KEY = "7cc1864f36844462928a26d336dba587";
+const API_KEY = "YOUR_API_KEY";
 const SEARCH_NEWS = "https://newsapi.org/v2/everything?q=coral"; //set query into coral
 
 searchBtn.addEventListener("click", function () {

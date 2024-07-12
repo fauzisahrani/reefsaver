@@ -50,9 +50,7 @@ x<%--
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <!--                            <th>Password</th>-->
                             <th>Category</th>
-                            <!--                            <th>Profile Picture</th>-->
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -68,16 +66,9 @@ x<%--
                                 <td>
                                     <c:out value="${user.userEmail}"/>
                                 </td>
-                                <!--                                <td>
-                                                                    <input class="userlistpassword" type="password" value="${user.userPassword}" readonly style="border: none; background: none;">
-                                                                </td>-->
                                 <td>
                                     <c:out value="${user.userType}"/>
                                 </td>
-                                <!--                                <td>
-                                                                    <img src="data:image/jpeg;base64,${user.userImageBase64}" alt="User Image" class="user-image">
-                                                                </td>-->
-
                                 <td class="action-column">
                                     <a class="button"href="editUser?userID=<c:out value='${user.userID}'/>">Edit</a> 
                                     <script>

@@ -73,15 +73,6 @@
                         <h4>Account Type: </h4><c:out value="${user.userType}"/>
                     </span>
 
-
-                    <!--                    <div class="radiobtn">
-                                            <input type="radio" id="option1" name="userType" value="Public User" required="">
-                                            <label for="option1">Public User</label><br>
-                    
-                                            <input type="radio" id="option2" name="userType" value="Researcher">
-                                            <label for="option2">Researcher</label><br>
-                                        </div>-->
-
                     <div class="button-container">
                         <button type="submit" class="submit-button">Update Details</button>
                         <button type="button" class="submit-button" onclick="return confirm('Are you sure you want to cancel?') ? window.history.back() : false;">Cancel</button>

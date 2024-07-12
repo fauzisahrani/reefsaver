@@ -22,7 +22,7 @@
               rel="stylesheet">
         <style><%@ include file="css/styleBiodiversity.css"%></style>
         <script 
-            async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCun7d3IS8UBp6MDTQHdmOLQzaCGLwOFDM&callback=console.debug&libraries=maps,marker&v=beta">
+            async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY">
         </script>
     </head>
 
